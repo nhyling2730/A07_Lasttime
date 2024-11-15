@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../css/fontawesome-free-6.6.0-web/css/all.min.css">
+    <link rel="stylesheet" href="../css/cart.css">
+    <link rel="stylesheet" href="../bootstrap-5.0.2-dist/css/bootstrap.min.css">
+    <title>Giỏ Hàng</title>
+</head>
+
+<body>
+    <header>
+        <div class="toggle">
+            <i class="fa-solid fa-bars"></i>
+            <i class="fa-solid fa-xmark"></i>
+        </div>
+        <a href="../index.html" class="logo">
+            <img src="../image/logo.png">
+        </a>
+        <nav class="nav-menu" id="home">
+            <ul>
+                <li class="active"><a href="#"><i class="fa-solid fa-house-chimney"></i>Trang chủ</a></li>
+                <li class="dropdown">
+                    <a href="#" id="menu-toggle"><i class="fa-solid fa-caret-down"></i>Thực đơn</a>
+                    <ul class="sub-menu">
+                        <li><a href="#"><span>Cà phê phin</span></a></li>
+                        <li><a href="#"><span>Phindi</span></a></li>
+                        <li><a href="#"><span>Freeze</span></a></li>
+                        <li><a href="#"><span>Trà</span></a></li>
+                    </ul>
+                </li>
+                <li><a href="./user/news.html"><i class="fa-solid fa-newspaper"></i>Tin tức</a></li>
+                <li><a href="./user/introduce.html"><i class="fa-solid fa-users-line"></i>Giới thiệu</a></li>
+                <li><a href="./user/contact.html"><i class="fa-solid fa-phone"></i>Liên hệ</a></li>
+            </ul>
+        </nav>
+        <!-- SEARCH -->
+        <div class="icon">
+            <div class="searchToggle">
+                <i class="fa-solid fa-x cancel"></i>
+                <i class="fa-solid fa-magnifying-glass search"></i>
+            </div>
+            <div class="searchBox">
+                <form class="search-form" action="./user/search.html" method="get">
+                    <ul class="search-bar">
+                        <li class="dropdown-bar1">
+                            <div id="drop-text" class="dropdown-text">
+                                <span id="span">Tất cả</span>
+                                <i id="icon" class="fa-solid fa-chevron-down"></i>
+                            </div>
+                            <ul id="list" class="dropdown-list">
+                                <li class="dropdown-list-item">Tất cả</li>
+                                <li class="dropdown-list-item">Cà phê phin</li>
+                                <li class="dropdown-list-item">Phindi</li>
+                                <li class="dropdown-list-item">Freeze</li>
+                                <li class="dropdown-list-item">Trà</li>
+                            </ul>
+                        </li>
+                        <li class="dropdown-bar2">
+                            <div id="price-drop-text" class="dropdown-text">
+                                <span id="price-span">Khoảng giá</span>
+                                <i id="price-icon" class="fa-solid fa-chevron-down"></i>
+                            </div>
+                            <ul id="price-list" class="dropdown-list">
+                                <li class="dropdown-list-item">Khoảng giá</li>
+                                <li class="dropdown-list-item">Dưới 20k</li>
+                                <li class="dropdown-list-item">20k - 50k</li>
+                                <li class="dropdown-list-item">Trên 50k</li>
+                            </ul>
+                        </li>
+                        <li class="search-box">
+                            <input type="text" id="search-input" placeholder="Tìm kiếm..." required />
+                            <button type="submit">
+                                <i class="fa-solid fa-magnifying-glass"></i>
+                            </button>
+                        </li>
+                    </ul>
+                </form>
+            </div>
+            <div class="icon-item">
+                <a href=""><i class="fa-solid fa-cart-shopping"></i></a>
+                <div class="totalQuantity" id="cartQuantity">0</div>
+            </div>
+
+            <div class="icon-item">
+                <a href="javascript:void(0);">
+                    <i class="fa-solid fa-user"></i>
+                    <ul class="dropdown-user">
+                        <li><a href="">Đăng nhập</a></li>
+                        <li><a href="">Đăng ký</a></li>
+                    </ul>
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <!-- BREADCRUMB -->
+    <section class="breadcrumb_section container">
+        <nav aria-label="breadcrumb">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="../index.html">Trang chủ</a></li>
+                <li class="breadcrumb-item active" aria-current="page"><strong>Giỏ hàng</strong></li>
+
+            </ol>
+        </nav>
+    </section>
+
+    <!-- CART  -->
+    <section class="highlands__cart container">
+        <div class="row highlands__cart__content">
+            <div class="col-9 highlands__cart--orders">
+                <h2>Giỏ hàng</h2>
+                <div class="orders--items row">
+                    <div class="orders--items-left col-2">
+                        <div class="items--thumb">
+                            <img src="../image/phin/phinsuada.png" alt="phinsuada">
+                            <div class="product_qty">
+                                <form id='myform' method='POST' class='quantity row m-0' action='#'>
+                                    <button type="button" class="qtyminus minus" field='quantity'><i
+                                            class="fas fa-minus"></i></button>
+                                    <input name="quantity" type='text' id="qty" value="2" class="text-center qty">
+                                    <button type="button" class="qtyplus plus" field='quantity'><i
+                                            class="fas fa-plus"></i></button>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="orders--items-right col-10">
+                        <div class="items--name"><a href="">Phin Sữa Đá</a></div>
+                        <div class="items--price">Đơn giá: <span>25,000₫</span></div>
+                        <div class="items--"></div>
+                        <div class="items--total">Tổng: <span>50,000₫</span></div>
+                        <button class="items--remove">Xoá</button>
+                    </div>
+
+                </div>
+                <div class="orders--items row">
+                    <div class="orders--items-left col-2">
+                        <div class="items--thumb">
+                            <img src="../image/trà/trasenvang(cunang).png" alt="trasenvang">
+                            <div class="product_qty">
+                                <form id='myform' method='POST' class='quantity row m-0' action='#'>
+                                    <button type="button" class="qtyminus minus" field='quantity'><i
+                                            class="fas fa-minus"></i></button>
+                                    <input name="quantity" type='text' id="qty" value="1" class="text-center qty">
+                                    <button type="button" class="qtyplus plus" field='quantity'><i
+                                            class="fas fa-plus"></i></button>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="orders--items-right col-10">
+                        <div class="items--name"><a href="">Trà sen vàng (củ năng) </a></div>
+                        <div class="items--price">Đơn giá: <span>34,000₫</span></div>
+                        <div class="items--total">Tổng: <span>34,000₫</span></div>
+                        <button class="items--remove">Xoá</button>
+
+                    </div>
+                </div>
+                <div class="orders--items row">
+                    <div class="orders--items-left col-2">
+                        <div class="items--thumb">
+                            <img src="../image/freeze/freezetraxanh.png" alt="freezetraxanh">
+                            <div class="product_qty">
+                                <form id='myform' method='POST' class='quantity row m-0' action='#'>
+                                    <button type="button" class="qtyminus minus" field='quantity'><i
+                                            class="fas fa-minus"></i></button>
+                                    <input name="quantity" type='text' id="qty" value="1" class="text-center qty">
+                                    <button type="button" class="qtyplus plus" field='quantity'><i
+                                            class="fas fa-plus"></i></button>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="orders--items-right col-10">
+                        <div class="items--name"><a href="">Freeze Trà Xanh </a></div>
+                        <div class="items--price">Đơn giá: <span>45,000₫</span></div>
+                        <div class="items--total">Tổng: <span>45,000₫</span></div>
+                        <button class="items--remove">Xoá</button>
+
+                    </div>
+                </div>
+
+                <div class="hr"></div>
+                <div class="orders__submit row">
+                    <div class="col-6"><i class="fas fa-angle-left"></i></i>
+                        <a href="./user-index.html">Tiếp tục chọn món </a>
+                    </div>
+                    <div class="orders__submit--total col-6">
+                        <p class="temp--money">Tạm tính: <span>129,000₫</span></p>
+                        <p class="temp--money">Phí vận chuyển: <span>10,000₫</span></p>
+                        <p class="into--money">Thành tiền: <span>139,000₫</span></p>
+                        <button class="total--pay"><a href="./payment.html">Thanh toán</a> </button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-3 highlands__cart--contact">
+                <div class="user--sevice">
+                    <h3>Dịch vụ khách hàng</h3>
+                    <p>Bạn cần sự hỗ trợ từ chúng tôi? Hãy liên hệ ngay</p>
+                    <a href="tel:19003360" title="Hotline: 19001900"><i class="fas fa-phone-alt"></i>1900 1900</a>
+                    <a href="https://web.facebook.com/highlandscoffeevietnam"><i class="fab fa-facebook-f "></i>Chúng
+                        tôi trên Facebook</a>
+                    <p>Giờ hoạt động: (09:00 - 22:00)</p>
+                    <a href="./contact.html">Liên hệ</a>
+                </div>
+                <div class="user--payment">
+                    <h3>Đặt món cùng Highlands Coffee</h3>
+                    <p><i class="fas fa-check"></i></i><span>Giảm giá lên tới 50%</span> - Tại tất cả cửa hàng cho hội
+                        viên mới</p>
+                    <p><i class="fas fa-check"></i></i><span>Highlands Coffee</span> - Tự hào là thương hiệu Việt Nam
+                    </p>
+                    <p><i class="fas fa-check"></i></i><span>Miễn phí vận chuyển</span> - cho đơn hàng từ 300.000đ</p>
+                    <ul>
+                        <li><img src="https://bizweb.dktcdn.net/100/421/124/themes/811860/assets/cart_payment_1.svg?1617678628801"
+                                alt="Hình thức thanh toán"></li>
+                        <li><img src="	https://bizweb.dktcdn.net/100/421/124/themes/811860/assets/cart_payment_2.svg?1617678628801"
+                                alt="Hình thức thanh toán"></li>
+                        <li><img src="https://bizweb.dktcdn.net/100/421/124/themes/811860/assets/cart_payment_3.svg?1617678628801"
+                                alt="Hình thức thanh toán"></li>
+                        <li><img src="https://bizweb.dktcdn.net/100/421/124/themes/811860/assets/cart_payment_4.svg?1617678628801"
+                                alt="Hình thức thanh toán"></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-section about">
+                <h2>Về Chúng Tôi</h2>
+                <p>Chúng tôi cung cấp các loại đồ uống chất lượng, phục vụ với sự tận tâm và chuyên nghiệp.</p>
+            </div>
+            <div class="footer-section links">
+                <h2>Liên Kết</h2>
+                <ul>
+                    <li><a href="#">Trang chủ</a></li>
+                    <li><a href="#">Thực dơn</a></li>
+                    <li><a href="#">Tin tức</a></li>
+                    <li><a href="#">Giới thiệu</a></li>
+                    <li><a href="#">Liên hệ</a></li>
+                </ul>
+            </div>
+            <div class="footer-section social">
+                <h2>Kết Nối Với Chúng Tôi</h2>
+                <a href="https://web.facebook.com/highlandscoffeevietnam" target="_blank"><i
+                        class="fa-brands fa-facebook"></i></a>
+                <a href="https://www.instagram.com/highlandscoffeevietnam/" target="_blank"><i
+                        class="fa-brands fa-instagram"></i></a>
+                <a href="https://x.com/" target="_blank"><i class="fa-brands fa-twitter"></i></a>
+            </div>
+            <div class="footer-section members">
+                <h2>Thành Viên</h2>
+                <ul>
+                    <li><a href="#">Lê Thị Thủy Tiên</a></li>
+                    <li><a href="#">Võ Thị Thu Luyện</a></li>
+                    <li><a href="#">Nguyễn Thị Ngọc Tú</a></li>
+                    <li><a href="#">Trần Thị Xuân Thanh</a></li>
+                    <li><a href="#">Nguyễn Huỳnh Yến Linh</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <hr>
+            &copy; Highlands Coffee | Thiết kế bởi Nhóm A07
+        </div>
+    </footer>
+    <!-- TOP -->
+    <div id="scrollToTopBtn">
+        <a href="#home"><i class="fa-solid fa-chevron-up"></i></a>
+    </div>
+    <script src="../js/index.js"></script>
+    <script src="../js/totalprice.js"></script>
+    <script src="../js/delete.js" defer></script>
+</body>
+
+</html>
