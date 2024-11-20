@@ -220,7 +220,8 @@ ul.custom-products li .custom-product-info button.buy-now {
     letter-spacing: 0.8px;
     word-spacing: 1px;
     margin-top: 4px; */
-    border-radius: 8px;
+    border-radius: 5px;
+    border: none;
 }
 
 ul.custom-products li .custom-product-info button.buy-now:hover {

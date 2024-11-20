@@ -216,6 +216,11 @@
     background-color: #e0090927;
 }
 
+#breadcum-category,
+#breadcum-product {
+    cursor: pointer; /* Hiển thị biểu tượng con trỏ tay chỉ khi di chuột */
+}
+
 /* Modal style */
 .modal {
     display: none;
