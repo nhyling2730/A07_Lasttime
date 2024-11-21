@@ -1,16 +1,25 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+<<<<<<< HEAD
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link href="https://fonts.googleapis.com/css2?family=Mulish&amp;display=swap" rel="stylesheet">
     <link rel="stylesheet" href="../css/login_user.css">
     <link rel="stylesheet" href="../css/header-footer.css">
+=======
+    <!--up lai ne anh oi-->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="../css/login_user.css">
+>>>>>>> 8d46c7da60d0e8b531f358d26d3ec52b5bc31cb8
     <title>ĐĂNG NHẬP</title>
 </head>
 <body>
     <div class="wrapper">
+<<<<<<< HEAD
 
         <div class="header-content">
             <div class="header-logo">
@@ -123,6 +132,39 @@
         </div>
 
         <div class="modalSuccess ">
+=======
+        <form id="form" action="" onsubmit="func(); return false;" class="form" >
+            <img src="../image/logo.png">
+            <h1>Đăng nhập</h1>
+            <div class="input-box">
+                <input type="text"id="username" placeholder="Tên đăng nhập">
+                <i class="fa-solid fa-user"></i>
+                <span id="username_error"></span>
+            </div>
+
+            <div class="input-box">
+                <input type="password" id="password" placeholder="Mật khẩu">
+                <i class="fa-solid fa-eye hide"></i>
+                <i class="fa-solid fa-eye-slash "></i>
+                <span id="password_error"></span>
+            </div>
+        
+            <div class="remember-forgot">
+                <label><input type="checkbox"> Ghi nhớ mật khẩu</label>
+                <a href="#">Quên mật khẩu?</a>
+            </div>
+        
+            <button type="submit" class="button">Đăng nhập</button>
+            
+            <div class="register-link">
+                <p>Bạn mới biết đến Highlands? <a href="../user/signup_user.html">Đăng kí</a></p>
+            </div>
+            
+        </form>
+    </div>
+
+    <div class="modalSuccess ">
+>>>>>>> 8d46c7da60d0e8b531f358d26d3ec52b5bc31cb8
         <div class="modal-inner">
             <div class="modal-header">
                 <div class="icon-success">
@@ -137,6 +179,7 @@
 
             <div class="modal-footer">
                 <button class="btn-success" onclick="document.querySelector('.modalSuccess').classList.remove('active');">
+<<<<<<< HEAD
                     <a href="../index_user.html">Khám phá nào</a>
                 </button>
             </div>
@@ -144,6 +187,15 @@
         </div>
 
         <div class="modalFail">
+=======
+                    <a href="#">Khám phá nào</a>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <div class="modalFail">
+>>>>>>> 8d46c7da60d0e8b531f358d26d3ec52b5bc31cb8
         <div class="modal-innerFail">
             <div class="modal-headerFail">
                 <div class="iconFail">
@@ -162,6 +214,7 @@
                 </button>
             </div>
         </div>
+<<<<<<< HEAD
         </div>
 
         <div class="modalNoExist">
@@ -225,6 +278,30 @@
             </div>
         </footer>
 
+=======
+    </div>
+
+    <div class="modalNoExist">
+        <div class="modal-innerNoExist">
+            <div class="modal-headerNoExist">
+                <div class="iconNoExist">
+                    <i class="fa-solid fa-circle-exclamation"></i>
+                </div>
+            </div>
+
+            <div class="modal-bodyNoExist">
+                <h4>Xin lỗi</h4>
+                <p>Tài khoản của bạn không tồn tại</p>
+            </div>
+
+            <div class="modal-footerNoExist">
+                <button class="btn-NoExist" onclick="document.querySelector('.modalNoExist').classList.remove('activeNoExist');">
+                    <a href="../user/signup_user.html">Đăng ký ngay</a>
+                </button>
+            </div>
+
+        </div>
+>>>>>>> 8d46c7da60d0e8b531f358d26d3ec52b5bc31cb8
     </div>
 
     <script src="../js/loginUser.js"></script>

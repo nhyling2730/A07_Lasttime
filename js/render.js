@@ -163,199 +163,69 @@ const renderProducts = [
     }
 ]
 
-
-/* Kích cỡ */
-
-const breadcumLinks = {
-    "Freeze": "../menu/freeze-menu.html#freeze-menu-section",
-    "Trà": "../menu/tra-menu.html#tra-menu-section",
-    "Phindi": "../menu/phindi-menu.html#phindi-menu-section",
-    "Phin cà phê": "../menu/phin-menu.html#phin-menu-section"
-}
-
-/* Số lượng */
-document.addEventListener("DOMContentLoaded", function() {
-    const decreaseBtn = document.getElementById('decrease');
-    const increaseBtn = document.getElementById('increase');
-    const quantityValue = document.getElementById('quantity-value');
-
-    // Giảm số lượng
-    decreaseBtn.addEventListener('click', function() {
-        let currentValue = parseInt(quantityValue.value);
-        if (currentValue > 1) {
-            quantityValue.value = currentValue - 1;
-        }
-    });
-
-    // Tăng số lượng
-    increaseBtn.addEventListener('click', function() {
-        let currentValue = parseInt(quantityValue.value);
-        if (currentValue < 100) {
-            quantityValue.value = currentValue + 1;
-        }
-    });
-
-    // Giới hạn số lượng khi người dùng nhập trực tiếp
-    quantityValue.addEventListener('input', function() {
-        let value = parseInt(quantityValue.value);
-        if (isNaN(value) || value < 1) {
-            quantityValue.value = 1;
-        } else if (value > 100) {
-            quantityValue.value = 100;
-        }
-    });
-});
-
-/* Phân trang */
-const productsPerPage = 4;
-let currentPage = 1;
-
-// Lấy danh sách sản phẩm và tính số trang
-const productList = document.querySelector(".product-grid");
-const products = Array.from(productList.getElementsByClassName("mon"));
-const totalPages = Math.ceil(products.length / productsPerPage);
-
-function displayPage(page) {
-    const start = (page - 1) * productsPerPage;
-    const end = start + productsPerPage;
-
-    products.forEach((product, index) => {
-        product.style.display = index >= start && index < end ? "block" : "none";
-    });
-
-    updatePagination();
-}
-
-function updatePagination() {
-    // Cập nhật trạng thái của số trang
-    document.querySelectorAll(".pagination li").forEach((li) => {
-        li.classList.toggle("active", parseInt(li.textContent) === currentPage);
-    });
-
-    // Vô hiệu hóa nút chuyển trang khi ở trang đầu tiên hoặc cuối cùng
-    const prevButton = document.querySelector(".page1");
-    const nextButton = document.querySelector(".page2");
-
-    prevButton.style.pointerEvents = currentPage === 1 ? "none" : "auto";
-    prevButton.style.opacity = currentPage === 1 ? "0.5" : "1";
-
-    nextButton.style.pointerEvents = currentPage === totalPages ? "none" : "auto";
-    nextButton.style.opacity = currentPage === totalPages ? "0.5" : "1";
-}
-
-// Sự kiện khi nhấp vào phân trang
-document.querySelector(".pagination").addEventListener("click", (e) => {
-    const clickedElement = e.target.closest("li");
-
-    if (clickedElement.classList.contains("page1") && currentPage > 1) {
-        currentPage--;
-    } else if (clickedElement.classList.contains("page2") && currentPage < totalPages) {
-        currentPage++;
-    } else if (!isNaN(clickedElement.textContent)) {
-        currentPage = parseInt(clickedElement.textContent);
-    }
-    displayPage(currentPage);
-});
-
-// Khởi tạo hiển thị trang đầu tiên
-displayPage(currentPage);
-
-/*-*/
-document.addEventListener("DOMContentLoaded", function() {
-    const addToCartButton = document.querySelector(".btn-add-to-cart");
-    const orderButtons = document.querySelectorAll(".btn-primary"); // Lấy tất cả các nút Đặt mua
-    const loginModal = document.getElementById("login-modal");
-    const closeModalButton = document.getElementById("close-modal");
-
-    function showModal() {
-        loginModal.style.display = "flex";
-    }
-
-    if (addToCartButton) {
-        addToCartButton.addEventListener("click", showModal);
-    }
-
-    orderButtons.forEach(button => {
-        button.addEventListener("click", showModal);
-    });
-
-    closeModalButton.addEventListener("click", function() {
-        loginModal.style.display = "none"; 
-    });
-
-    window.addEventListener("click", function(event) {
-        if (event.target === loginModal) {
-            loginModal.style.display = "none";
-        }
-    });
-});
-
 document.addEventListener("DOMContentLoaded", () => {
-    const productData = JSON.parse(localStorage.getItem("selectedProduct"));
-    if (!productData) {
-        window.location.href = "./index.html";
-        return;
-    }
-
-
-    const breadcumCategory = document.querySelector("#breadcum-category");
-    breadcumCategory.textContent = productData.category;
-
-    breadcumCategory.addEventListener('click', () => {
-        window.location.href = breadcumLinks[productData.category] ?? "../menu/allmenu.html#all-menu-section"
-    })
-    
-
-    const breadcumProduct = document.querySelector("#breadcum-product");
-    breadcumProduct.textContent = productData.name;
-
-    
-    document.querySelector(".product-gallery img").src = productData.image;
-    document.querySelector(".product_details_info h3").textContent = productData.name;
-    document.querySelector(".availability b").textContent = productData.availability ? "Còn hàng" : "Hết hàng"; 
-    document.querySelector(".availability").innerHTML += ` | Mã SKU: <b>${productData.productCode}</b>`;
-    document.querySelector(".price").textContent = productData.price;
-    document.querySelector(".product_tag-read p").textContent = productData.description;
-
-
-    //Thức uống khác 
-    const relatedProducts = renderProducts
-    .filter((p) => p.productCode !== productData.productCode)
-    .slice(0, 8);
-
-    const pageSize = 4; 
+    // Pagination settings
+    let pageSize = 8;
     let currentPage = 1;
 
-    const totalPages = Math.ceil(relatedProducts.length / pageSize);
-    const relatedProductsContainer = document.querySelector(".product-grid");
+    const productContainer = document.querySelector(".custom-products");
     const paginationContainer = document.querySelector(".pagination");
+    
+    const listCategory = productContainer.getAttribute('data-category');
 
+    let filteredRenderProducts = renderProducts
+    if(listCategory) {
+        filteredRenderProducts = filteredRenderProducts.filter(item => item.category == listCategory);
+        pageSize = 4;
+    }
+    else {
+    }
+    
+    // Function to render products for the current page
     function renderPage(page) {
-        relatedProductsContainer.innerHTML = ""; 
+        productContainer.innerHTML = ""; // Clear current products
         const startIndex = (page - 1) * pageSize;
         const endIndex = startIndex + pageSize;
-        const pageProducts = relatedProducts.slice(startIndex, endIndex);
+        
 
-        pageProducts.forEach((relatedProduct) => {
-            const relatedProductHTML = `
-                <div class="mon related-product" data-product='${JSON.stringify(relatedProduct)}'>
-                    <img src="${relatedProduct.image}" alt="${relatedProduct.name}">
-                    <a href="#">${relatedProduct.category.toUpperCase()}</a>
-                    <h3>${relatedProduct.name}</h3>
-                    <p class="price">${relatedProduct.price}</p>
-                    <a class="btn btn-primary">Đặt mua</a>
+        const pageProducts = filteredRenderProducts.slice(startIndex, endIndex);
+
+        pageProducts.forEach((product, index) => {
+        const isOutOfStock = index  == 0 && listCategory == "Phindi"
+            || index == 3 && listCategory == "Trà"
+            || (currentPage == 2 && (index == 0 || index == 7) && !listCategory)
+        ; 
+
+            const productItem = document.createElement("li");
+            productItem.innerHTML = `
+                <div class="custom-product-item">
+                    <div class="custom-product-top">
+                        <a href="" class="custom-product-thumb">
+                            <img src="${product.image}" alt="${product.name}">                        
+                        </a>
+                    </div>
+                    <div class="custom-product-info">
+                        <a href="" class="custom-product-cat">${product.category}</a>
+                        <a href="" class="custom-product-name">${product.name}</a>
+                        <div class="custom-product-price">${product.price}</div>
+                       <button class="buy-now" ${isOutOfStock ? 'style="background-color: #999; color: #fff; cursor: not-allowed;" disabled' : ''}>
+                    ${isOutOfStock ? "Hết hàng" : "Đặt mua"}
+                </button>
+                    </div>
                 </div>
             `;
-            relatedProductsContainer.innerHTML += relatedProductHTML;
+            productContainer.appendChild(productItem);
         });
 
-        // Add click events for related products
-        const relatedProductElements = document.querySelectorAll(".related-product");
-        relatedProductElements.forEach((element) => {
-            element.addEventListener("click", () => {
-                const product = JSON.parse(element.getAttribute("data-product"));
+        // Add click events to the newly rendered product links
+        const productLinks = document.querySelectorAll(".custom-product-top");
+        productLinks.forEach((link, index) => {
+            link.addEventListener("click", (e) => {
+                e.preventDefault();
+                const productIndex = (page - 1) * pageSize + index; // Adjust index for current page
+                const product = filteredRenderProducts[productIndex];
                 localStorage.setItem("selectedProduct", JSON.stringify(product));
-                window.location.href = "../product/phinsuada.html";
+                window.location.href = "../product/phinsuada.html"; // Redirect to the product detail page
             });
         });
     }
@@ -364,6 +234,9 @@ document.addEventListener("DOMContentLoaded", () => {
     function renderPagination() {
         paginationContainer.innerHTML = ""; // Clear current pagination
 
+        const totalPages = Math.ceil(filteredRenderProducts.length / pageSize);
+
+        // Previous button
         const prevItem = document.createElement("li");
         prevItem.classList.add("page1");
         prevItem.innerHTML = `<i class="fa-solid fa-angles-left"></i>`;
@@ -374,9 +247,9 @@ document.addEventListener("DOMContentLoaded", () => {
                 renderPagination();
             }
         });
-
         paginationContainer.appendChild(prevItem);
 
+        // Page numbers
         for (let i = 1; i <= totalPages; i++) {
             const pageItem = document.createElement("li");
             pageItem.classList.add("page-item");
@@ -392,6 +265,7 @@ document.addEventListener("DOMContentLoaded", () => {
             paginationContainer.appendChild(pageItem);
         }
 
+        // Next button
         const nextItem = document.createElement("li");
         nextItem.classList.add("page2");
         nextItem.innerHTML = `<i class="fa-solid fa-angles-right"></i>`;
@@ -402,7 +276,6 @@ document.addEventListener("DOMContentLoaded", () => {
                 renderPagination();
             }
         });
-
         paginationContainer.appendChild(nextItem);
     }
 
@@ -410,39 +283,3 @@ document.addEventListener("DOMContentLoaded", () => {
     renderPage(currentPage);
     renderPagination();
 });
-document.addEventListener("DOMContentLoaded", function() {
-    const priceElement = document.querySelector(".price");
-    const sizeButtons = document.querySelectorAll(".size-btn");
-    let basePrice = parseInt(priceElement.textContent.replace("VNĐ", "").replace(/\./g, ""));
-    // Hàm để cập nhật giá
-    function updatePrice(size) {
-        let newPrice = basePrice; // Bắt đầu với giá của size S
-        if (size === "M") {
-            newPrice += 5000; // Giá của size M
-        } else if (size === "L") {
-            newPrice += 10000; // Giá của size L
-        }
-        // Cập nhật giá hiển thị
-        priceElement.textContent = newPrice.toLocaleString() + " VNĐ";
-    }
-
-    // Lắng nghe sự kiện click trên các nút kích cỡ
-    sizeButtons.forEach(function(button) {
-        button.addEventListener("click", function() {
-            // Xóa lớp active khỏi tất cả các nút
-            sizeButtons.forEach(function(btn) {
-                btn.classList.remove("active");
-            });
-
-            // Thêm lớp active vào nút đã nhấn
-            button.classList.add("active");
-
-            // Cập nhật giá dựa trên kích cỡ đã chọn
-            updatePrice(button.getAttribute("data-size"));
-        });
-    });
-});
-
-    
-    
-    

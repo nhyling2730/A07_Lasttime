@@ -1,16 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8" />
+    <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cà phê phin</title>
-    <!-- FONTAWESOME -->
-    <link rel="stylesheet" href="../../css/fontawesome-free-6.6.0-web/css/all.min.css">
-    <!-- BOOTSTRAP -->
-    <link rel="stylesheet" href="../../bootstrap-5.0.2-dist/css/bootstrap.min.css">
-    <!-- CSS -->
-    <link rel="stylesheet" href="../../css/index.css"/>
-    <link rel="stylesheet" href="../../css/phin.css"/>
+    <link rel="stylesheet" href="../css/fontawesome-free-6.6.0-web/css/all.min.css">
+    <link rel="stylesheet" href="../css/index.css">
+    <link rel="stylesheet" href="../bootstrap-5.0.2-dist/css/bootstrap.min.css">
+    <title>Kết Quả Tìm Kiếm</title>
+    
 </head>
 <body>
     <header>
@@ -18,14 +15,14 @@
             <i class="fa-solid fa-bars"></i>
             <i class="fa-solid fa-xmark"></i>
         </div>
-        <a href="../../index.html" class="logo">
-            <img src="../../image/logo.png">
+        <a href="../index.html" class="logo">
+            <img src="../image/logo.png">
         </a>
         <nav class="nav-menu" id="home">
             <ul>
-                <li class="active"><a href="#"><i class="fa-solid fa-house-chimney"></i>Trang chủ</a></li>
-                <li class="dropdown">
-                    <a href="#" id="menu-toggle"><i class="fa-solid fa-caret-down"></i>Thực đơn</a>
+                <li><a href="../index.html"><i class="fa-solid fa-house-chimney"></i>Trang chủ</a></li>
+                <li class="dropdown active">
+                    <a href="" id="menu-toggle"><i class="fa-solid fa-caret-down"></i>Thực đơn</a>
                     <ul class="sub-menu">
                         <li><a href="#"><span>Cà phê phin</span></a></li>
                         <li><a href="#"><span>Phindi</span></a></li>
@@ -33,9 +30,9 @@
                         <li><a href="#"><span>Trà</span></a></li>
                     </ul>
                 </li>
-                <li><a href="#"><i class="fa-solid fa-newspaper"></i>Tin tức</a></li>
-                <li><a href="#"><i class="fa-solid fa-users-line"></i>Giới thiệu</a></li>
-                <li><a href="#"><i class="fa-solid fa-phone"></i>Liên hệ</a></li>
+                <li><a href="./news.html"><i class="fa-solid fa-newspaper"></i>Tin tức</a></li>
+                <li><a href="./introduce.html"><i class="fa-solid fa-users-line"></i>Giới thiệu</a></li>
+                <li><a href="./contact.html"><i class="fa-solid fa-phone"></i>Liên hệ</a></li>
             </ul>
         </nav>
         <!-- SEARCH -->
@@ -45,6 +42,7 @@
                 <i class="fa-solid fa-magnifying-glass search"></i>
             </div>
             <div class="searchBox">
+                <form class="search-form" action="./search.html" method="get">
                 <ul class="search-bar">
                     <li class="dropdown-bar1">
                         <div id="drop-text" class="dropdown-text">
@@ -66,26 +64,26 @@
                         </div>
                         <ul id="price-list" class="dropdown-list">
                             <li class="dropdown-list-item">Khoảng giá</li>
-                            <li class="dropdown-list-item">Dưới 20k</li>
-                            <li class="dropdown-list-item">20k - 50k</li>
-                            <li class="dropdown-list-item">Trên 50k</li>
+                            <li class="dropdown-list-item">Dưới 40.000 VNĐ</li>
+                            <li class="dropdown-list-item">40.000 - 50.000 VNĐ</li>
+                            <li class="dropdown-list-item">Trên 50.000 VNĐ</li>
                         </ul>
                     </li>
-                    <!-- <form action=""> -->
                     <li class="search-box">
                         <input type="text" id="search-input" placeholder="Tìm kiếm..." required/>
-                        <button type="submit">
+                        <button type="submit" href="./search.html">
                             <i class="fa-solid fa-magnifying-glass"></i>
                         </button>
                     </li>
-                <!-- </form> -->
                 </ul>
+            </form>
             </div>
             <div class="icon-item">
                 <a href=""><i class="fa-solid fa-cart-shopping"></i></a>
             </div>
             <div class="icon-item">
-                <a href="javascript:void(0);"><i class="fa-solid fa-user"></i>
+                <a href="javascript:void(0);">
+                    <i class="fa-solid fa-user"></i>
                     <ul class="dropdown-user">
                         <li><a href="">Đăng nhập</a></li>
                         <li><a href="">Đăng ký</a></li>
@@ -94,71 +92,85 @@
             </div>
         </div>
     </header>
-    <div class="poster">
-        <img href="../../index.html" src="../../image/poster/banner3.png" alt="">
-    </div>
-</div>
-<!-- BREADCRUMB -->
-<section id ="phin-menu-section" class="breadcrumb_section container">
-    <nav aria-label="custom-breadcrumb">
-        <ol class="custom-breadcrumb">
-            <li class="custom-breadcrumb-item"><a href="../../index.html">Trang chủ</a></li>
-            <li class="custom-breadcrumb-item"><a href="./all-menu.html">Thực đơn</a></li>
-            <li class="custom-breadcrumb-item active" aria-current="page">Phin cà phê</li>
-        </ol>
-    </nav>
-</section>
-    <div class="custom-product_tags">
-        <a class="btn btn-outline-secondary " role="button" href="./allmenu.html#all-menu-section" type="Tất cả">Tất cả</a>
-        <a class="btn btn-outline-secondary" role="button" href="./phin-menu.html" type="Phin">Cà phê Phin</a>
-        <a class="btn btn-outline-secondary" role="button" href="./phindi-menu.html#phindi-menu-section" type="Phindi">Phidi</a>
-        <a class="btn btn-outline-secondary " role="button" href="./freeze-menu.html#freeze-menu-section" type="Freeze">Freeze</a>
-        <a class="btn btn-outline-secondary" role="button" href="./tra-menu.html#tra-menu-section" type="Trà">Trà</a>
-    </div>
-    <div class="product__filter mb-2 text-end">
-        <div class="filter--sort ">
-            <p>Sắp xếp theo:</p>
-            <select class="form-select" aria-label="Default select example">
-                <option selected>Mặc định</option>
-                <option value="1">Bán chạy</option>
-                <option value="2">Giá tăng dần</option>
-                <option value="3">Giá giảm dần</option>
-                <option value="4">Từ A-Z</option>
-                <option value="5">Từ Z-A</option>
-              </select>
-        </div>
-
-    </div>
-    <div id="custom-wrapper">
-        <ul class="custom-products" data-category="Phin cà phê">
-        </ul>
-        <!-- ... -->
-        <ul class="listpage pagination" style="justify-content: center;">
-            <li class="page1"><i class="fa-solid fa-angles-left"></i></li>
-            <li class="active">1</li>
-            <li>2</li>
-            <li class="page2"><i class="fa-solid fa-angles-right"></i></li>
-        </ul>
+    <!-- RESULT FIND -->
+    <main style="padding-top: 80px;">
+        <section class="search-results">
+            <div class="container">
+                <h2>Kết quả tìm kiếm</h2>
+                <p class="results-count">Tìm thấy <b>6</b> sản phẩm phù hợp cho <b>"phin"</b></p>
+                <div class="product-grid">
+                    <div class="mon">
+                        <img src="../image/phin/phindenda_nho.png">
+                        <a href="">CÀ PHÊ PHIN</a>
+                        <h3>Phin đen đá</h3>
+                        <p class="price">32.000 VNĐ</p>
+                        <a class="btn btn-primary">Đặt mua</a>
+                    </div>
+                    <div class="mon">
+                        <img src="../image/phin/phisuanda_nho.png">
+                        <a href="">CÀ PHÊ PHIN</a>
+                        <h3>Phin sữa đá</h3>
+                        <p class="price">35.000 VNĐ</p>
+                        <a class="btn btn-primary">Đặt mua</a>
+                    </div>
+                    <div class="mon">
+                        <img src="../image/phindi/phindicassia_nho.png">
+                        <a href="">PHIN</a>
+                        <h3>Phindi cassia</h3>
+                        <p class="price">55.000 VNĐ</p>
+                        <a class="btn btn-primary">Đặt mua</a>
+                    </div>
+                    <div class="mon">
+                        <img src="../image/phindi/phindichoco_nho.png">
+                        <a href="">PHIN</a>
+                        <h3>Phindi choco</h3>
+                        <p class="price">55.000 VNĐ</p>
+                        <a class="btn btn-primary">Đặt mua</a>
+                    </div>
+                    <div class="mon">
+                        <img src="../image/phindi/phindihanhnhan_nho.png">
+                        <a href="">PHIN</a>
+                        <h3>Phindi hạnh nhân</h3>
+                        <p class="price">55.000 VNĐ</p>
+                        <a class="btn btn-primary">Đặt mua</a>
+                    </div>
+                    <div class="mon">
+                        <img src="../image/phindi/phindikemsua_nho.png">
+                        <a href="">PHIN</a>
+                        <h3>Phindi kem sữa</h3>
+                        <p class="price">55.000 VNĐ</p>
+                        <a class="btn btn-primary">Đặt mua</a>
+                    </div>
+                </div>
+            </div>
+            <ul class="pagination">
+                <li class="page1"><i class="fa-solid fa-angles-left"></i></li>
+                <li class="active">1</li>
+                <li>2</li>
+                <li class="page2"><i class="fa-solid fa-angles-right"></i></li>
+            </ul> 
+        </section>
         <div class="modal" id="login-modal">
             <div class="modal-content">
                 <span class="close-btn" id="close-modal">&times;</span>
                 <h3><b>Bạn chưa đăng nhập</b></h3>
                 <h5>Vui lòng đăng nhập hoặc đăng ký để mua.</h5>
                 <div class="modal-actions">
-                    <button class="modal-btn" id="login-btn">Đăng Nhập</button>
-                    <button class="modal-btn" id="register-btn">Đăng Ký</button>
+                    <button class="modal-btn" id="login-btn">Đăng nhập</button>
+                    <button class="modal-btn" id="register-btn">Đăng ký</button>
                 </div>
             </div>
         </div>
-    </div>
+    </main>
+    <!-- FOOTER -->
     <footer class="footer">
         <div class="footer-container">
             <div class="footer-section about">
-                <h2>Về Chúng Tôi</h2>
+                <h2>Về chúng tôi</h2>
                 <p>Chúng tôi cung cấp các loại đồ uống chất lượng, phục vụ với sự tận tâm và chuyên nghiệp.</p>
             </div>
             <div class="footer-section links">
-                <h2>Liên Kết</h2>
+                <h2>Liên kết</h2>
                 <ul>
                     <li><a href="#">Trang chủ</a></li>
                     <li><a href="#">Thực dơn</a></li>
@@ -168,13 +180,13 @@
                 </ul>
             </div>
             <div class="footer-section social">
-                <h2>Kết Nối Với Chúng Tôi</h2>
+                <h2>Kết nối với chúng tôi</h2>
                 <a href="https://web.facebook.com/highlandscoffeevietnam" target="_blank"><i class="fa-brands fa-facebook"></i></a>
                 <a href="https://www.instagram.com/highlandscoffeevietnam/" target="_blank"><i class="fa-brands fa-instagram"></i></a>
                 <a href="https://x.com/" target="_blank"><i class="fa-brands fa-twitter"></i></a>
             </div>
             <div class="footer-section members">
-                <h2>Thành Viên</h2>
+                <h2>Thành viên</h2>
                 <ul>
                     <li><a href="#">Lê Thị Thủy Tiên</a></li>
                     <li><a href="#">Võ Thị Thu Luyện</a></li>
@@ -192,29 +204,8 @@
     <!-- TOP -->
     <div id="scrollToTopBtn">
         <a href="#home"><i class="fas fa-arrow-up"></i></a>
-    </div>
-    <script src="../../js/phantrangfr.js"></script>
-    <script src="../../js/render.js"></script>
-
-    <script src="../../js/nav.js"></script>
-    <script src="../../js/thongbao.js"></script>
-    <!-- BOOSTRAP JS  -->
-    <script src="../../bootstrap-5.0.2-dist/js/bootstrap.bundle.min.js"></script>
-    <script>
-        window.onload = function() {
-            if(window.location.hash === "#phin-menu-section") {
-                // Delay để đảm bảo trang đã tải xong, sau đó cuộn đến phần breadcrumb
-                setTimeout(function() {
-                    var section = document.getElementById("phin-menu-section");
-                    if(section) {
-                        window.scrollTo({
-                            top: section.offsetTop - 70, // Cộng thêm khoảng cách 20px từ trên
-                            behavior: 'smooth' // Cuộn mượt mà
-                        });
-                    }
-                }, 100); // Đảm bảo rằng việc cuộn diễn ra sau khi trang tải xong
-            }
-        }
-    </script>
+    </div> 
+    <script src="../js/nav.js"></script>
+    <script src="../js/resultfind.js"></script>
 </body>
 </html>
