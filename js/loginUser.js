@@ -81,7 +81,7 @@ function checkLengthErrorPassword(input, min, max){
 const login = document.querySelector('.form')
 login.addEventListener('submit', function(e){
     let isPasswordLengthError = checkLengthErrorPassword(password, 6, 20);
-    let isUserNameLengthError = checkLengthErrorUsername(username, 7, 20);
+    let isUserNameLengthError = checkLengthErrorUsername(username, 5, 20);
     let isEmptyError = checkEmptyError([username, password]);
     e.preventDefault();
     if( !isEmptyError && !isPasswordLengthError && !isUserNameLengthError){
@@ -193,4 +193,4 @@ function myMenuFunction() {
     } else {
         i.classList.add("responsive");
     }
-}med
+}
