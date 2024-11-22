@@ -518,26 +518,9 @@ span{
     }
 }
 
-@media (max-width: 1024px) {
+@media (max-width: 2560px) {
     .form-login{
-        margin-bottom: 80px;
+        top: -50px;
     }
 }
 
-@media (min-width: 1245px) {
-    .form-login{
-        margin-top: -530px;
-    }
-}
-
-@media (max-width: 1240px) {
-    .form-login{
-       margin-top: -510px;
-    }
-}
-
-@media (min-width: 1440px) {
-    .form-login{
-        margin-bottom: 70px;
-    }
-}
