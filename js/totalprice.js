@@ -1,7 +1,11 @@
 document.addEventListener('DOMContentLoaded', function () {
-    // Lấy tất cả các phần tử có lớp .qtyminus và .qtyplus
     const minusButtons = document.querySelectorAll('.qtyminus');
     const plusButtons = document.querySelectorAll('.qtyplus');
+    const shippingFee = 10000; // Phí vận chuyển cố định
+    const checkboxes = document.querySelectorAll('.select-item'); // Các checkbox chọn sản phẩm
+    const totalElement = document.querySelector('.into--money span'); // Tổng tiền
+    const cartQuantityElement = document.getElementById('cartQuantity'); // Số lượng trên biểu tượng giỏ hàng
+    const cartItemCountElement = document.getElementById('cartItemCount'); // Số món trong nút thanh toán
 
     // Xử lý khi nhấn nút trừ
     minusButtons.forEach(button => {
@@ -33,106 +37,58 @@ document.addEventListener('DOMContentLoaded', function () {
         const unitPrice = parseInt(cartItem.querySelector('.items--price span').textContent.replace(/₫|,/g, ''));
         const quantity = parseInt(cartItem.querySelector('.quantity input').value);
         const totalPrice = unitPrice * quantity;
-        
+
         // Cập nhật giá tổng cho sản phẩm hiện tại
         cartItem.querySelector('.items--total span').textContent = totalPrice.toLocaleString() + '₫';
 
-        // Gọi hàm để cập nhật tổng tiền giỏ hàng (nếu cần)
-        updateCartTotal();
+        // Gọi hàm để cập nhật tổng tiền giỏ hàng
+        calculateTotal();
     }
 
-    // Hàm tính tổng tiền giỏ hàng
-    function updateCartTotal() {
-        const totalElements = document.querySelectorAll('.items--total span');
-        let totalCart = 0;
-        totalElements.forEach(element => {
-            totalCart += parseInt(element.textContent.replace(/₫|,/g, ''));
+    // Hàm tính tổng tiền cho các sản phẩm được chọn
+    function calculateTotal() {
+        let total = 0;
+        let itemCount = 0;
+
+        checkboxes.forEach(checkbox => {
+            if (checkbox.checked) {
+                const cartItem = checkbox.closest('.orders--items');
+                const itemTotal = parseInt(cartItem.querySelector('.items--total span').textContent.replace(/₫|,/g, ''));
+                total += itemTotal;
+
+                // Tính số món được chọn
+                const quantity = parseInt(cartItem.querySelector('.quantity input').value);
+                itemCount += quantity;
+            }
         });
-        document.querySelector('.temp--money span').textContent = totalCart.toLocaleString() + '₫';
-        
-        const shippingFee = 2000; // Phí vận chuyển cố định
-        document.querySelector('.into--money span').textContent = (totalCart + shippingFee).toLocaleString() + '₫';
+
+        // Cập nhật tạm tính và thành tiền
+        document.querySelector('.temp--money span').textContent = total.toLocaleString() + '₫';
+        totalElement.textContent = (total + shippingFee).toLocaleString() + '₫';
+
+        // Cập nhật số món trong nút Thanh toán
+        cartItemCountElement.textContent = itemCount;
     }
-});
 
-// giỏ hàng
-// Giả sử đây là mảng lưu thông tin các sản phẩm trong giỏ hàng
-let cartItems = [
-    { id: 1, name: "Phin Sữa Đá", quantity: 2 },
-    { id: 2, name: "Trà Sen Vàng", quantity: 1 },
-    { id: 3, name: "Freeze Trà Xanh", quantity: 1 }
-];
-
-// Hàm cập nhật số lượng hiển thị trên biểu tượng giỏ hàng
-function updateCartQuantity() {
-    // Tính tổng số lượng sản phẩm trong giỏ hàng
-    let totalQuantity = cartItems.reduce((total, item) => total + item.quantity, 0);
-
-    // Hiển thị số lượng lên biểu tượng giỏ hàng
-    document.getElementById("cartQuantity").textContent = totalQuantity;
-}
-
-// Hàm cập nhật giỏ hàng trên giao diện
-function updateCartDisplay() {
-    let cartDisplay = document.getElementById("cartItemsDisplay");
-    cartDisplay.innerHTML = ""; // Xóa hết các sản phẩm cũ trong giỏ hàng
-
-    cartItems.forEach(item => {
-        // Tạo phần tử hiển thị sản phẩm trong giỏ hàng
-        let itemDiv = document.createElement("div");
-        itemDiv.classList.add("cart-item");
-        itemDiv.innerHTML = `
-            <span>${item.name}</span>
-            <span>Số lượng: ${item.quantity}</span>
-            <button onclick="increaseQuantity(${item.id})">Tăng</button>
-            <button onclick="decreaseQuantity(${item.id})">Giảm</button>
-        `;
-        cartDisplay.appendChild(itemDiv);
+    // Gắn sự kiện thay đổi cho từng checkbox
+    checkboxes.forEach(checkbox => {
+        checkbox.addEventListener('change', calculateTotal);
     });
-}
 
-// Gọi hàm này mỗi khi có thay đổi trong giỏ hàng
-updateCartQuantity();
-updateCartDisplay();
+    // Hàm cập nhật số lượng sản phẩm trên biểu tượng giỏ hàng
+    function updateCartQuantity() {
+        let totalQuantity = 0;
 
-// Hàm xử lý khi người dùng bấm nút tăng số lượng sản phẩm
-function increaseQuantity(productId) {
-    let product = cartItems.find(item => item.id === productId);
-    if (product) {
-        product.quantity += 1; // Tăng số lượng sản phẩm
-        updateCartQuantity(); // Cập nhật số lượng trên biểu tượng giỏ hàng
-        updateCartDisplay();  // Cập nhật lại giỏ hàng trên giao diện
+        checkboxes.forEach(checkbox => {
+            const cartItem = checkbox.closest('.orders--items');
+            const quantity = parseInt(cartItem.querySelector('.quantity input').value);
+            totalQuantity += quantity;
+        });
+
+        cartQuantityElement.textContent = totalQuantity;
     }
-}
 
-// Hàm xử lý khi người dùng bấm nút giảm số lượng sản phẩm
-function decreaseQuantity(productId) {
-    let product = cartItems.find(item => item.id === productId);
-    if (product && product.quantity > 1) {
-        product.quantity -= 1; // Giảm số lượng sản phẩm
-        updateCartQuantity(); // Cập nhật số lượng trên biểu tượng giỏ hàng
-        updateCartDisplay();  // Cập nhật lại giỏ hàng trên giao diện
-    }
-}
-
-// Hàm thêm sản phẩm vào giỏ hàng
-function addProductToCart(id, name, quantity) {
-    // Kiểm tra xem sản phẩm đã có trong giỏ hàng chưa
-    let existingProduct = cartItems.find(item => item.id === id);
-    
-    if (existingProduct) {
-        // Nếu có, tăng số lượng sản phẩm
-        existingProduct.quantity += quantity;
-    } else {
-        // Nếu chưa, thêm sản phẩm mới vào giỏ hàng
-        cartItems.push({ id: id, name: name, quantity: quantity });
-    }
-    
-    // Cập nhật lại giao diện
+    // Gọi hàm tính tổng ngay khi trang được tải
+    calculateTotal();
     updateCartQuantity();
-    updateCartDisplay();
-}
-
-// Ví dụ: Thêm sản phẩm mới
-addProductToCart(3, "Cà Phê Sữa", 1); // Thêm sản phẩm mới vào giỏ hàng
-
+});
