@@ -65,9 +65,9 @@
                             </div>
                             <ul id="price-list" class="dropdown-list">
                                 <li class="dropdown-list-item">Khoảng giá</li>
-                                <li class="dropdown-list-item">Dưới 40.000 VNĐ</li>
-                                <li class="dropdown-list-item">40.000 - 50.000 VNĐ</li>
-                                <li class="dropdown-list-item">Trên 50.000 VNĐ</li>
+                                <li class="dropdown-list-item">Dưới 20k</li>
+                                <li class="dropdown-list-item">20k - 50k</li>
+                                <li class="dropdown-list-item">Trên 50k</li>
                             </ul>
                         </li>
                         <li class="search-box">
@@ -80,16 +80,15 @@
                 </form>
             </div>
             <div class="icon-item">
-                <a href=""><i class="fa-solid fa-cart-shopping"></i></a>
+                <a href="../login-user/cart.html"><i class="fa-solid fa-cart-shopping"></i></a>
                 <div class="totalQuantity" id="cartQuantity">0</div>
             </div>
             <div class="icon-item">
                 <a href="javascript:void(0);">
-                    <img src="../../image/khác/user.png">
-                    <ul class="dropdown-user1">
-                        <li><a href="">Thông tin cá nhân</a></li>
-                        <li><a href="">Đơn đã mua</a></li>
-                        <li><a href="">Đăng xuất</a></li>
+                    <i class="fa-solid fa-user"></i>
+                    <ul class="dropdown-user">
+                        <li><a href="">Đăng nhập</a></li>
+                        <li><a href="">Đăng ký</a></li>
                     </ul>
                 </a>
             </div>
@@ -120,7 +119,7 @@
                                 <form id='myform' method='POST' class='quantity row m-0' action='#'>
                                     <button type="button" class="qtyminus minus" field='quantity'><i
                                             class="fas fa-minus"></i></button>
-                                    <input name="quantity" type='text' id="qty" value="2" class="text-center qty">
+                                    <input name="quantity" type='text' id="qty" value="1" class="text-center qty">
                                     <button type="button" class="qtyplus plus" field='quantity'><i
                                             class="fas fa-plus"></i></button>
                                 </form>
@@ -128,11 +127,14 @@
                         </div>
                     </div>
                     <div class="orders--items-right col-10">
+                        <input type="checkbox" class="select-item" data-id="1" checked>
                         <div class="items--name"><a href="">Phin Sữa Đá</a></div>
-                        <div class="items--price">Đơn giá: <span>25,000₫</span></div>
+                        <div class="checkbox"></div>
+                        <div class="items--price">Đơn giá: <span>35,000₫</span></div>
                         <div class="items--"></div>
-                        <div class="items--total">Tổng: <span>50,000₫</span></div>
+                        <div class="items--total">Tổng: <span>35,000₫</span></div>
                         <button class="items--remove">Xoá</button>
+
                     </div>
 
                 </div>
@@ -152,79 +154,41 @@
                         </div>
                     </div>
                     <div class="orders--items-right col-10">
+                        <input type="checkbox" class="select-item" data-id="2">
                         <div class="items--name"><a href="">Trà sen vàng (củ năng) </a></div>
-                        <div class="items--price">Đơn giá: <span>34.000 VNĐ</span></div>
-                        <div class="items--total">Tổng: <span>34.000 VNĐ</span></div>
+                        <div class="items--price">Đơn giá: <span>45,000₫</span></div>
+                        <div class="items--total">Tổng: <span>45,000₫</span></div>
                         <button class="items--remove">Xoá</button>
 
                     </div>
-                </div>
-                <div class="orders--items row">
-                    <div class="orders--items-left col-2">
-                        <div class="items--thumb">
-                            <img src="../image/freeze/freezetraxanh.png" alt="freezetraxanh">
-                            <div class="product_qty">
-                                <form id='myform' method='POST' class='quantity row m-0' action='#'>
-                                    <button type="button" class="qtyminus minus" field='quantity'><i
-                                            class="fas fa-minus"></i></button>
-                                    <input name="quantity" type='text' id="qty" value="1" class="text-center qty">
-                                    <button type="button" class="qtyplus plus" field='quantity'><i
-                                            class="fas fa-plus"></i></button>
-                                </form>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="orders--items-right col-10">
-                        <div class="items--name"><a href="">Freeze Trà Xanh </a></div>
-                        <div class="items--price">Đơn giá: <span>45.000 VNĐ</span></div>
-                        <div class="items--total">Tổng: <span>45.000 VNĐ</span></div>
-                        <button class="items--remove">Xoá</button>
 
-                    </div>
                 </div>
-
                 <div class="hr"></div>
                 <div class="orders__submit row">
-                    <div class="col-6"><i class="fas fa-angle-left"></i></i>
-                        <a href="./user-index.html">Tiếp tục chọn món </a>
-                    </div>
-                    <div class="orders__submit--total col-6">
-                        <p class="temp--money">Tạm tính: <span>129.000 VNĐ</span></p>
-                        <p class="temp--money">Phí vận chuyển: <span>10.000 VNĐ</span></p>
-                        <p class="into--money">Thành tiền: <span>139.000 VNĐ</span></p>
-                        <button class="total--pay"><a href="./payment.html">Thanh toán</a> </button>
+                    <div class="col-6"><i class="fas fa-angle-left"></i>
+                        <a style="color: black; text-decoration: none;" href="../login-user/menu/allmenu.html">Tiếp tục
+                            chọn món </a>
                     </div>
                 </div>
             </div>
 
             <div class="col-3 highlands__cart--contact">
                 <div class="user--sevice">
-                    <h3>Dịch vụ khách hàng</h3>
-                    <p>Bạn cần sự hỗ trợ từ chúng tôi? Hãy liên hệ ngay</p>
-                    <a href="tel:19003360" title="Hotline: 19001900"><i class="fas fa-phone-alt"></i>1900 1900</a>
-                    <a href="https://web.facebook.com/highlandscoffeevietnam"><i class="fab fa-facebook-f "></i>Chúng
-                        tôi trên Facebook</a>
-                    <p>Giờ hoạt động: (09:00 - 22:00)</p>
-                    <a href="./contact.html">Liên hệ</a>
+                    <h3>Giao đến</h3>
+                    <p class="thongtinnhan"> Nhóm 7 | 0907234598</p>
+                    <p class="diachinhan"> 273 An Dương Vương, phường 3, quận 5, TP.HCM</p>
                 </div>
+                <hr>
                 <div class="user--payment">
-                    <h3>Đặt món cùng Highlands Coffee</h3>
-                    <p><i class="fas fa-check"></i></i><span>Giảm giá lên tới 50%</span> - Tại tất cả cửa hàng cho hội
-                        viên mới</p>
-                    <p><i class="fas fa-check"></i></i><span>Highlands Coffee</span> - Tự hào là thương hiệu Việt Nam
-                    </p>
-                    <p><i class="fas fa-check"></i></i><span>Miễn phí vận chuyển</span> - cho đơn hàng từ 300.000đ</p>
-                    <ul>
-                        <li><img src="https://bizweb.dktcdn.net/100/421/124/themes/811860/assets/cart_payment_1.svg?1617678628801"
-                                alt="Hình thức thanh toán"></li>
-                        <li><img src="	https://bizweb.dktcdn.net/100/421/124/themes/811860/assets/cart_payment_2.svg?1617678628801"
-                                alt="Hình thức thanh toán"></li>
-                        <li><img src="https://bizweb.dktcdn.net/100/421/124/themes/811860/assets/cart_payment_3.svg?1617678628801"
-                                alt="Hình thức thanh toán"></li>
-                        <li><img src="https://bizweb.dktcdn.net/100/421/124/themes/811860/assets/cart_payment_4.svg?1617678628801"
-                                alt="Hình thức thanh toán"></li>
-                    </ul>
+                    <h3>Thông tin đơn hàng</h3>
+                    <div class="orders__submit--total col-6">
+                        <p class="temp--money">Tạm tính: <span id="subtotal">0₫</span></p>
+                        <p class="temp--money">Phí vận chuyển: <span>10,000₫</span></p>
+                        <p class="into--money">Thành tiền: <span id="total">10,000₫</span></p>
+                    </div>
                 </div>
+                <button class="total--pay"><a href="./payment.html"> Đặt hàng (<span
+                            id="cartItemCount">0</span>)</a></button>
             </div>
         </div>
     </section>
@@ -272,10 +236,74 @@
     </footer>
     <!-- TOP -->
     <div id="scrollToTopBtn">
-        <a href="#home"><i class="fas fa-arrow-up"></i></a>
-    </div> 
-    <script src="../js/index.js"></script>
+        <a href="#home"><i class="fa-solid fa-chevron-up"></i></a>
+    </div>
+    <script src="../js/nav.js"></script>
+    <script src="../js/thongbao.js"></script>
+    <script src="../js/cart.js"></script>
     <script src="../js/totalprice.js"></script>
-    <script src="../js/delete.js" defer></script>
+    <!-- BOOSTRAP JS  -->
+    <script src="../../bootstrap-5.0.2-dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        const scrollToTopBtn = document.getElementById("scrollToTopBtn");
+
+        window.onscroll = function () {
+            if (window.scrollY > 200) {
+                scrollToTopBtn.style.display = "block";
+            } else {
+                scrollToTopBtn.style.display = "none";
+            }
+        };
+
+        scrollToTopBtn.addEventListener("click", function () {
+            window.scrollTo({
+                top: 0,
+                behavior: "smooth",
+            });
+        });
+    </script>
+
+    <script>
+        /* nav mav-menu khi thu nhỏ */
+        document.querySelector('.toggle').addEventListener('click', function () {
+            const navMenu = document.querySelector('.nav-menu');
+            const faBars = document.querySelector('.fa-bars');
+            const faXmark = document.querySelector('.fa-xmark');
+
+            navMenu.classList.toggle('show');
+            this.classList.toggle('active');
+
+            if (this.classList.contains('active')) {
+                faBars.style.opacity = '0';
+                faXmark.style.opacity = '1';
+            } else {
+                faBars.style.opacity = '1';
+                faXmark.style.opacity = '0';
+            }
+        });
+
+        function setActiveMenu(menuItem) {
+            document.querySelectorAll('.nav-menu li').forEach(item => {
+                item.classList.remove('active');
+            });
+            menuItem.classList.add('active');
+        }
+
+        document.querySelectorAll('.nav-menu .dropdown > a').forEach(item => {
+            item.addEventListener('click', function (event) {
+                event.preventDefault();
+                const subMenuId = item.nextElementSibling.id;
+                toggleSubMenu(subMenuId);
+            });
+        });
+
+        document.querySelectorAll('.nav-menu li a').forEach(item => {
+            item.addEventListener('click', function () {
+                setActiveMenu(item.parentElement);
+            });
+        });
+    </script>
+
 </body>
+
 </html>
