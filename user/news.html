@@ -7,7 +7,6 @@
     <link rel="stylesheet" href="../css/index.css">
     <link rel="stylesheet" href="../bootstrap-5.0.2-dist/css/bootstrap.min.css">
     <title>Tin Tức</title>
-    
 </head>
 <body>
     <header>
@@ -15,22 +14,22 @@
             <i class="fa-solid fa-bars"></i>
             <i class="fa-solid fa-xmark"></i>
         </div>
-        <a href="index.html" class="logo">
+        <a href="../index.html" class="logo">
             <img src="../image/logo.png">
         </a>
         <nav class="nav-menu" id="home">
             <ul>
                 <li><a href="../index.html"><i class="fa-solid fa-house-chimney"></i>Trang chủ</a></li>
                 <li class="dropdown">
-                    <a href="" id="menu-toggle"><i class="fa-solid fa-caret-down"></i>Thực đơn</a>
+                    <a href="./menu/allmenu.html" id="menu-toggle"><i class="fa-solid fa-caret-down"></i>Thực đơn</a>
                     <ul class="sub-menu">
-                        <li><a href="#"><span>Cà phê phin</span></a></li>
-                        <li><a href="#"><span>Phindi</span></a></li>
-                        <li><a href="#"><span>Freeze</span></a></li>
-                        <li><a href="#"><span>Trà</span></a></li>
+                        <li><a href="./menu/phin-menu.html"><span>Cà phê phin</span></a></li>
+                        <li><a href="./menu/phindi-menu.html"><span>Phindi</span></a></li>
+                        <li><a href="./menu/freeze-menu.html"><span>Freeze</span></a></li>
+                        <li><a href="./menu/tra-menu.html"><span>Trà</span></a></li>
                     </ul>
                 </li>
-                <li class="active"><a href="./news.html"><i class="fa-solid fa-newspaper"></i>Tin tức</a></li>
+                <li class="active"><a href="#"><i class="fa-solid fa-newspaper"></i>Tin tức</a></li>
                 <li><a href="./introduce.html"><i class="fa-solid fa-users-line"></i>Giới thiệu</a></li>
                 <li><a href="./contact.html"><i class="fa-solid fa-phone"></i>Liên hệ</a></li>
             </ul>
@@ -79,14 +78,26 @@
             </form>
             </div>
             <div class="icon-item">
-                <a href=""><i class="fa-solid fa-cart-shopping"></i></a>
+                <a href="#" id="cart-icon"><i class="fa-solid fa-cart-shopping"></i></a>
             </div>
+            <!-- Giỏ hàng -->
+            <div class="modal" id="login-modal">
+                <div class="modal-content">
+                    <span class="close-btn" id="close-modal">&times;</span>
+                    <h3><b>Bạn chưa đăng nhập</b></h3>
+                    <h5>Vui lòng đăng nhập hoặc đăng ký để xem giỏ hàng.</h5>
+                    <div class="modal-actions">
+                        <button class="modal-btn" id="login-btn">Đăng nhập</button>
+                        <button class="modal-btn" id="register-btn">Đăng ký</button>
+                    </div>
+                </div>
+            </div>  
             <div class="icon-item">
                 <a href="javascript:void(0);">
                     <i class="fa-solid fa-user"></i>
                     <ul class="dropdown-user">
-                        <li><a href="">Đăng nhập</a></li>
-                        <li><a href="">Đăng ký</a></li>
+                        <li><a href="./login_user.html">Đăng nhập</a></li>
+                        <li><a href="./signup_user.html">Đăng ký</a></li>
                     </ul>
                 </a>
             </div>
@@ -138,18 +149,18 @@
             <div class="footer-section links">
                 <h2>Liên kết</h2>
                 <ul>
-                    <li><a href="#">Trang chủ</a></li>
-                    <li><a href="#">Thực đơn</a></li>
-                    <li><a href="#">Tin tức</a></li>
-                    <li><a href="#">Giới thiệu</a></li>
-                    <li><a href="#">Liên hệ</a></li>
+                    <li><a href="../index.html">Trang chủ</a></li>
+                    <li><a href="./menu/allmenu.html">Thực đơn</a></li>
+                    <li><a href="./news.html">Tin tức</a></li>
+                    <li><a href="./introduce.html">Giới thiệu</a></li>
+                    <li><a href="./contact.html">Liên hệ</a></li>
                 </ul>
             </div>
             <div class="footer-section social">
                 <h2>Kết nối với chúng tôi</h2>
                 <a href="https://web.facebook.com/highlandscoffeevietnam" target="_blank"><i class="fa-brands fa-facebook"></i></a>
                 <a href="https://www.instagram.com/highlandscoffeevietnam/" target="_blank"><i class="fa-brands fa-instagram"></i></a>
-                <a href="https://x.com/" target="_blank"><i class="fa-brands fa-twitter"></i></a>
+                <a href="https://x.com/" target="_blank"><i class="fa-brands fa-x-twitter"></i></a>
             </div>
             <div class="footer-section members">
                 <h2>Thành viên</h2>

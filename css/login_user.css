@@ -1,36 +1,59 @@
-@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap");
-/*thu*/
-.form-login img{
-    width: 120px;
-    justify-content: center;
-    margin: 0 90px;
-    background-image: none;
-    margin-top: -20px;
-    margin-bottom: -5px; ;
-}
-
-*{
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: "Tahoma Geneva", sans-serif;
-}
-
-body{
+body {
     display: flex;
-    justify-content: center; 
     flex-direction: column;
     align-items: center;
-    min-height: auto;
-    background: rgb(233, 209, 179);
-    background-size: cover;
-    background-position:center ;
-    padding-top: 50px 20px;
+    justify-content: flex-start;
+    min-height: 100vh;
+    margin: 0;
+    padding-top: 55px;
 }
 
-.form-login{
+header {
+    position: fixed;
+    z-index: 10000;
+    width: 100%;
+    max-width: 100vw;
+    top: 0;
+    min-height: 55px;
+    background: rgb(70, 31, 31);
+    padding: 0 5%;
     display: flex;
-    position: relative;
+    justify-content: space-between;
+    align-items: center;
+}
+
+footer {
+    margin-top: 30px;
+}
+
+.active i {
+    color: #e4c0b8;
+}
+
+.sub-menu span {
+    font-size: 16px;
+    color: #fff;
+}
+
+.sub-menu span:hover {
+    color: #e4c0b8;
+}
+
+.dropdown-text span {
+    color: #fff;
+    font-size: 15px;
+}
+
+.dropdown-list li {
+    font-size: 14px;
+}
+
+.close-btn {
+    color: #000;
+    margin-right: 0;
+}
+
+.form-login {
     width: 390px;
     background: rgb(225, 174, 108);
     border: 2px solid rgba(255, 255, 255, .2);
@@ -39,127 +62,144 @@ body{
     color: rgb(70, 31, 31);
     border-radius: 10px;
     padding: 30px 40px;
-    margin-top: -500px;
-    margin-bottom: 50px;
+    margin: 30px 0;
     z-index: 2;
 }
 
-.form-login h1{
+.form-login img {
+    width: 120px;
+    justify-content: center;
+    margin: 0 90px;
+    background-image: none;
+    margin-top: -20px;
+    margin-bottom: -5px;
+}
+
+.form-login h1 {
     font-size: 36px;
     text-align: center;
     color: rgb(70, 31, 31);
     margin-bottom: -20px;
 }
 
-.bxs-coffee-bean{
+.bxs-coffee-bean {
     position: absolute;
     margin: 0 160px;
     color: rgb(70, 31, 31);
 }
-.form-login .input-box{
+
+.form-login .input-box {
     position: relative;
     width: 100%;
     height: 50px;
     margin: 40px 0;
 }
 
-.input-box input{
-    width : 100%;
+.input-box input {
+    width: 100%;
     height: 100%;
     background: transparent;
     border: none;
     outline: none;
     border: 2px solid white;
-    border-radius:  40px;
+    border-radius: 40px;
     font-size: 16px;
     color: rgb(70, 31, 31);
     padding: 20px 45px 20px 20px;
 }
 
-.input-box input::placeholder{
+.input-box input::placeholder {
     color: rgb(70, 31, 31);
 }
 
-.input-box i{
+.input-box i {
     color: rgb(70, 31, 31);
     position: absolute;
-    right: 20px;
-    top: 50%;
+    right: 10px;
+    top: 40%;
     transform: translateY(-50%);
     font-size: 20px;
 }
 
-.button{
+.input-box i.fa-user {
+    color: rgb(70, 31, 31);
+    cursor: default;
+}
+
+.input-box i.fa-user:hover {
+    color: rgb(70, 31, 31);
+}
+
+.button {
     width: 100%;
-    height:  45px;
+    height: 45px;
     background: rgb(70, 31, 31);
     border: none;
     outline: none;
-    border-radius:  40px;
+    border-radius: 40px;
     box-shadow: 0 0 10px rgba(0, 0, 0, .1);
     font-size: 16px;
     color: white;
     font-weight: 600;
 }
 
-.button:hover{
-    background-color: rgb(33, 218, 12); 
+.button:hover {
+    background-color: rgb(33, 218, 12);
 }
-.form-login .remember-forgot{
+
+.form-login .remember-forgot {
     display: flex;
     justify-content: space-between;
     font-size: 14.5px;
     margin: -5px 0 15px;
 }
 
-.remember-forgot label input{
+.remember-forgot label input {
     accent-color: white;
-    margin-right:  3px;
+    margin-right: 3px;
 }
 
-.remember-forgot a{
+.remember-forgot a {
     color: white;
     text-decoration: none;
 }
 
-.remember-forgot a:hover{
+.remember-forgot a:hover {
     text-decoration: underline;
 }
 
-.form-login .register-link{
-    font-size:  14.5px;
+.form-login .register-link {
+    font-size: 14.5px;
     text-align: center;
     margin-top: 20px;
-
 }
 
-.register-link p a{
+.register-link p a {
     color: white;
     text-decoration: none;
     font-weight: 600;
 }
 
-.register-link p a:hover{
+.register-link p a:hover {
     text-decoration: underline;
 }
 
-.button a{
+.button a {
     color: white;
     text-decoration: none;
 }
 
-span{
+span {
     color: rgb(247, 11, 11);
     font-size: small;
     margin: 0 15px;
 }
 
-.hide{
+.hide {
     display: none;
 }
 
 .modalSuccess {
-    /* lớp phủ mờ */
     display: none;
     position: fixed;
     top: 0;
@@ -172,7 +212,7 @@ span{
 
 .modal-inner {
     width: 450px;
-    height: 350px;
+    height: 400px;
     position: relative;
     top: 50%;
     left: 50%;
@@ -191,10 +231,10 @@ span{
     padding: 10px;
     border-radius: 10px 10px 0 0;
     border-bottom: none;
-    background-color:  rgb(233, 209, 179);
+    background-color: rgb(233, 209, 179);
 }
 
-.modal-header .icon-success {
+.icon-success i{
     font-size: 100px;
     color: #11be45;
     margin-bottom: -25px;
@@ -244,9 +284,7 @@ span{
     font-family: 'Tahoma', sans-serif;
     font-size: 20px;
     padding: 0;
-
     font-weight: bold;
-
 }
 
 .btn-success:hover {
@@ -259,8 +297,6 @@ span{
 
 /*------------------------------------------MODAL FAIL----------------------------------------------*/
 .modalFail {
-    
-    /* lớp phủ mờ */
     display: none;
     position: fixed;
     height: 100vh;
@@ -268,7 +304,7 @@ span{
     background-color: rgba(0, 0, 0, 0.6);
     z-index: 10000;
     top: 0;
-    left: 0;    
+    left: 0;
 }
 
 .modal-innerFail {
@@ -298,7 +334,7 @@ span{
 .modal-headerFail .iconFail {
     font-size: 100px;
     color: red;
-    margin-bottom:-25px;
+    margin-bottom: -25px;
 }
 
 .modal-bodyFail h4 {
@@ -390,7 +426,7 @@ span{
     padding: 10px;
     border-radius: 10px 10px 0 0;
     border-bottom: none;
-    background-color:rgb(233, 209, 179) ;
+    background-color: rgb(233, 209, 179);
 }
 
 .modal-headerNoExist .iconNoExist {
@@ -449,7 +485,6 @@ span{
 
 .btn-NoExist:hover {
     background-color: orange;
-    /* text-decoration: underline; */
 }
 
 .modalNoExist.activeNoExist {
@@ -468,59 +503,77 @@ span{
     }
 }
 
-@media (max-width:438px ){
-    .form-login{
+@media (max-width:438px) {
+    .form-login {
         width: 100%;
         max-width: 350px;
         padding: 10px 20px;
         flex-direction: column;
     }
 
-    .form-login img{
+    .form-login img {
         width: 110px;
         align-items: center;
     }
 
-    .form-login h1{
+    .form-login h1 {
         margin-bottom: 5px;
     }
 
     .modal-header,
     .modal-headerFail,
-    .modal-headerNoExist{
+    .modal-headerNoExist {
         display: flex;
         max-width: 400px;
         width: 100%;
     }
 
-    .modal-header .icon-success{
+    .modal-header .icon-success {
         align-content: center;
     }
 }
 
-@media (max-width: 376px){
+@media (max-width: 376px) {
+
     .modal-body,
     .modal-bodyFail,
-    .modal-bodyNoExist h4{
+    .modal-bodyNoExist h4 {
         font-size: 30px;
     }
 
     .modal-body,
     .modal-bodyFail,
-    .modal-bodyNoExist p{
+    .modal-bodyNoExist p {
         font-size: 16px;
     }
 
-    .modal-footer .btn-success, 
+    .modal-footer .btn-success,
     .modal-footerFail .btn-fail,
-    .modal-footerNoExist .btn-NoExist{
+    .modal-footerNoExist .btn-NoExist {
         width: 250px;
     }
 }
 
-@media (max-width: 2560px) {
-    .form-login{
-        top: -50px;
+@media (max-width: 1024px) {
+    .form-login {
+        margin-bottom: 80px;
     }
 }
 
+@media (min-width: 1245px) {
+    .form-login {
+        margin-top: 60px;
+    }
+}
+
+@media (max-width: 1240px) {
+    .form-login {
+        margin-top: 60px;
+    }
+}
+
+@media (min-width: 1440px) {
+    .form-login {
+        margin-bottom: 70px;
+    }
+}

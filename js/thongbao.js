@@ -1,24 +1,42 @@
-document.addEventListener("DOMContentLoaded", function() {
-    const loginModal = document.getElementById("login-modal");
-    const closeModalButton = document.getElementById("close-modal");
+document.addEventListener("DOMContentLoaded", () => {
+    const customOrderModal = document.getElementById('custom-order-modal');
+    const customCloseOrderModal = document.getElementById('custom-close-order-modal');
+    const customContinueShoppingBtn = document.getElementById('custom-continue-shopping-btn');
+    const customGoToCartBtn = document.getElementById('custom-go-to-cart-btn');
 
-    // Lắng nghe sự kiện click trên tất cả các nút "Đặt mua" (mỗi nút có class 'buy-now')
-    document.body.addEventListener("click", function(event) {
-        // Kiểm tra nếu phần tử được click có class "buy-now"
-        if (event.target && event.target.classList.contains("buy-now")) {
-            loginModal.style.display = "flex"; // Hiển thị modal
-        }
+    const cartCount = document.getElementById('cart-count');
+
+    const buyNowButtons = document.querySelectorAll('.buy-now');
+
+    let cartQuantity = parseInt(localStorage.getItem('cartQuantity')) || 0;
+    cartCount.textContent = cartQuantity; 
+
+    buyNowButtons.forEach(button => {
+        button.addEventListener('click', (e) => {
+            e.preventDefault();
+            console.log("Nút Đặt mua được nhấn!"); 
+            customOrderModal.style.display = 'block';
+            cartQuantity++;
+            cartCount.textContent = cartQuantity;
+            localStorage.setItem('cartQuantity', cartQuantity);
+        });
     });
 
-    // Đóng modal khi click vào nút đóng
-    closeModalButton.addEventListener("click", function() {
-        loginModal.style.display = "none"; // Ẩn modal khi bấm nút đóng
+    customCloseOrderModal.addEventListener('click', () => {
+        customOrderModal.style.display = 'none';
     });
 
-    // Đóng modal khi click ra ngoài modal
-    window.addEventListener("click", function(event) {
-        if (event.target == loginModal) {
-            loginModal.style.display = "none"; // Ẩn modal khi bấm ra ngoài modal
+    customContinueShoppingBtn.addEventListener('click', () => {
+        customOrderModal.style.display = 'none';
+    });
+
+    customGoToCartBtn.addEventListener('click', () => {
+        customOrderModal.style.display = 'none';
+        window.location.href = '../cart.html';
+    });
+    window.addEventListener('click', (event) => {
+        if (event.target === customOrderModal) {
+            customOrderModal.style.display = 'none';
         }
     });
 });

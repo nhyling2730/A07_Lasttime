@@ -21,12 +21,12 @@
             <ul>
                 <li class="active"><a href="#"><i class="fa-solid fa-house-chimney"></i>Trang chủ</a></li>
                 <li class="dropdown">
-                    <a href="#" id="menu-toggle"><i class="fa-solid fa-caret-down"></i>Thực đơn</a>
+                    <a href="../user/menu/allmenu.html" id="menu-toggle"><i class="fa-solid fa-caret-down"></i>Thực đơn</a>
                     <ul class="sub-menu">
-                        <li><a href="#"><span>Cà phê phin</span></a></li>
-                        <li><a href="#"><span>Phindi</span></a></li>
-                        <li><a href="#"><span>Freeze</span></a></li>
-                        <li><a href="#"><span>Trà</span></a></li>
+                        <li><a href="./menu/phin-menu.html"><span>Cà phê phin</span></a></li>
+                        <li><a href="./menu/phindi-menu.html"><span>Phindi</span></a></li>
+                        <li><a href="./menu/freeze-menu.html"><span>Freeze</span></a></li>
+                        <li><a href="./menu/tra-menu.html"><span>Trà</span></a></li>
                     </ul>
                 </li>
                 <li><a href="./news.html"><i class="fa-solid fa-newspaper"></i>Tin tức</a></li>
@@ -63,14 +63,14 @@
                         </div>
                         <ul id="price-list" class="dropdown-list">
                             <li class="dropdown-list-item">Khoảng giá</li>
-                            <li class="dropdown-list-item">Dưới 20k</li>
-                            <li class="dropdown-list-item">20k - 50k</li>
-                            <li class="dropdown-list-item">Trên 50k</li>
+                            <li class="dropdown-list-item">Dưới 40.000 VNĐ</li>
+                            <li class="dropdown-list-item">40.000 - 50.000 VNĐ</li>
+                            <li class="dropdown-list-item">Trên 50.000 VNĐ</li>
                         </ul>
                     </li>
                     <li class="search-box">
                         <input type="text" id="search-input" placeholder="Tìm kiếm..." required/>
-                        <button type="submit" href="./search.html">
+                        <button type="submit">
                             <i class="fa-solid fa-magnifying-glass"></i>
                         </button>
                     </li>
@@ -78,15 +78,18 @@
             </form>
             </div>
             <div class="icon-item">
-                <a href=""><i class="fa-solid fa-cart-shopping"></i></a>
+                <a href="">
+                    <i class="fa-solid fa-cart-shopping"></i>
+                    <span id="cart-count">0</span>
+                </a>
             </div>
             <div class="icon-item">
                 <a href="javascript:void(0);">
                     <img src="../image/khác/user.png">
                     <ul class="dropdown-user1">
-                        <li><a href="">Thông tin cá nhân</a></li>
+                        <li><a href="./profile.html">Thông tin cá nhân</a></li>
                         <li><a href="">Đơn đã mua</a></li>
-                        <li><a href="">Đăng xuất</a></li>
+                        <li><a href="../index.html">Đăng xuất</a></li>
                     </ul>
                 </a>
             </div>
@@ -142,97 +145,7 @@
     </section>
     <section class="bestseller">
         <div class="col-3 product-item" id="productList">
-            <div class="menu_item">
-                <div class="menu_item_img">
-                    <a href="">
-                        <img src="../image/phin/phisuanda_nho.png" class="menu_img" alt="Phin sữa đá">
-                    </a>
-                </div>
-                <div class="menu_item_info">
-                    <a href="">
-                        <h3 class="menu_item_title"><strong>Phin sữa đá</strong></h3>
-                    </a>
-                    <p class="price_item">34.000đ</p>
-                </div>
-            </div>
-            <div class="menu_item">
-                <div class="menu_item_img">
-                    <a href="">
-                        <img src="../image/phin/phindenda_nho.png" class="menu_img" alt="Phindi đen đá">
-                    </a>
-                </div>
-                <div class="menu_item_info">
-                    <a href="">
-                        <h3 class="menu_item_title"><strong>Phin đen đá</strong></h3>
-                    </a>
-                    <p class="price_item">34.000đ</p>
-                </div>
-            </div>
-            <div class="menu_item">
-                <div class="menu_item_img">
-                    <a href="">
-                        <img src="../image/phindi/phindihanhnhan_nho.png" class="menu_img" alt="Phindi hạnh nhân">
-                    </a>
-                </div>
-                <div class="menu_item_info">
-                    <a href="">
-                        <h3 class="menu_item_title"><strong>Phindi hạnh nhân</strong></h3>
-                    </a>
-                    <p class="price_item">34.000đ</p>
-                </div>
-            </div>
-            <div class="menu_item">
-                <div class="menu_item_img">
-                    <a href="">
-                        <img src="../image/phindi/phindikemsua_nho.png" class="menu_img" alt="Phindi kem sữa">
-                    </a>
-                </div>
-                <div class="menu_item_info">
-                    <a href="">
-                        <h3 class="menu_item_title"><strong>Phindi kem sữa</strong></h3>
-                    </a>
-                    <p class="price_item">34.000đ</p>
-                </div>
-            </div>
-            <div class="menu_item">
-                <div class="menu_item_img">
-                    <a href="">
-                        <img src="../image/freeze/freezetraxanh_nho.png" class="menu_img" alt="Freeze trà xanh">
-                    </a>
-                </div>
-                <div class="menu_item_info">
-                    <a href="">
-                        <h3 class="menu_item_title"><strong>Freeze trà xanh</strong></h3>
-                    </a>
-                    <p class="price_item">34.000đ</p>
-                </div>
-            </div>
-            <div class="menu_item">
-                <div class="menu_item_img">
-                    <a href="">
-                        <img src="../image/freeze/caramelphinfreeze_nho.png" class="menu_img" alt="Caramel phin freeze">
-                    </a>
-                </div>
-                <div class="menu_item_info">
-                    <a href="">
-                        <h3 class="menu_item_title"><strong>Caramel phin freeze</strong></h3>
-                    </a>
-                    <p class="price_item">34,000đ</p>
-                </div>
-            </div>
-            <div class="menu_item">
-                <div class="menu_item_img">
-                    <a href="">
-                        <img src="../image/trà/trasenvang(cunang)_nho.png" class="menu_img" alt="Trà sen vàng (củ năng)">
-                    </a>
-                </div>
-                <div class="menu_item_info">
-                    <a href="">
-                        <h3 class="menu_item_title"><strong>Trà sen vàng (củ năng)</strong></h3>
-                    </a>
-                    <p class="price_item">34.000đ</p>
-                </div>
-            </div>
+            <!-- Sản phẩm -->
         </div>  
         <ul class="listpage">
             <li class="page1"><i class="fa-solid fa-angles-left"></i></li>
@@ -251,18 +164,18 @@
             <div class="footer-section links">
                 <h2>Liên kết</h2>
                 <ul>
-                    <li><a href="#">Trang chủ</a></li>
-                    <li><a href="#">Thực dơn</a></li>
-                    <li><a href="#">Tin tức</a></li>
-                    <li><a href="#">Giới thiệu</a></li>
-                    <li><a href="#">Liên hệ</a></li>
+                    <li><a href="./index_user.html">Trang chủ</a></li>
+                    <li><a href="./menu/allmenu.html">Thực đơn</a></li>
+                    <li><a href="./news.html">Tin tức</a></li>
+                    <li><a href="./introduce.html">Giới thiệu</a></li>
+                    <li><a href="./contact.html">Liên hệ</a></li>
                 </ul>
             </div>
             <div class="footer-section social">
                 <h2>Kết nối với chúng tôi</h2>
                 <a href="https://web.facebook.com/highlandscoffeevietnam" target="_blank"><i class="fa-brands fa-facebook"></i></a>
                 <a href="https://www.instagram.com/highlandscoffeevietnam/" target="_blank"><i class="fa-brands fa-instagram"></i></a>
-                <a href="https://x.com/" target="_blank"><i class="fa-brands fa-twitter"></i></a>
+                <a href="https://x.com/" target="_blank"><i class="fa-brands fa-x-twitter"></i></a>
             </div>
             <div class="footer-section members">
                 <h2>Thành viên</h2>

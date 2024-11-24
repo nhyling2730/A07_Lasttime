@@ -6,8 +6,7 @@
     <link rel="stylesheet" href="../css/fontawesome-free-6.6.0-web/css/all.min.css">
     <link rel="stylesheet" href="../css/index.css">
     <link rel="stylesheet" href="../bootstrap-5.0.2-dist/css/bootstrap.min.css">
-    <title>Kết Quả Tìm Kiếm</title>
-    
+    <title>Kết Quả Tìm Kiếm</title>    
 </head>
 <body>
     <header>
@@ -22,12 +21,12 @@
             <ul>
                 <li><a href="../index.html"><i class="fa-solid fa-house-chimney"></i>Trang chủ</a></li>
                 <li class="dropdown active">
-                    <a href="" id="menu-toggle"><i class="fa-solid fa-caret-down"></i>Thực đơn</a>
+                    <a href="../user/menu/allmenu.html" id="menu-toggle"><i class="fa-solid fa-caret-down"></i>Thực đơn</a>
                     <ul class="sub-menu">
-                        <li><a href="#"><span>Cà phê phin</span></a></li>
-                        <li><a href="#"><span>Phindi</span></a></li>
-                        <li><a href="#"><span>Freeze</span></a></li>
-                        <li><a href="#"><span>Trà</span></a></li>
+                        <li><a href="../user/menu/phin-menu.html"><span>Cà phê phin</span></a></li>
+                        <li><a href="../user/menu/phindi-menu.html"><span>Phindi</span></a></li>
+                        <li><a href="../user/menu/freeze-menu.html"><span>Freeze</span></a></li>
+                        <li><a href="../user/menu/tra-menu.html"><span>Trà</span></a></li>
                     </ul>
                 </li>
                 <li><a href="./news.html"><i class="fa-solid fa-newspaper"></i>Tin tức</a></li>
@@ -79,14 +78,26 @@
             </form>
             </div>
             <div class="icon-item">
-                <a href=""><i class="fa-solid fa-cart-shopping"></i></a>
+                <a href="#" id="cart-icon"><i class="fa-solid fa-cart-shopping"></i></a>
             </div>
+            <!-- Giỏ hàng -->
+            <div class="modal" id="login-modal">
+                <div class="modal-content">
+                    <span class="close-btn" id="close-modal">&times;</span>
+                    <h3><b>Bạn chưa đăng nhập</b></h3>
+                    <h5>Vui lòng đăng nhập hoặc đăng ký để xem giỏ hàng.</h5>
+                    <div class="modal-actions">
+                        <button class="modal-btn" id="login-btn">Đăng nhập</button>
+                        <button class="modal-btn" id="register-btn">Đăng ký</button>
+                    </div>
+                </div>
+            </div>  
             <div class="icon-item">
                 <a href="javascript:void(0);">
                     <i class="fa-solid fa-user"></i>
                     <ul class="dropdown-user">
-                        <li><a href="">Đăng nhập</a></li>
-                        <li><a href="">Đăng ký</a></li>
+                        <li><a href="../user/login_user.html">Đăng nhập</a></li>
+                        <li><a href="../user/signup_user.html">Đăng ký</a></li>
                     </ul>
                 </a>
             </div>
@@ -100,46 +111,46 @@
                 <p class="results-count">Tìm thấy <b>6</b> sản phẩm phù hợp cho <b>"phin"</b></p>
                 <div class="product-grid">
                     <div class="mon">
-                        <img src="../image/phin/phindenda_nho.png">
-                        <a href="">CÀ PHÊ PHIN</a>
-                        <h3>Phin đen đá</h3>
-                        <p class="price">32.000 VNĐ</p>
-                        <a class="btn btn-primary">Đặt mua</a>
-                    </div>
-                    <div class="mon">
                         <img src="../image/phin/phisuanda_nho.png">
-                        <a href="">CÀ PHÊ PHIN</a>
+                        <a href="../user/menu/phin-menu.html">CÀ PHÊ PHIN</a>
                         <h3>Phin sữa đá</h3>
                         <p class="price">35.000 VNĐ</p>
-                        <a class="btn btn-primary">Đặt mua</a>
+                        <a class="btn btn-primary" id="order-btn">Đặt mua</a>
                     </div>
                     <div class="mon">
-                        <img src="../image/phindi/phindicassia_nho.png">
-                        <a href="">PHIN</a>
-                        <h3>Phindi cassia</h3>
-                        <p class="price">55.000 VNĐ</p>
-                        <a class="btn btn-primary">Đặt mua</a>
-                    </div>
-                    <div class="mon">
-                        <img src="../image/phindi/phindichoco_nho.png">
-                        <a href="">PHIN</a>
-                        <h3>Phindi choco</h3>
-                        <p class="price">55.000 VNĐ</p>
-                        <a class="btn btn-primary">Đặt mua</a>
+                        <img src="../image/phin/phindenda_nho.png">
+                        <a href="../user/menu/phin-menu.html">CÀ PHÊ PHIN</a>
+                        <h3>Phin đen đá</h3>
+                        <p class="price">32.000 VNĐ</p>
+                        <a class="btn btn-primary" id="order-btn">Đặt mua</a>
                     </div>
                     <div class="mon">
                         <img src="../image/phindi/phindihanhnhan_nho.png">
-                        <a href="">PHIN</a>
+                        <a href="../user/menu/phindi-menu.html">PHINDI</a>
                         <h3>Phindi hạnh nhân</h3>
                         <p class="price">55.000 VNĐ</p>
-                        <a class="btn btn-primary">Đặt mua</a>
+                        <a class="btn btn-primary" id="order-btn">Đặt mua</a>
                     </div>
                     <div class="mon">
                         <img src="../image/phindi/phindikemsua_nho.png">
-                        <a href="">PHIN</a>
+                        <a href="../user/menu/phindi-menu.html">PHINDI</a>
                         <h3>Phindi kem sữa</h3>
                         <p class="price">55.000 VNĐ</p>
-                        <a class="btn btn-primary">Đặt mua</a>
+                        <a class="btn btn-primary" id="order-btn">Đặt mua</a>
+                    </div>
+                    <div class="mon">
+                        <img src="../image/phindi/phindichoco_nho.png">
+                        <a href="../user/menu/phindi-menu.html">PHINDI</a>
+                        <h3>Phindi choco</h3>
+                        <p class="price">55.000 VNĐ</p>
+                        <a class="btn btn-primary" id="order-btn">Đặt mua</a>
+                    </div>
+                    <div class="mon">
+                        <img src="../image/phindi/phindicassia_nho.png">
+                        <a href="../user/menu/phindi-menu.html">PHINDI</a>
+                        <h3>Phindi cassia</h3>
+                        <p class="price">55.000 VNĐ</p>
+                        <a class="btn" style="background-color: #999 !important; color: #fff !important; cursor: not-allowed;">Hết hàng</a>
                     </div>
                 </div>
             </div>
@@ -149,18 +160,19 @@
                 <li>2</li>
                 <li class="page2"><i class="fa-solid fa-angles-right"></i></li>
             </ul> 
-        </section>
-        <div class="modal" id="login-modal">
-            <div class="modal-content">
-                <span class="close-btn" id="close-modal">&times;</span>
-                <h3><b>Bạn chưa đăng nhập</b></h3>
-                <h5>Vui lòng đăng nhập hoặc đăng ký để mua.</h5>
-                <div class="modal-actions">
-                    <button class="modal-btn" id="login-btn">Đăng nhập</button>
-                    <button class="modal-btn" id="register-btn">Đăng ký</button>
+            <!-- Đặt mua -->
+            <div class="modal-purchase" id="login-modal-purchase">
+                <div class="modal-content">
+                    <span class="close-btn" id="close-modal-purchase">&times;</span>
+                    <h3><b>Bạn chưa đăng nhập</b></h3>
+                    <h5>Vui lòng đăng nhập hoặc đăng ký để mua.</h5>
+                    <div class="modal-actions">
+                        <button class="modal-btn" id="login-btn-purchase">Đăng nhập</button>
+                        <button class="modal-btn" id="register-btn-purchase">Đăng ký</button>
+                    </div>
                 </div>
             </div>
-        </div>
+        </section>
     </main>
     <!-- FOOTER -->
     <footer class="footer">
@@ -172,18 +184,18 @@
             <div class="footer-section links">
                 <h2>Liên kết</h2>
                 <ul>
-                    <li><a href="#">Trang chủ</a></li>
-                    <li><a href="#">Thực dơn</a></li>
-                    <li><a href="#">Tin tức</a></li>
-                    <li><a href="#">Giới thiệu</a></li>
-                    <li><a href="#">Liên hệ</a></li>
+                    <li><a href="../index.html">Trang chủ</a></li>
+                    <li><a href="../user/menu/allmenu.html">Thực đơn</a></li>
+                    <li><a href="../user/news.html">Tin tức</a></li>
+                    <li><a href="../user/introduce.html">Giới thiệu</a></li>
+                    <li><a href="../user/contact.html">Liên hệ</a></li>
                 </ul>
             </div>
             <div class="footer-section social">
                 <h2>Kết nối với chúng tôi</h2>
                 <a href="https://web.facebook.com/highlandscoffeevietnam" target="_blank"><i class="fa-brands fa-facebook"></i></a>
                 <a href="https://www.instagram.com/highlandscoffeevietnam/" target="_blank"><i class="fa-brands fa-instagram"></i></a>
-                <a href="https://x.com/" target="_blank"><i class="fa-brands fa-twitter"></i></a>
+                <a href="https://x.com/" target="_blank"><i class="fa-brands fa-x-twitter"></i></a>
             </div>
             <div class="footer-section members">
                 <h2>Thành viên</h2>

@@ -111,10 +111,10 @@ const renderProducts = [
         "productCode": "HC16",
         "image": "../../image/trà/trasenvang(cunang)_nho.png",
         "category": "Trà",
-        "name": "Trà sen vang (củ năng)",
+        "name": "Trà sen vàng (củ năng)",
         "price": "45.000 VNĐ",
         "description": "Thức uống chinh phục những thực khách khó tính! Sự kết hợp độc đáo giữa trà Ô long, hạt sen thơm bùi và củ năng giòn tan. Thêm vào chút sữa sẽ để vị thêm ngọt ngào.",
-        "availability": true 
+        "availability": false 
     },
     {
         "productCode": "HC15",
@@ -210,7 +210,6 @@ document.addEventListener("DOMContentLoaded", function() {
 const productsPerPage = 4;
 let currentPage = 1;
 
-// Lấy danh sách sản phẩm và tính số trang
 const productList = document.querySelector(".product-grid");
 const products = Array.from(productList.getElementsByClassName("mon"));
 const totalPages = Math.ceil(products.length / productsPerPage);
@@ -227,12 +226,10 @@ function displayPage(page) {
 }
 
 function updatePagination() {
-    // Cập nhật trạng thái của số trang
     document.querySelectorAll(".pagination li").forEach((li) => {
         li.classList.toggle("active", parseInt(li.textContent) === currentPage);
     });
 
-    // Vô hiệu hóa nút chuyển trang khi ở trang đầu tiên hoặc cuối cùng
     const prevButton = document.querySelector(".page1");
     const nextButton = document.querySelector(".page2");
 
@@ -243,7 +240,6 @@ function updatePagination() {
     nextButton.style.opacity = currentPage === totalPages ? "0.5" : "1";
 }
 
-// Sự kiện khi nhấp vào phân trang
 document.querySelector(".pagination").addEventListener("click", (e) => {
     const clickedElement = e.target.closest("li");
 
@@ -257,13 +253,12 @@ document.querySelector(".pagination").addEventListener("click", (e) => {
     displayPage(currentPage);
 });
 
-// Khởi tạo hiển thị trang đầu tiên
 displayPage(currentPage);
 
 /*-*/
 document.addEventListener("DOMContentLoaded", function() {
     const addToCartButton = document.querySelector(".btn-add-to-cart");
-    const orderButtons = document.querySelectorAll(".btn-primary"); // Lấy tất cả các nút Đặt mua
+    const orderButtons = document.querySelectorAll(".btn-primary");
     const loginModal = document.getElementById("login-modal");
     const closeModalButton = document.getElementById("close-modal");
 
@@ -297,28 +292,23 @@ document.addEventListener("DOMContentLoaded", () => {
         return;
     }
 
-
     const breadcumCategory = document.querySelector("#breadcum-category");
     breadcumCategory.textContent = productData.category;
 
     breadcumCategory.addEventListener('click', () => {
         window.location.href = breadcumLinks[productData.category] ?? "../menu/allmenu.html#all-menu-section"
     })
-    
 
     const breadcumProduct = document.querySelector("#breadcum-product");
     breadcumProduct.textContent = productData.name;
-
     
     document.querySelector(".product-gallery img").src = productData.image;
     document.querySelector(".product_details_info h3").textContent = productData.name;
     document.querySelector(".availability b").textContent = productData.availability ? "Còn hàng" : "Hết hàng"; 
-    document.querySelector(".availability").innerHTML += ` | Mã SKU: <b>${productData.productCode}</b>`;
+    document.querySelector(".availability").innerHTML += ` | Mã sản phẩm: <b>${productData.productCode}</b>`;
     document.querySelector(".price").textContent = productData.price;
     document.querySelector(".product_tag-read p").textContent = productData.description;
 
-
-    //Thức uống khác 
     const relatedProducts = renderProducts
     .filter((p) => p.productCode !== productData.productCode)
     .slice(0, 8);
@@ -355,14 +345,14 @@ document.addEventListener("DOMContentLoaded", () => {
             element.addEventListener("click", () => {
                 const product = JSON.parse(element.getAttribute("data-product"));
                 localStorage.setItem("selectedProduct", JSON.stringify(product));
-                window.location.href = "../product/phinsuada.html";
+                window.location.href = "../product/mota.html";
             });
         });
     }
 
     // Function to render pagination controls
     function renderPagination() {
-        paginationContainer.innerHTML = ""; // Clear current pagination
+        paginationContainer.innerHTML = "";
 
         const prevItem = document.createElement("li");
         prevItem.classList.add("page1");
@@ -414,35 +404,25 @@ document.addEventListener("DOMContentLoaded", function() {
     const priceElement = document.querySelector(".price");
     const sizeButtons = document.querySelectorAll(".size-btn");
     let basePrice = parseInt(priceElement.textContent.replace("VNĐ", "").replace(/\./g, ""));
-    // Hàm để cập nhật giá
     function updatePrice(size) {
-        let newPrice = basePrice; // Bắt đầu với giá của size S
+        let newPrice = basePrice;
         if (size === "M") {
-            newPrice += 5000; // Giá của size M
+            newPrice += 5000; 
         } else if (size === "L") {
-            newPrice += 10000; // Giá của size L
+            newPrice += 10000; 
         }
-        // Cập nhật giá hiển thị
         priceElement.textContent = newPrice.toLocaleString() + " VNĐ";
     }
-
-    // Lắng nghe sự kiện click trên các nút kích cỡ
     sizeButtons.forEach(function(button) {
         button.addEventListener("click", function() {
-            // Xóa lớp active khỏi tất cả các nút
             sizeButtons.forEach(function(btn) {
                 btn.classList.remove("active");
             });
 
-            // Thêm lớp active vào nút đã nhấn
             button.classList.add("active");
 
-            // Cập nhật giá dựa trên kích cỡ đã chọn
             updatePrice(button.getAttribute("data-size"));
         });
     });
 });
 
-    
-    
-    

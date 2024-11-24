@@ -111,10 +111,10 @@ const renderProducts = [
         "productCode": "HC16",
         "image": "../../image/trà/trasenvang(cunang)_nho.png",
         "category": "Trà",
-        "name": "Trà sen vang (củ năng)",
+        "name": "Trà sen vàng (củ năng)",
         "price": "45.000 VNĐ",
         "description": "Thức uống chinh phục những thực khách khó tính! Sự kết hợp độc đáo giữa trà Ô long, hạt sen thơm bùi và củ năng giòn tan. Thêm vào chút sữa sẽ để vị thêm ngọt ngào.",
-        "availability": true 
+        "availability": false 
     },
     {
         "productCode": "HC15",
@@ -225,7 +225,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 const productIndex = (page - 1) * pageSize + index; // Adjust index for current page
                 const product = filteredRenderProducts[productIndex];
                 localStorage.setItem("selectedProduct", JSON.stringify(product));
-                window.location.href = "../product/phinsuada.html"; // Redirect to the product detail page
+                window.location.href = "../product/mota.html"; // Redirect to the product detail page
             });
         });
     }
@@ -283,3 +283,4 @@ document.addEventListener("DOMContentLoaded", () => {
     renderPage(currentPage);
     renderPagination();
 });
+
