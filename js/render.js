@@ -47,7 +47,7 @@ const renderProducts = [
     {
         "productCode": "HC03",
         "image": "../../image/phin/bacxiuda_nho.png",
-        "category": "Phin cà phê",
+        "category": "Cà phê phin",
         "name": "Bạc xỉu đá",
         "price": "29.000 VNĐ",
         "description": "Nếu Phin Sữa Đá dành cho các bạn đam mê vị đậm đà, thì Bạc Xỉu Đá là một sự lựa chọn nhẹ “đô\" cà phê nhưng vẫn thơm ngon, chất lừ không kém!",
@@ -56,7 +56,7 @@ const renderProducts = [
     {
         "productCode": "HC01",
         "image": "../../image/phin/phisuanda_nho.png",
-        "category": "Phin cà phê",
+        "category": "Cà phê phin",
         "name": "Phin sữa đá",
         "price": "35.000 VNĐ",
         "description": "Hương vị cà phê Việt Nam đích thực! Từng hạt cà phê hảo hạng được chọn bằng tay, phối trộn độc đáo giữa hạt Robusta từ cao nguyên Việt Nam, thêm Arabica thơm lừng. Cà phê được pha từ Phin truyền thống, hoà cùng sữa đặc sánh và thêm vào chút đá tạo nên ly Phin Sữa Đá – Đậm Đà Chất Phin.",
@@ -65,7 +65,7 @@ const renderProducts = [
     {
         "productCode": "HC02",
         "image": "../../image/phin/phindenda_nho.png",
-        "category": "Phin cà phê",
+        "category": "Cà phê phin",
         "name": "Phin đen đá",
         "price": "32.000 VNĐ",
         "description": "Dành cho những tín đồ cà phê đích thực! Hương vị cà phê truyền thống được phối trộn độc đáo tại Highlands. Cà phê đậm đà pha hoàn toàn từ Phin, cho thêm 1 thìa đường, một ít đá viên mát lạnh, tạo nên Phin Đen Đá mang vị cà phê đậm đà chất Phin.",
@@ -164,37 +164,36 @@ const renderProducts = [
 ]
 
 document.addEventListener("DOMContentLoaded", () => {
-    // Pagination settings
     let pageSize = 8;
     let currentPage = 1;
 
     const productContainer = document.querySelector(".custom-products");
     const paginationContainer = document.querySelector(".pagination");
-    
+    const loginModal = document.getElementById("login-modal-purchase");
+    const closeModal = document.getElementById("close-modal-purchase");
+    const loginBtn = document.getElementById("login-btn-purchase");
+    const registerBtn = document.getElementById("register-btn-purchase");
+
     const listCategory = productContainer.getAttribute('data-category');
 
-    let filteredRenderProducts = renderProducts
-    if(listCategory) {
+    let filteredRenderProducts = renderProducts;
+    if (listCategory) {
         filteredRenderProducts = filteredRenderProducts.filter(item => item.category == listCategory);
         pageSize = 4;
     }
-    else {
-    }
-    
+
     // Function to render products for the current page
     function renderPage(page) {
-        productContainer.innerHTML = ""; // Clear current products
+        productContainer.innerHTML = ""; 
         const startIndex = (page - 1) * pageSize;
         const endIndex = startIndex + pageSize;
-        
 
         const pageProducts = filteredRenderProducts.slice(startIndex, endIndex);
 
         pageProducts.forEach((product, index) => {
-        const isOutOfStock = index  == 0 && listCategory == "Phindi"
-            || index == 3 && listCategory == "Trà"
-            || (currentPage == 2 && (index == 0 || index == 7) && !listCategory)
-        ; 
+            const isOutOfStock = index == 0 && listCategory == "Phindi"
+                || index == 3 && listCategory == "Trà"
+                || (currentPage == 2 && (index == 0 || index == 7) && !listCategory);
 
             const productItem = document.createElement("li");
             productItem.innerHTML = `
@@ -208,34 +207,73 @@ document.addEventListener("DOMContentLoaded", () => {
                         <a href="" class="custom-product-cat">${product.category}</a>
                         <a href="" class="custom-product-name">${product.name}</a>
                         <div class="custom-product-price">${product.price}</div>
-                       <button class="buy-now" ${isOutOfStock ? 'style="background-color: #999; color: #fff; cursor: not-allowed;" disabled' : ''}>
-                    ${isOutOfStock ? "Hết hàng" : "Đặt mua"}
-                </button>
+                        <button class="buy-now" ${isOutOfStock ? 'style="background-color: #999; color: #fff; cursor: not-allowed;" disabled' : ''}>
+                            ${isOutOfStock ? "Hết hàng" : "Đặt mua"}
+                        </button>
                     </div>
                 </div>
             `;
             productContainer.appendChild(productItem);
         });
 
-        // Add click events to the newly rendered product links
-        const productLinks = document.querySelectorAll(".custom-product-top");
+        const productLinks = document.querySelectorAll(".custom-product-name");
+        const productImages = document.querySelectorAll(".custom-product-top");
+
         productLinks.forEach((link, index) => {
             link.addEventListener("click", (e) => {
                 e.preventDefault();
-                const productIndex = (page - 1) * pageSize + index; // Adjust index for current page
+                const productIndex = (page - 1) * pageSize + index;
                 const product = filteredRenderProducts[productIndex];
                 localStorage.setItem("selectedProduct", JSON.stringify(product));
-                window.location.href = "../product/mota.html"; // Redirect to the product detail page
+                window.location.href = "../product/mota.html"; 
+            });
+        });
+
+        productImages.forEach((image, index) => {
+            image.addEventListener("click", (e) => {
+                e.preventDefault();
+                const productIndex = (page - 1) * pageSize + index;
+                const product = filteredRenderProducts[productIndex]; 
+                localStorage.setItem("selectedProduct", JSON.stringify(product));
+                window.location.href = "../product/mota.html"; 
+            });
+        });
+
+        const categoryLinks = document.querySelectorAll(".custom-product-cat");
+        categoryLinks.forEach(link => {
+            link.addEventListener("click", (e) => {
+                e.preventDefault();
+                const categoryName = link.textContent.trim().toLowerCase();
+
+                let targetPage = "";
+                if (categoryName === "cà phê phin") {
+                    targetPage = "./phin-menu.html";
+                } else if (categoryName === "phindi") {
+                    targetPage = "./phindi-menu.html";
+                } else if (categoryName === "freeze") {
+                    targetPage = "./freeze-menu.html";
+                } else if (categoryName === "trà") {
+                    targetPage = "./tra-menu.html";
+                } else {
+                    targetPage = "./default-menu.html";
+                }
+                window.location.href = targetPage;
+            });
+        });
+
+        const buyNowButtons = document.querySelectorAll(".buy-now");
+        buyNowButtons.forEach(button => {
+            button.addEventListener("click", (e) => {
+                e.preventDefault();
+                loginModal.style.display = "flex";
             });
         });
     }
 
-    // Function to render pagination controls
     function renderPagination() {
-        paginationContainer.innerHTML = ""; // Clear current pagination
-
+        paginationContainer.innerHTML = "";
         const totalPages = Math.ceil(filteredRenderProducts.length / pageSize);
-
+    
         // Previous button
         const prevItem = document.createElement("li");
         prevItem.classList.add("page1");
@@ -247,8 +285,14 @@ document.addEventListener("DOMContentLoaded", () => {
                 renderPagination();
             }
         });
+    
+        if (currentPage === 1) {
+            prevItem.style.pointerEvents = "none";
+            prevItem.style.opacity = "0.5";
+        }
+    
         paginationContainer.appendChild(prevItem);
-
+    
         // Page numbers
         for (let i = 1; i <= totalPages; i++) {
             const pageItem = document.createElement("li");
@@ -263,8 +307,17 @@ document.addEventListener("DOMContentLoaded", () => {
                 renderPagination();
             });
             paginationContainer.appendChild(pageItem);
+    
+            // If there are 2 pages, add extra margin between page 1 and page 2
+            if (totalPages === 2 && i === 1) {
+                pageItem.style.marginRight = "0px";
+            }
+    
+            if (totalPages === 2 && i === 2) {
+                pageItem.style.marginLeft = "1px";
+            }
         }
-
+    
         // Next button
         const nextItem = document.createElement("li");
         nextItem.classList.add("page2");
@@ -276,11 +329,43 @@ document.addEventListener("DOMContentLoaded", () => {
                 renderPagination();
             }
         });
+    
+        if (currentPage === totalPages) {
+            nextItem.style.pointerEvents = "none";
+            nextItem.style.opacity = "0.5"; 
+        }
+    
         paginationContainer.appendChild(nextItem);
-    }
+
+        if (totalPages === 1) {
+            prevItem.style.marginRight = "2px"; 
+            nextItem.style.marginLeft = "1px"; 
+        }
+        if (totalPages === 2) {
+            prevItem.style.marginRight = "2px"; 
+            nextItem.style.marginLeft = "1px"; 
+        }
+    }        
+
+    closeModal.addEventListener("click", () => {
+        loginModal.style.display = "none";
+    });
+
+    window.addEventListener("click", (event) => {
+        if (event.target === loginModal) {
+            loginModal.style.display = "none";
+        }
+    });
+
+    loginBtn.addEventListener("click", () => {
+        window.location.href = "../login_user.html"; 
+    });
+
+    registerBtn.addEventListener("click", () => {
+        window.location.href = "../signup_user.html"; 
+    });
 
     // Initial render
     renderPage(currentPage);
     renderPagination();
 });
-

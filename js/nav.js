@@ -224,10 +224,10 @@ document.addEventListener("DOMContentLoaded", function () {
   const registerButton = document.getElementById("register-btn");
 
   loginButton.addEventListener("click", function() {
-    window.location.href = "../user/login_user.html";
+    window.location.href = "../login_user.html";
   });
 
   registerButton.addEventListener("click", function() {
-    window.location.href = "../user/signup_user.html"; 
+    window.location.href = "../signup_user.html"; 
   });
 });

@@ -91,8 +91,8 @@
                     <h3><b>Bạn chưa đăng nhập</b></h3>
                     <h5>Vui lòng đăng nhập hoặc đăng ký để xem giỏ hàng.</h5>
                     <div class="modal-actions">
-                        <button class="modal-btn" id="login-btn">Đăng nhập</button>
-                        <button class="modal-btn" id="register-btn">Đăng ký</button>
+                        <button class="modal-btn" id="login-btn" style="color: #fff;">Đăng nhập</button>
+                        <button class="modal-btn" id="register-btn" style="color: #fff;">Đăng ký</button>
                     </div>
                 </div>
             </div>  
@@ -122,8 +122,8 @@
 </section>
     <div class="custom-product_tags">
         <a class="btn btn-outline-secondary " role="button" href="./allmenu.html" type="Tất cả">Tất cả</a>
-        <a class="btn btn-outline-secondary" role="button" href="./phin-menu.html#phin-menu-section" type="Phin">Cà phê Phin</a>
-        <a class="btn btn-outline-secondary" role="button" href="./phindi-menu.html#phindi-menu-section" type="Phindi">Phidi</a>
+        <a class="btn btn-outline-secondary" role="button" href="./phin-menu.html#phin-menu-section" type="Phin">Cà phê phin</a>
+        <a class="btn btn-outline-secondary" role="button" href="./phindi-menu.html#phindi-menu-section" type="Phindi">Phindi</a>
         <a class="btn btn-outline-secondary " role="button" href="./freeze-menu.html#freeze-menu-section" type="Freeze">Freeze</a>
         <a class="btn btn-outline-secondary" role="button" href="./tra-menu.html#tra-menu-section" type="Trà">Trà</a>
     </div>
@@ -142,7 +142,7 @@
 
     </div>
     <div id="custom-wrapper">
-        <ul class="custom-products">
+        <ul class="custom-products" style="display: flex; justify-content: center;">
        </ul>
         <!-- ... -->
         <ul class=" pagination" style="justify-content: center;">
@@ -152,18 +152,18 @@
             <li>3</li> <!-- Thêm trang thứ 3 -->
             <li class="page2"><i class="fa-solid fa-angles-right"></i></li>
         </ul>
-        <div class="modal" id="login-modal">
+        <!-- Đặt mua -->
+        <div class="modal-purchase" id="login-modal-purchase">
             <div class="modal-content">
-                <span class="close-btn" id="close-modal">&times;</span>
+                <span class="close-btn" id="close-modal-purchase">&times;</span>
                 <h3><b>Bạn chưa đăng nhập</b></h3>
                 <h5>Vui lòng đăng nhập hoặc đăng ký để mua.</h5>
                 <div class="modal-actions">
-                    <button class="modal-btn" id="login-btn">Đăng Nhập</button>
-                    <button class="modal-btn" id="register-btn">Đăng Ký</button>
+                    <button class="modal-btn" id="login-btn-purchase" style="color: #fff;">Đăng nhập</button>
+                    <button class="modal-btn" id="register-btn-purchase" style="color: #fff;">Đăng ký</button>
                 </div>
             </div>
-        </div>
-        
+        </div>        
     </div>
     <footer class="footer">
         <div class="footer-container">
@@ -210,7 +210,6 @@
     <script src="../../js/phantrangmenu.js"></script>
     <script src="../../js/render.js"></script>
     <script src="../../js/nav.js"></script>
-    <script src="../../js/thongbao.js"></script>
     <!-- BOOSTRAP JS  -->
     <script src="../../bootstrap-5.0.2-dist/js/bootstrap.bundle.min.js"></script>
     <script>

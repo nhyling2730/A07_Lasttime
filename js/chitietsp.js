@@ -47,7 +47,7 @@ const renderProducts = [
     {
         "productCode": "HC03",
         "image": "../../image/phin/bacxiuda_nho.png",
-        "category": "Phin cà phê",
+        "category": "Cà phê phin",
         "name": "Bạc xỉu đá",
         "price": "29.000 VNĐ",
         "description": "Nếu Phin Sữa Đá dành cho các bạn đam mê vị đậm đà, thì Bạc Xỉu Đá là một sự lựa chọn nhẹ “đô\" cà phê nhưng vẫn thơm ngon, chất lừ không kém!",
@@ -56,7 +56,7 @@ const renderProducts = [
     {
         "productCode": "HC01",
         "image": "../../image/phin/phisuanda_nho.png",
-        "category": "Phin cà phê",
+        "category": "Cà phê phin",
         "name": "Phin sữa đá",
         "price": "35.000 VNĐ",
         "description": "Hương vị cà phê Việt Nam đích thực! Từng hạt cà phê hảo hạng được chọn bằng tay, phối trộn độc đáo giữa hạt Robusta từ cao nguyên Việt Nam, thêm Arabica thơm lừng. Cà phê được pha từ Phin truyền thống, hoà cùng sữa đặc sánh và thêm vào chút đá tạo nên ly Phin Sữa Đá – Đậm Đà Chất Phin.",
@@ -65,7 +65,7 @@ const renderProducts = [
     {
         "productCode": "HC02",
         "image": "../../image/phin/phindenda_nho.png",
-        "category": "Phin cà phê",
+        "category": "Cà phê phin",
         "name": "Phin đen đá",
         "price": "32.000 VNĐ",
         "description": "Dành cho những tín đồ cà phê đích thực! Hương vị cà phê truyền thống được phối trộn độc đáo tại Highlands. Cà phê đậm đà pha hoàn toàn từ Phin, cho thêm 1 thìa đường, một ít đá viên mát lạnh, tạo nên Phin Đen Đá mang vị cà phê đậm đà chất Phin.",
@@ -165,12 +165,11 @@ const renderProducts = [
 
 
 /* Kích cỡ */
-
 const breadcumLinks = {
     "Freeze": "../menu/freeze-menu.html#freeze-menu-section",
     "Trà": "../menu/tra-menu.html#tra-menu-section",
     "Phindi": "../menu/phindi-menu.html#phindi-menu-section",
-    "Phin cà phê": "../menu/phin-menu.html#phin-menu-section"
+    "Cà phê phin": "../menu/phin-menu.html#phin-menu-section"
 }
 
 /* Số lượng */
@@ -206,85 +205,6 @@ document.addEventListener("DOMContentLoaded", function() {
     });
 });
 
-/* Phân trang */
-const productsPerPage = 4;
-let currentPage = 1;
-
-const productList = document.querySelector(".product-grid");
-const products = Array.from(productList.getElementsByClassName("mon"));
-const totalPages = Math.ceil(products.length / productsPerPage);
-
-function displayPage(page) {
-    const start = (page - 1) * productsPerPage;
-    const end = start + productsPerPage;
-
-    products.forEach((product, index) => {
-        product.style.display = index >= start && index < end ? "block" : "none";
-    });
-
-    updatePagination();
-}
-
-function updatePagination() {
-    document.querySelectorAll(".pagination li").forEach((li) => {
-        li.classList.toggle("active", parseInt(li.textContent) === currentPage);
-    });
-
-    const prevButton = document.querySelector(".page1");
-    const nextButton = document.querySelector(".page2");
-
-    prevButton.style.pointerEvents = currentPage === 1 ? "none" : "auto";
-    prevButton.style.opacity = currentPage === 1 ? "0.5" : "1";
-
-    nextButton.style.pointerEvents = currentPage === totalPages ? "none" : "auto";
-    nextButton.style.opacity = currentPage === totalPages ? "0.5" : "1";
-}
-
-document.querySelector(".pagination").addEventListener("click", (e) => {
-    const clickedElement = e.target.closest("li");
-
-    if (clickedElement.classList.contains("page1") && currentPage > 1) {
-        currentPage--;
-    } else if (clickedElement.classList.contains("page2") && currentPage < totalPages) {
-        currentPage++;
-    } else if (!isNaN(clickedElement.textContent)) {
-        currentPage = parseInt(clickedElement.textContent);
-    }
-    displayPage(currentPage);
-});
-
-displayPage(currentPage);
-
-/*-*/
-document.addEventListener("DOMContentLoaded", function() {
-    const addToCartButton = document.querySelector(".btn-add-to-cart");
-    const orderButtons = document.querySelectorAll(".btn-primary");
-    const loginModal = document.getElementById("login-modal");
-    const closeModalButton = document.getElementById("close-modal");
-
-    function showModal() {
-        loginModal.style.display = "flex";
-    }
-
-    if (addToCartButton) {
-        addToCartButton.addEventListener("click", showModal);
-    }
-
-    orderButtons.forEach(button => {
-        button.addEventListener("click", showModal);
-    });
-
-    closeModalButton.addEventListener("click", function() {
-        loginModal.style.display = "none"; 
-    });
-
-    window.addEventListener("click", function(event) {
-        if (event.target === loginModal) {
-            loginModal.style.display = "none";
-        }
-    });
-});
-
 document.addEventListener("DOMContentLoaded", () => {
     const productData = JSON.parse(localStorage.getItem("selectedProduct"));
     if (!productData) {
@@ -296,12 +216,12 @@ document.addEventListener("DOMContentLoaded", () => {
     breadcumCategory.textContent = productData.category;
 
     breadcumCategory.addEventListener('click', () => {
-        window.location.href = breadcumLinks[productData.category] ?? "../menu/allmenu.html#all-menu-section"
-    })
+        window.location.href = breadcumLinks[productData.category] ?? "../menu/allmenu.html#all-menu-section";
+    });
 
     const breadcumProduct = document.querySelector("#breadcum-product");
     breadcumProduct.textContent = productData.name;
-    
+
     document.querySelector(".product-gallery img").src = productData.image;
     document.querySelector(".product_details_info h3").textContent = productData.name;
     document.querySelector(".availability b").textContent = productData.availability ? "Còn hàng" : "Hết hàng"; 
@@ -333,7 +253,7 @@ document.addEventListener("DOMContentLoaded", () => {
                     <a href="#">${relatedProduct.category.toUpperCase()}</a>
                     <h3>${relatedProduct.name}</h3>
                     <p class="price">${relatedProduct.price}</p>
-                    <a class="btn btn-primary">Đặt mua</a>
+                    <a class="btn btn-primary" id="buy">Đặt mua</a>
                 </div>
             `;
             relatedProductsContainer.innerHTML += relatedProductHTML;
@@ -348,6 +268,15 @@ document.addEventListener("DOMContentLoaded", () => {
                 window.location.href = "../product/mota.html";
             });
         });
+
+        // Add event listener for "Đặt mua" buttons after rendering
+        const buyNowButtons = document.querySelectorAll(".btn.btn-primary");
+        buyNowButtons.forEach(button => {
+            button.addEventListener("click", (event) => {
+                event.preventDefault(); 
+                showLoginModal(event); 
+            });
+        });
     }
 
     // Function to render pagination controls
@@ -357,13 +286,19 @@ document.addEventListener("DOMContentLoaded", () => {
         const prevItem = document.createElement("li");
         prevItem.classList.add("page1");
         prevItem.innerHTML = `<i class="fa-solid fa-angles-left"></i>`;
-        prevItem.addEventListener("click", () => {
-            if (currentPage > 1) {
-                currentPage--;
-                renderPage(currentPage);
-                renderPagination();
-            }
-        });
+
+        if (currentPage === 1) {
+            prevItem.classList.add("disabled");
+            prevItem.style.pointerEvents = "none"; 
+        } else {
+            prevItem.addEventListener("click", () => {
+                if (currentPage > 1) {
+                    currentPage--;
+                    renderPage(currentPage);
+                    renderPagination();
+                }
+            });
+        }
 
         paginationContainer.appendChild(prevItem);
 
@@ -385,21 +320,62 @@ document.addEventListener("DOMContentLoaded", () => {
         const nextItem = document.createElement("li");
         nextItem.classList.add("page2");
         nextItem.innerHTML = `<i class="fa-solid fa-angles-right"></i>`;
-        nextItem.addEventListener("click", () => {
-            if (currentPage < totalPages) {
-                currentPage++;
-                renderPage(currentPage);
-                renderPagination();
-            }
-        });
+
+        if (currentPage === totalPages) {
+            nextItem.classList.add("disabled");
+            nextItem.style.pointerEvents = "none"; 
+        } else {
+            nextItem.addEventListener("click", () => {
+                if (currentPage < totalPages) {
+                    currentPage++;
+                    renderPage(currentPage);
+                    renderPagination();
+                }
+            });
+        }
 
         paginationContainer.appendChild(nextItem);
     }
+
+    function showLoginModal(event) {
+        event.preventDefault(); 
+
+        const loginModal = document.querySelector("#login-modal-purchase");
+        const closeModal = document.querySelector("#close-modal-purchase");
+        const loginBtn = document.querySelector("#login-btn-purchase");
+        const registerBtn = document.querySelector("#register-btn-purchase");
+
+        loginModal.style.display = "flex";
+
+        closeModal.addEventListener("click", () => {
+            loginModal.style.display = "none"; 
+        });
+
+        window.addEventListener("click", (event) => {
+            if (event.target === loginModal) {
+                loginModal.style.display = "none"; 
+            }
+        });
+
+        loginBtn.addEventListener("click", () => {
+            window.location.href = "../login_user.html";
+        });
+
+        registerBtn.addEventListener("click", () => {
+            window.location.href = "../signup_user.html";
+        });
+    }
+
+    // Handle "Thêm vào giỏ" button click
+    const addToCartButton = document.querySelector(".btn-add-to-cart");
+    addToCartButton.addEventListener("click", showLoginModal); 
 
     // Initial render
     renderPage(currentPage);
     renderPagination();
 });
+
+
 document.addEventListener("DOMContentLoaded", function() {
     const priceElement = document.querySelector(".price");
     const sizeButtons = document.querySelectorAll(".size-btn");
@@ -425,4 +401,3 @@ document.addEventListener("DOMContentLoaded", function() {
         });
     });
 });
-
