@@ -216,8 +216,9 @@ span{
 }
 
 .modal-highlands .modal-header{
+    
     scroll-margin-bottom: -20px;
-    width: 400px;
+    width: auto;
     height: 150px;
     display: flex;
     justify-content: center;

@@ -1,3 +1,18 @@
+html, body {
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+}
+
+header, .form-signup, .footer {
+    max-width: 100%;
+}
+
+*{
+    box-sizing: border-box;
+    font-family: 'Tahoma', sans-serif;
+}
+
 body {
     background-color: rgb(233, 209, 179);
     display: flex;
@@ -253,7 +268,7 @@ span {
 }
 
 .modal-header {
-    width: 450px;
+    width: auto;
     height: 150px;
     display: flex;
     justify-content: center;
@@ -265,6 +280,7 @@ span {
 }
 
 .icon-success i{
+    margin: 0 auto;
     font-size: 100px;
     color: #11be45;
     margin-bottom: -25px;
@@ -350,7 +366,7 @@ span {
 }
 
 .modal-headerFail {
-    width: 400px;
+    width: auto;
     height: 150px;
     display: flex;
     justify-content: center;
@@ -448,7 +464,7 @@ span {
 }
 
 .modal-headerNoExist {
-    width: 400px;
+    width:auto;
     height: 150px;
     display: flex;
     justify-content: center;
