@@ -1,26 +1,58 @@
-@import url("https://fonts.googleapis.com/css2?family=Tahoma:wght@300;400;500;600;700;800;900&display=swap");
-
-/*thu*/
-
-*{
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: "Tahoma Geneva", sans-serif;
-}
-
-body{
+body {
     display: flex;
-    justify-content: center; 
     flex-direction: column;
     align-items: center;
-    min-height: auto;
-    background: rgb(233, 209, 179);
-    background-size: cover;
-    background-position:center ;
-    padding-top: 50px 20px;
-
+    justify-content: flex-start;
+    min-height: 100vh;
+    margin: 0;
+    padding-top: 55px;
 }
+
+header {
+    position: fixed;
+    z-index: 10000;
+    width: 100%;
+    max-width: 100vw;
+    top: 0;
+    min-height: 55px;
+    background: rgb(70, 31, 31);
+    padding: 0 5%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+footer {
+    margin-top: 30px;
+}
+
+.active i {
+    color: #e4c0b8;
+}
+
+.sub-menu span {
+    font-size: 16px;
+    color: #fff;
+}
+
+.sub-menu span:hover {
+    color: #e4c0b8;
+}
+
+.dropdown-text span {
+    color: #fff;
+    font-size: 15px;
+}
+
+.dropdown-list li {
+    font-size: 14px;
+}
+
+.close-btn {
+    color: #000;
+    margin-right: 0;
+}
+
 .form-signup img{
     width: 130px;
     justify-content: center;
@@ -29,20 +61,16 @@ body{
     background-image: none;
 }
 
-.form-signup{
-    display: flex;
-    position: relative;
-    width: 100%;
-    max-width: 400px;
+.form-signup {
+    width: 390px;
     background: rgb(225, 174, 108);
     border: 2px solid rgba(255, 255, 255, .2);
     backdrop-filter: blur(20px);
     box-shadow: 0 0 10px rgba(0, 0, 0, .2);
     color: rgb(70, 31, 31);
     border-radius: 10px;
-    padding: 20px 40px;
-    margin-top: -500px;
-    margin-bottom:50px ;
+    padding: 30px 40px;
+    margin: 30px 0;
     z-index: 2;
 }
 
@@ -84,10 +112,25 @@ body{
 
 .input-box i{
     position: absolute;
+<<<<<<< HEAD
     right: 20px;
     top: 50%;
     transform: translateY(80%);
+=======
+    right: 10px;
+    top: 40%;
+    transform: translateY(-50%);
+>>>>>>> eac815fca735bfec3e4dfc9f43b5f08c5c6e8e54
     font-size: 20px;
+}
+
+.input-box i.fa-user {
+    color: rgb(70, 31, 31);
+    cursor: default;
+}
+
+.input-box i.fa-user:hover {
+    color: rgb(70, 31, 31);
 }
 
 .button{
@@ -219,7 +262,7 @@ span{
 .btn-success a{
     text-decoration: none;
     color: #fff;
-    font-family: "Poppins";
+    font-family: "Tahoma";
     font-size: 20px;
     padding: 0;
     font-weight: bold;
@@ -230,7 +273,7 @@ span{
 }
 
 .modal-highlands.active{
-    display: flex; /* Hiển thị modal khi có lớp .active */
+    display: flex;
 }
 
 @keyframes modalShow {
@@ -286,8 +329,26 @@ span{
         width: 200px;
     }
 }
-@media (max-width: 2560px) {
+@media (max-width: 1024px) {
     .form-signup{
-        top: -50px;
+        margin-bottom: 80px;
+    }
+}
+
+@media (min-width: 1245px) {
+    .form-signup{
+        margin-top: 60px;
+    }
+}
+
+@media (max-width: 1240px) {
+    .form-signup{
+       margin-top: 60px;
+    }
+}
+
+@media (min-width: 1440px) {
+    .form-signup{
+        margin-bottom: 60px;
     }
 }

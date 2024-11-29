@@ -24,19 +24,19 @@
         </a>
         <nav class="nav-menu" id="home">
             <ul>
-                <li class="active"><a href="#"><i class="fa-solid fa-house-chimney"></i>Trang chủ</a></li>
-                <li class="dropdown">
-                    <a href="#" id="menu-toggle"><i class="fa-solid fa-caret-down"></i>Thực đơn</a>
+                <li><a href="../../index.html"><i class="fa-solid fa-house-chimney"></i>Trang chủ</a></li>
+                <li class="dropdown active">
+                    <a href="../menu/allmenu.html" id="menu-toggle"><i class="fa-solid fa-caret-down"></i>Thực đơn</a>
                     <ul class="sub-menu">
-                        <li><a href="#"><span>Cà phê phin</span></a></li>
-                        <li><a href="#"><span>Phindi</span></a></li>
+                        <li><a href="../menu/phin-menu.html"><span>Cà phê phin</span></a></li>
+                        <li><a href="../menu/phindi-menu.html"><span>Phindi</span></a></li>
                         <li><a href="#"><span>Freeze</span></a></li>
-                        <li><a href="#"><span>Trà</span></a></li>
+                        <li><a href="../menu/tra-menu.html"><span>Trà</span></a></li>
                     </ul>
                 </li>
-                <li><a href="#"><i class="fa-solid fa-newspaper"></i>Tin tức</a></li>
-                <li><a href="#"><i class="fa-solid fa-users-line"></i>Giới thiệu</a></li>
-                <li><a href="#"><i class="fa-solid fa-phone"></i>Liên hệ</a></li>
+                <li><a href="../news.html"><i class="fa-solid fa-newspaper"></i>Tin tức</a></li>
+                <li><a href="../introduce.html"><i class="fa-solid fa-users-line"></i>Giới thiệu</a></li>
+                <li><a href="../contact.html"><i class="fa-solid fa-phone"></i>Liên hệ</a></li>
             </ul>
         </nav>
         <!-- SEARCH -->
@@ -46,50 +46,62 @@
                 <i class="fa-solid fa-magnifying-glass search"></i>
             </div>
             <div class="searchBox">
-                <ul class="search-bar">
-                    <li class="dropdown-bar1">
-                        <div id="drop-text" class="dropdown-text">
-                            <span id="span">Tất cả</span>
-                            <i id="icon" class="fa-solid fa-chevron-down"></i>
-                        </div>
-                        <ul id="list" class="dropdown-list">
-                            <li class="dropdown-list-item">Tất cả</li>
-                            <li class="dropdown-list-item">Cà phê phin</li>
-                            <li class="dropdown-list-item">Phindi</li>
-                            <li class="dropdown-list-item">Freeze</li>
-                            <li class="dropdown-list-item">Trà</li>
-                        </ul>
-                    </li>
-                    <li class="dropdown-bar2">
-                        <div id="price-drop-text" class="dropdown-text">                                
-                            <span id="price-span">Khoảng giá</span>
-                            <i id="price-icon" class="fa-solid fa-chevron-down"></i>
-                        </div>
-                        <ul id="price-list" class="dropdown-list">
-                            <li class="dropdown-list-item">Khoảng giá</li>
-                            <li class="dropdown-list-item">Dưới 20k</li>
-                            <li class="dropdown-list-item">20k - 50k</li>
-                            <li class="dropdown-list-item">Trên 50k</li>
-                        </ul>
-                    </li>
-                    <!-- <form action=""> -->
-                    <li class="search-box">
-                        <input type="text" id="search-input" placeholder="Tìm kiếm..." required/>
-                        <button type="submit">
-                            <i class="fa-solid fa-magnifying-glass"></i>
-                        </button>
-                    </li>
-                <!-- </form> -->
-                </ul>
+                <form class="search-form" action="../search.html" method="get">
+                    <ul class="search-bar">
+                        <li class="dropdown-bar1">
+                            <div id="drop-text" class="dropdown-text">
+                                <span id="span">Tất cả</span>
+                                <i id="icon" class="fa-solid fa-chevron-down"></i>
+                            </div>
+                            <ul id="list" class="dropdown-list">
+                                <li class="dropdown-list-item">Tất cả</li>
+                                <li class="dropdown-list-item">Cà phê phin</li>
+                                <li class="dropdown-list-item">Phindi</li>
+                                <li class="dropdown-list-item">Freeze</li>
+                                <li class="dropdown-list-item">Trà</li>
+                            </ul>
+                        </li>
+                        <li class="dropdown-bar2">
+                            <div id="price-drop-text" class="dropdown-text">                                
+                                <span id="price-span">Khoảng giá</span>
+                                <i id="price-icon" class="fa-solid fa-chevron-down"></i>
+                            </div>
+                            <ul id="price-list" class="dropdown-list">
+                                <li class="dropdown-list-item">Khoảng giá</li>
+                                <li class="dropdown-list-item">Dưới 40.000 VNĐ</li>
+                                <li class="dropdown-list-item">40.000 - 50.000 VNĐ</li>
+                                <li class="dropdown-list-item">Trên 50.000 VNĐ</li>
+                            </ul>
+                        </li>
+                        <li class="search-box">
+                            <input type="text" id="search-input" placeholder="Tìm kiếm..." required/>
+                            <button type="submit">
+                                <i class="fa-solid fa-magnifying-glass"></i>
+                            </button>
+                        </li>
+                    </ul>
+                </form>
             </div>
             <div class="icon-item">
-                <a href=""><i class="fa-solid fa-cart-shopping"></i></a>
+                <a href="#" id="cart-icon"><i class="fa-solid fa-cart-shopping"></i></a>
             </div>
+            <!-- Giỏ hàng -->
+            <div class="modal" id="login-modal">
+                <div class="modal-content">
+                    <span class="close-btn" id="close-modal">&times;</span>
+                    <h3><b>Bạn chưa đăng nhập</b></h3>
+                    <h5>Vui lòng đăng nhập hoặc đăng ký để xem giỏ hàng.</h5>
+                    <div class="modal-actions">
+                        <button class="modal-btn" id="login-btn" style="color: #fff;">Đăng nhập</button>
+                        <button class="modal-btn" id="register-btn" style="color: #fff;">Đăng ký</button>
+                    </div>
+                </div>
+            </div>  
             <div class="icon-item">
                 <a href="javascript:void(0);"><i class="fa-solid fa-user"></i>
                     <ul class="dropdown-user">
-                        <li><a href="">Đăng nhập</a></li>
-                        <li><a href="">Đăng ký</a></li>
+                        <li><a href="../login_user.html">Đăng nhập</a></li>
+                        <li><a href="../signup_user.html">Đăng ký</a></li>
                     </ul>
                 </a>
             </div>
@@ -111,8 +123,8 @@
 </section>
     <div class="custom-product_tags">
         <a class="btn btn-outline-secondary" role="button" href="./allmenu.html#all-menu-section">Tất cả</a>
-        <a class="btn btn-outline-secondary" role="button" href="./phin-menu.html#phin-menu-section" type="Phin">Cà phê Phin</a>
-        <a class="btn btn-outline-secondary" role="button" href="./phindi-menu.html#phindi-menu-section" type="Phindi">Phidi</a>
+        <a class="btn btn-outline-secondary" role="button" href="./phin-menu.html#phin-menu-section" type="Phin">Cà phê phin</a>
+        <a class="btn btn-outline-secondary" role="button" href="./phindi-menu.html#phindi-menu-section" type="Phindi">Phindi</a>
         <a class="btn btn-outline-secondary " role="button" href="./freeze-menu.html" type="Freeze">Freeze</a>
         <a class="btn btn-outline-secondary" role="button" href="./tra-menu.html#tra-menu-section" type="Trà">Trà</a>
     </div>
@@ -131,17 +143,17 @@
 
     </div>
     <div id="custom-wrapper">
-        <ul class="custom-products" data-category="Freeze">
+        <ul class="custom-products" data-category="Freeze" style="display: flex; justify-content: center;">
             <li>
                 <div class="custom-product-item">
                     <div class="custom-product-top">
-                        <a href="" class="custom-product-thumb">
+                        <a href="../product/mota.html" class="custom-product-thumb">
                             <img src="../../image/freeze/caramelphinfreeze_nho.png" alt="">                        
                         </a>
                     </div>
                     <div class="custom-product-info">
-                        <a href="" class="custom-product-cat">Freeze</a>
-                        <a href="" class="custom-product-name">Caramel phin freeze</a>
+                        <a href="../menu/freeze-menu.html" class="custom-product-cat">Freeze</a>
+                        <a href="../product/mota.html" class="custom-product-name">Caramel phin freeze</a>
                         <div class="custom-product-price">50.000 VNĐ</div>
                         <button class="buy-now">Đặt mua</button>
                     </div>
@@ -150,13 +162,13 @@
             <li>
                 <div class="custom-product-item">
                     <div class="custom-product-top">
-                        <a href="" class="custom-product-thumb">
+                        <a href="../product/mota.html" class="custom-product-thumb">
                             <img src="../../image/freeze/classicphinfreeze_nho.png" alt="">                        
                         </a>
                     </div>
                     <div class="custom-product-info">
-                        <a href="" class="custom-product-cat">Freeze</a>
-                        <a href="" class="custom-product-name">Classic phin freeze</a>
+                        <a href="../menu/freeze-menu.html" class="custom-product-cat">Freeze</a>
+                        <a href="../product/mota.html" class="custom-product-name">Classic phin freeze</a>
                         <div class="custom-product-price">50.000 VNĐ</div>
                         <button class="buy-now">Đặt mua</button>
                     </div>
@@ -165,13 +177,13 @@
             <li>
                 <div class="custom-product-item">
                     <div class="custom-product-top">
-                        <a href="" class="custom-product-thumb">
+                        <a href="../product/mota.html" class="custom-product-thumb">
                             <img src="../../image/freeze/cookies&cream_nho.png" alt="">                        
                         </a>
                     </div>
                     <div class="custom-product-info">
-                        <a href="" class="custom-product-cat">Freeze</a>
-                        <a href="" class="custom-product-name">Cookies & Cream</a>
+                        <a href="../menu/freeze-menu.html" class="custom-product-cat">Freeze</a>
+                        <a href="../product/mota.html" class="custom-product-name">Cookies & Cream</a>
                         <div class="custom-product-price">50.000 VNĐ</div>
                         <button class="buy-now">Đặt mua</button>
                     </div>
@@ -180,13 +192,13 @@
             <li>
                 <div class="custom-product-item">
                     <div class="custom-product-top">
-                        <a href="" class="custom-product-thumb">
+                        <a href="../product/mota.html" class="custom-product-thumb">
                             <img src="../../image/freeze/freezechoco_nho.png" alt="">                        
                         </a>
                     </div>
                     <div class="custom-product-info">
-                        <a href="" class="custom-product-cat">Freeze</a>
-                        <a href="" class="custom-product-name">Freeze sô-cô-la</a>
+                        <a href="../menu/freeze-menu.html" class="custom-product-cat">Freeze</a>
+                        <a href="../product/mota.html" class="custom-product-name">Freeze sô-cô-la</a>
                         <div class="custom-product-price">50.000 VNĐ</div>
                         <button class="buy-now">Đặt mua</button>
                     </div>
@@ -195,13 +207,13 @@
             <li>
                 <div class="custom-product-item">
                     <div class="custom-product-top">
-                        <a href="" class="custom-product-thumb">
+                        <a href="../product/mota.html" class="custom-product-thumb">
                             <img src="../../image/freeze/freezetraxanh_nho.png" alt="">                        
                         </a>
                     </div>
                     <div class="custom-product-info">
-                        <a href="" class="custom-product-cat">Freeze</a>
-                        <a href="" class="custom-product-name">Freeze trà xanh</a>
+                        <a href="../menu/freeze-menu.html" class="custom-product-cat">Freeze</a>
+                        <a href="../product/mota.html" class="custom-product-name">Freeze trà xanh</a>
                         <div class="custom-product-price">50.000 VNĐ</div>
                         <button class="buy-now">Đặt mua</button>
                     </div>
@@ -215,14 +227,15 @@
             <li>2</li>
             <li class="page2"><i class="fa-solid fa-angles-right"></i></li>
         </ul>
-        <div class="modal" id="login-modal">
+        <!-- Đặt mua -->
+        <div class="modal-purchase" id="login-modal-purchase">
             <div class="modal-content">
-                <span class="close-btn" id="close-modal">&times;</span>
+                <span class="close-btn" id="close-modal-purchase">&times;</span>
                 <h3><b>Bạn chưa đăng nhập</b></h3>
                 <h5>Vui lòng đăng nhập hoặc đăng ký để mua.</h5>
                 <div class="modal-actions">
-                    <button class="modal-btn" id="login-btn">Đăng Nhập</button>
-                    <button class="modal-btn" id="register-btn">Đăng Ký</button>
+                    <button class="modal-btn" id="login-btn-purchase" style="color: #fff;">Đăng nhập</button>
+                    <button class="modal-btn" id="register-btn-purchase" style="color: #fff;">Đăng ký</button>
                 </div>
             </div>
         </div>
@@ -236,18 +249,18 @@
             <div class="footer-section links">
                 <h2>Liên Kết</h2>
                 <ul>
-                    <li><a href="#">Trang chủ</a></li>
-                    <li><a href="#">Thực dơn</a></li>
-                    <li><a href="#">Tin tức</a></li>
-                    <li><a href="#">Giới thiệu</a></li>
-                    <li><a href="#">Liên hệ</a></li>
+                    <li><a href="../../index.html">Trang chủ</a></li>
+                    <li><a href="../menu/allmenu.html">Thực đơn</a></li>
+                    <li><a href="../news.html">Tin tức</a></li>
+                    <li><a href="../introduce.html">Giới thiệu</a></li>
+                    <li><a href="../contact.html">Liên hệ</a></li>
                 </ul>
             </div>
             <div class="footer-section social">
                 <h2>Kết Nối Với Chúng Tôi</h2>
                 <a href="https://web.facebook.com/highlandscoffeevietnam" target="_blank"><i class="fa-brands fa-facebook"></i></a>
                 <a href="https://www.instagram.com/highlandscoffeevietnam/" target="_blank"><i class="fa-brands fa-instagram"></i></a>
-                <a href="https://x.com/" target="_blank"><i class="fa-brands fa-twitter"></i></a>
+                <a href="https://x.com/" target="_blank"><i class="fa-brands fa-x-twitter"></i></a>
             </div>
             <div class="footer-section members">
                 <h2>Thành Viên</h2>
@@ -272,22 +285,20 @@
     <script src="../../js/phantrangfr.js"></script>
     <script src="../../js/render.js"></script>
     <script src="../../js/nav.js"></script>
-    <script src="../../js/thongbao.js"></script>
     <!-- BOOSTRAP JS  -->
     <script src="../../bootstrap-5.0.2-dist/js/bootstrap.bundle.min.js"></script>
     <script>
         window.onload = function() {
             if(window.location.hash === "#freeze-menu-section") {
-                // Delay để đảm bảo trang đã tải xong, sau đó cuộn đến phần breadcrumb
                 setTimeout(function() {
                     var section = document.getElementById("freeze-menu-section");
                     if(section) {
                         window.scrollTo({
-                            top: section.offsetTop - 70, // Cộng thêm khoảng cách 20px từ trên
-                            behavior: 'smooth' // Cuộn mượt mà
+                            top: section.offsetTop - 70,
+                            behavior: 'smooth' 
                         });
                     }
-                }, 100); // Đảm bảo rằng việc cuộn diễn ra sau khi trang tải xong
+                }, 100); 
             }
         }
     </script>

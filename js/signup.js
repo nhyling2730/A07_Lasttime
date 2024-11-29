@@ -107,7 +107,7 @@ function saveUserData() {
 
 document.addEventListener('DOMContentLoaded', function() {
     const modalsuccess = document.querySelector('.modal-highlands');
-    modalsuccess.classList.remove('active'); // Đảm bảo modal không hiển thị khi tải trang
+    modalsuccess.classList.remove('active'); 
 }); 
 
 form.addEventListener('submit', function(e) {
@@ -123,7 +123,7 @@ form.addEventListener('submit', function(e) {
     if (!isUserNameLengthError && !isMacthError && !isPasswordLengthError && !isPhoneError && !isAddressError && !isEmptyError) {
         saveUserData();
         const modalsuccess = document.querySelector('.modal-highlands');
-        modalsuccess.classList.add('active'); // Hiển thị modal
+        modalsuccess.classList.add('active'); 
     }
 });
 
