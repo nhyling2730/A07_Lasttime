@@ -111,6 +111,7 @@ document.addEventListener("DOMContentLoaded", () => {
         [productImg, productName].forEach(element => {
           element.addEventListener("click", (e) => {
             e.preventDefault();
+            product.image = '../' + product.image
             localStorage.setItem("selectedProduct", JSON.stringify(product));
             window.location.href = "./product/mota.html";
           });
@@ -120,7 +121,7 @@ document.addEventListener("DOMContentLoaded", () => {
         if (orderBtn && !isOutOfStock) {
           orderBtn.addEventListener('click', function() {
             document.getElementById('login-modal').style.display = 'none';
-            document.getElementById('login-modal-purchase').style.display = 'block';
+            document.getElementById('login-modal-purchase').style.display = 'flex';
           });
         }
       });

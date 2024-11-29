@@ -211,7 +211,19 @@ document.addEventListener("DOMContentLoaded", () => {
         window.location.href = "./index.html";
         return;
     }
+    const thumbnails = document.querySelectorAll(".thumbnail-img");
 
+    
+    thumbnails.forEach(item => {
+        if(item.getAttribute('data-size') == 'small')
+        {
+            item.setAttribute('src', productData.image)
+        }
+        else {
+            item.setAttribute('src', productData.image.replace("_nho", ""))
+        }
+
+    })
     const breadcumCategory = document.querySelector("#breadcum-category");
     breadcumCategory.textContent = productData.category;
 
@@ -262,7 +274,7 @@ document.addEventListener("DOMContentLoaded", () => {
         // Add click events for related products
         const relatedProductElements = document.querySelectorAll(".related-product");
         relatedProductElements.forEach((element) => {
-            element.addEventListener("click", () => {
+            element.addEventListener("click", (event) => {
                 const product = JSON.parse(element.getAttribute("data-product"));
                 localStorage.setItem("selectedProduct", JSON.stringify(product));
                 window.location.href = "../product/mota.html";
@@ -274,6 +286,7 @@ document.addEventListener("DOMContentLoaded", () => {
         buyNowButtons.forEach(button => {
             button.addEventListener("click", (event) => {
                 event.preventDefault(); 
+                event.stopPropagation();
                 showLoginModal(event); 
             });
         });

@@ -228,7 +228,7 @@ scrollToTopBtn.addEventListener("click", function () {
 const renderProducts = [
   {
     "productCode": "HC01",
-    "image": "../image/phin/phisuanda_nho.png",
+    "image": "./image/phin/phisuanda_nho.png",
     "category": "Cà phê phin",
     "name": "Phin sữa đá",
     "price": "35.000 VNĐ",
@@ -237,7 +237,7 @@ const renderProducts = [
   },
   {
     "productCode": "HC02",
-    "image": "../image/phin/phindenda_nho.png",
+    "image": "./image/phin/phindenda_nho.png",
     "category": "Cà phê phin",
     "name": "Phin đen đá",
     "price": "32.000 VNĐ",
@@ -299,16 +299,18 @@ document.addEventListener("DOMContentLoaded", function () {
 
 /* Hàm khởi tạo phân trang */
 function initPagination() {
-  const productListElement = document.querySelector("#product-list");
+
+  const productListElement = document.querySelector("#productList");
   if (!productListElement) {
       console.error("Không tìm thấy phần tử #product-list");
-      return;
   }
+
 
   const itemsPerPage = 4;
   let currentPage = 1;
 
   function renderPage(page) {
+
       productListElement.innerHTML = "";
 
       const start = (page - 1) * itemsPerPage;
@@ -340,6 +342,7 @@ function initPagination() {
 
           const productElement = productListElement.lastElementChild;
           productElement.addEventListener("click", () => {
+            product.image = '../.' + product.image
               localStorage.setItem("selectedProduct", JSON.stringify(product));
               window.location.href = "./user/product/mota.html";
           });

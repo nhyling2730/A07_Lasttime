@@ -192,7 +192,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
         pageProducts.forEach((product, index) => {
             const isOutOfStock = index == 0 && listCategory == "Phindi"
-                || index == 3 && listCategory == "Trà"
+                || ((index == 3 || index == 0 ) && listCategory == "Trà")
                 || (currentPage == 2 && (index == 0 || index == 7) && !listCategory);
 
             const productItem = document.createElement("li");

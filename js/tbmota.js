@@ -260,9 +260,10 @@ document.addEventListener("DOMContentLoaded", () => {
 
   // Handle "Đặt mua" và "Thêm vào giỏ" button click
   const buyNowButtons = document.querySelectorAll(".btn.btn-primary");
+
   buyNowButtons.forEach(button => {
       button.addEventListener("click", (event) => {
-          event.preventDefault(); 
+        event.stopPropagation();
           orderModal.style.display = "flex"; // Hiển thị modal thông báo
       });
   });
@@ -279,10 +280,20 @@ document.addEventListener("DOMContentLoaded", () => {
   breadcumCategory.addEventListener('click', () => {
       window.location.href = breadcumLinks[productData.category] ?? "../menu/allmenu.html#all-menu-section";
   });
+  const thumbnails = document.querySelectorAll(".thumbnail-img");
 
+  thumbnails.forEach(item => {
+      if(item.getAttribute('data-size') == 'small')
+      {
+          item.setAttribute('src', productData.image)
+      }
+      else {
+          item.setAttribute('src', productData.image.replace("_nho", ""))
+      }
+
+  })
   const breadcumProduct = document.querySelector("#breadcum-product");
   breadcumProduct.textContent = productData.name;
-
   document.querySelector(".product-gallery img").src = productData.image;
   document.querySelector(".product_details_info h3").textContent = productData.name;
   document.querySelector(".availability b").textContent = productData.availability ? "Còn hàng" : "Hết hàng"; 
@@ -323,11 +334,11 @@ document.addEventListener("DOMContentLoaded", () => {
       // Add click events for related products
       const relatedProductElements = document.querySelectorAll(".related-product");
       relatedProductElements.forEach((element) => {
-          element.addEventListener("click", () => {
-              const product = JSON.parse(element.getAttribute("data-product"));
-              localStorage.setItem("selectedProduct", JSON.stringify(product));
-              window.location.href = "../product/mota.html";
-          });
+          element.addEventListener("click", (event) => {
+                const product = JSON.parse(element.getAttribute("data-product"));
+                localStorage.setItem("selectedProduct", JSON.stringify(product));
+                window.location.href = "../product/mota.html";
+            });
       });
 
       // Add event listener for "Đặt mua" buttons after rendering
@@ -335,6 +346,7 @@ document.addEventListener("DOMContentLoaded", () => {
       buyNowButtons.forEach(button => {
           button.addEventListener("click", (event) => {
               event.preventDefault(); 
+              event.stopPropagation();
               orderModal.style.display = "flex"; // Hiển thị modal thông báo
           });
       });

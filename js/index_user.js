@@ -359,6 +359,7 @@ function renderPage(page) {
     productListElement.appendChild(productElement);
 
     productElement.addEventListener("click", () => {
+      product.image = '../' + product.image
       localStorage.setItem("selectedProduct", JSON.stringify(product));
       window.location.href = "./product/mota.html";
     });
