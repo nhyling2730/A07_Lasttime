@@ -562,7 +562,7 @@ header .logo img {
 
 .highlands__cart .orders--items-right .items--name a {
     text-decoration: none;
-    color: black;
+    color: #000000dd;
     display: block;
     text-transform: capitalize;
     width: auto;
@@ -573,6 +573,13 @@ header .logo img {
 }
 
 .highlands__cart .orders--items-right .items--price {
+    font-size: 16px;
+    line-height: 1.25;
+    color: #333;
+    margin: 12px 0;
+}
+
+.highlands__cart .orders--items-right .items--size {
     font-size: 16px;
     line-height: 1.25;
     color: #333;
@@ -700,6 +707,12 @@ header .logo img {
 
     font-weight: 400;
     border: none;
+}
+
+.item-select{
+    transform: scale(1.25);
+    accent-color: rgb(70, 31, 31); /* Màu sắc cho checkbox (nếu trình duyệt hỗ trợ) */
+    cursor: pointer;
 }
 
 
@@ -1179,4 +1192,55 @@ header .logo img {
     #productList {
         grid-template-columns: repeat(1, 1fr);
     }
+}
+
+/* Người dùng. Đặt mua */
+.custom-modal {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.4);
+}
+
+.custom-modal-content {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    width: 300px;
+    text-align: center;
+}
+
+.custom-close-btn {
+    position: absolute;
+    top: 0;
+    right: 10px;
+    cursor: pointer;
+    font-size: 20px;
+    color: #333;
+}
+
+.custom-modal-actions button {
+    margin: 10px;
+    padding: 10px 20px;
+    border: none;
+    width: 70%;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.custom-modal-actions #custom-no {
+    background-color: #e1e0e0;
+}
+
+.custom-modal-actions #custom-yes {
+    background-color: #009900;
+    color: white;
 }
