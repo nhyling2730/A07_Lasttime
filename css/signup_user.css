@@ -1,3 +1,5 @@
+
+
 html, body {
     margin: 0;
     padding: 0;
@@ -10,6 +12,7 @@ header, .form-signup, .footer {
 
 *{
     box-sizing: border-box;
+    font-family: 'Tahoma', sans-serif;
 }
 
 body {
