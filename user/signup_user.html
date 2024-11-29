@@ -3,24 +3,21 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <link rel="stylesheet" href="../css/signup_user.css"> 
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" /> 
     <link href="https://fonts.googleapis.com/css2?family=Mulish&amp;display=swap" rel="stylesheet">
-<<<<<<< HEAD
-    <link rel="stylesheet" href="../css/header-footer.css">
-    <title>ĐĂNG KÝ</title>
-=======
-    <link rel="stylesheet" href="../css/index.css">
     <link rel="stylesheet" href="../bootstrap-5.0.2-dist/css/bootstrap.min.css">
-    <title>Đăng Ký</title>
->>>>>>> eac815fca735bfec3e4dfc9f43b5f08c5c6e8e54
+    
+    <link rel="stylesheet" href="../css/signup_user.css">
+    <link rel="stylesheet" href="../css/index.css">
+    <title>ĐĂNG KÝ</title>
 </head>
 <body>
-    <header>
-        <div class="toggle">
-            <i class="fa-solid fa-bars"></i>
-            <i class="fa-solid fa-xmark"></i>
-        </div>
+    <div class="wrapper"></div>
+        <header>
+            <div class="toggle">
+                <i class="fa-solid fa-bars"></i>
+                <i class="fa-solid fa-xmark"></i>
+            </div>
         <a href="./index.html" class="logo">
             <img src="../image/logo.png">
         </a>
@@ -98,44 +95,49 @@
                     </div>
                 </div>
             </div>
-<<<<<<< HEAD
+            <div class="icon-item">
+                <a href="javascript:void(0);" class="active">
+                    <i class="fa-solid fa-user"></i>
+                </a>
+            </div>
         </div>
-    
+        </header>    
+     
         <div class="form-signup">
             <form action="" class="form" id="form" onsubmit="func(); return false;">
                 <img src="../image/logo.png">
                 <h1>Đăng ký</h1>
     
                 <div class="input-box error">
-                    <h3>Tên đăng nhập:</h3>
+                    <h3><strong>Tên đăng nhập:</strong></h3>
                     <input type="text" id="username" placeholder="Tên đăng nhập">
                     <i class="fa-solid fa-user"></i>
                     <span id="username_error"></span>
                 </div>
     
                 <div class="input-box error">
-                    <h3>Địa chỉ:</h3>
+                    <h3><strong>Địa chỉ:</strong></h3>
                     <input type="text" id="address" placeholder="Địa chỉ" >
                     <i class="fa-solid fa-location-dot"></i>
                     <span id="address_error"></span>
                 </div>
     
                 <div class="input-box error">
-                    <h3>Số điện thoại:</h3>
+                    <h3><strong>Số điện thoại:</strong></h3>
                     <input type="text" id="phone" placeholder="Số điện thoại" >
                     <i class="fa-solid fa-phone"></i>
                     <span id="phone_error"></span>
                 </div>
     
                 <div class="input-box error">
-                    <h3>Mật khẩu:</h3>
+                    <h3><strong>Mật khẩu:</strong></h3>
                     <input type="password" id="password" placeholder="Mật khẩu" >
                     <i class="fa-solid fa-lock"></i>
                     <span id="password_error"></span>
                 </div>
     
                 <div class="input-box error">
-                    <h3>Xác nhận mật khẩu:</h3>
+                    <h3><strong>Xác nhận mật khẩu:</strong></h3>
                     <input type="password" id="password-confirm" placeholder="Xác nhận mật khẩu" >
                     <span id="passwordconfirm_error"></span>
                 </div>
@@ -167,112 +169,50 @@
                         <a href="../user/login_user.html">Đăng nhập ngay</a>
                     </button>
                 </div>
-=======
-            <div class="icon-item">
-                <a href="javascript:void(0);" class="active">
-                    <i class="fa-solid fa-user"></i>
-                </a>
->>>>>>> eac815fca735bfec3e4dfc9f43b5f08c5c6e8e54
             </div>
         </div>
-    </header>    
-    <!-- ĐĂNG KÝ -->
-    <div class="form-signup">
-        <form action="" class="form" id="form" onsubmit="func(); return false;">
-            <img src="../image/logo.png">
-            <h1>Đăng ký</h1>
-            <div class="input-box error">
-                <input type="text" id="username" placeholder="Tên đăng nhập">
-                <i class="fa-solid fa-user"></i>
-                <span id="username_error"></span>
-            </div>
-            <div class="input-box error">
-                <input type="text" id="address" placeholder="Địa chỉ" >
-                <i class="fa-solid fa-location-dot"></i>
-                <span id="address_error"></span>
-            </div>
-            <div class="input-box error">
-                <input type="text" id="phone" placeholder="Số điện thoại" >
-                <i class="fa-solid fa-phone"></i>
-                <span id="phone_error"></span>
-            </div>
-            <div class="input-box error">
-                <input type="password" id="password" placeholder="Mật khẩu" >
-                <i class="fa-solid fa-lock"></i>
-                <span id="password_error"></span>
-            </div>
-            <div class="input-box error">
-                <input type="password" id="password-confirm" placeholder="Xác nhận mật khẩu" >
-                <span id="passwordconfirm_error"></span>
-            </div>                
-            <button type="submit" class="button">Đăng ký</button>
-            <div class="signup-link">
-                <p>Bạn đã ghé Highlands?<a href="../user/login_user.html"> Đăng nhập ngay</a></p>
-            </div>
-        </form>
-    </div>    
-    <div class="modal-highlands">
-        <div class="modal-inner">
-            <div class="modal-header">
-                <div class="icon-success">
-                    <i class="fa-solid fa-circle-check"></i>
+    
+        <footer class="footer">
+            <div class="footer-container">
+                <div class="footer-section about">
+                    <h2>Về Chúng Tôi</h2>
+                    <p>Chúng tôi cung cấp các loại đồ uống chất lượng, phục vụ với sự tận tâm và chuyên nghiệp.</p>
                 </div>
-            </div>    
-            <div class="modal-body">
-                <h4>Chúc mừng</h4>
-                <p>Bạn đã đăng ký thành công</p>
-            </div>    
-            <div class="modal-footer">
-                <button class="btn-success" onclick="document.querySelector('.modal-highlands').classList.remove('active');">
-                    <a href="../user/login_user.html">Đăng nhập ngay</a>
-                </button>
+                <div class="footer-section links">
+                    <h2>Liên Kết</h2>
+                    <ul>
+                        <li><a href="../index.html">Trang chủ</a></li>
+                        <li><a href="#">Thực dơn</a></li>
+                        <li><a href="#">Tin tức</a></li>
+                        <li><a href="#">Giới thiệu</a></li>
+                        <li><a href="#">Liên hệ</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section social">
+                    <h2>Kết Nối Với Chúng Tôi</h2>
+                    <a href="https://web.facebook.com/highlandscoffeevietnam" target="_blank"><i class="fa-brands fa-facebook"></i></a>
+                    <a href="https://www.instagram.com/highlandscoffeevietnam/" target="_blank"><i class="fa-brands fa-instagram"></i></a>
+                    <a href="https://x.com/" target="_blank"><i class="fa-brands fa-twitter"></i></a>
+                </div>
+                <div class="footer-section members">
+                    <h2>Thành Viên</h2>
+                    <ul>
+                        <li><a href="#">Lê Thị Thủy Tiên</a></li>
+                        <li><a href="#">Võ Thị Thu Luyện</a></li>
+                        <li><a href="#">Nguyễn Thị Ngọc Tú</a></li>
+                        <li><a href="#">Trần Thị Xuân Thanh</a></li>
+                        <li><a href="#">Nguyễn Huỳnh Yến Linh</a></li>
+                    </ul>
+                </div>
             </div>
-        </div>
-    </div>    
-    <!-- FOOTER -->
-    <footer class="footer">
-        <div class="footer-container">
-            <div class="footer-section about">
-                <h2>Về chúng tôi</h2>
-                <p>Chúng tôi cung cấp các loại đồ uống chất lượng, phục vụ với sự tận tâm và chuyên nghiệp.</p>
+            <div class="footer-bottom">
+                <hr>
+                &copy; Highlands Coffee | Thiết kế bởi Nhóm A07
             </div>
-            <div class="footer-section links">
-                <h2>Liên kết</h2>
-                <ul>
-                    <li><a href="../index.html">Trang chủ</a></li>
-                    <li><a href="../user/menu/allmenu.html">Thực đơn</a></li>
-                    <li><a href="../user/news.html">Tin tức</a></li>
-                    <li><a href="../user/introduce.html">Giới thiệu</a></li>
-                    <li><a href="../user/contact.html">Liên hệ</a></li>
-                </ul>
-            </div>
-            <div class="footer-section social">
-                <h2>Kết nối với chúng tôi</h2>
-                <a href="https://web.facebook.com/highlandscoffeevietnam" target="_blank"><i class="fa-brands fa-facebook"></i></a>
-                <a href="https://www.instagram.com/highlandscoffeevietnam/" target="_blank"><i class="fa-brands fa-instagram"></i></a>
-                <a href="https://x.com/" target="_blank"><i class="fa-brands fa-x-twitter"></i></a>
-            </div>
-            <div class="footer-section members">
-                <h2>Thành viên</h2>
-                <ul>
-                    <li><a href="#">Lê Thị Thủy Tiên</a></li>
-                    <li><a href="#">Võ Thị Thu Luyện</a></li>
-                    <li><a href="#">Nguyễn Thị Ngọc Tú</a></li>
-                    <li><a href="#">Trần Thị Xuân Thanh</a></li>
-                    <li><a href="#">Nguyễn Huỳnh Yến Linh</a></li>
-                </ul>
-            </div>
-        </div>
-        <div class="footer-bottom">
-            <hr>
-            &copy; Highlands Coffee | Thiết kế bởi Nhóm A07
-        </div>
-    </footer>
-    <!-- TOP -->
-    <div id="scrollToTopBtn">
-        <a href="#home"><i class="fas fa-arrow-up"></i></a>
+        </footer>
+    
     </div>
-    <script src="../js/signup.js"></script>
-    <script src="../js/nav.js"></script>
+
+    <script src="../js/signup.js" defer></script>
 </body>
 </html>
