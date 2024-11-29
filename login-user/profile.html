@@ -3,11 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../../css/fontawesome-free-6.6.0-web/css/all.min.css">
-    <link rel="stylesheet" href="../../css/index.css">
-    <link rel="stylesheet" href="../../bootstrap-5.0.2-dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../css/fontawesome-free-6.6.0-web/css/all.min.css">
+    <link rel="stylesheet" href="../css/index.css">
+    <link rel="stylesheet" href="../bootstrap-5.0.2-dist/css/bootstrap.min.css">
     <title>Thông Tin Cá Nhân</title>
-    
 </head>
 <body>
     <header>
@@ -16,7 +15,7 @@
             <i class="fa-solid fa-xmark"></i>
         </div>
         <a href="./index_user.html" class="logo">
-            <img src="../../image/logo.png">
+            <img src="../image/logo.png">
         </a>
         <nav class="nav-menu" id="home">
             <ul>
@@ -86,10 +85,10 @@
             </div>
             <div class="icon-item">
                 <a href="javascript:void(0);">
-                    <img src="../../image/khác/user.png">
+                    <img src="../image/khác/user.png">
                     <ul class="dropdown-user1">
                         <li><a href="#">Thông tin cá nhân</a></li>
-                        <li><a href="">Đơn đã mua</a></li>
+                        <li><a href="./order.html">Đơn đã mua</a></li>
                         <li><a href="../index.html">Đăng xuất</a></li>
                     </ul>
                 </a>
@@ -106,6 +105,7 @@
                     <div class="sidebar-item" id="address" onclick="showAddress()"><i class="fa-solid fa-location-dot"></i>Địa Chỉ</div>
                     <div class="sidebar-item" id="changePassword" onclick="showChangePassword()"><i class="fa-solid fa-key"></i>Đổi Mật Khẩu</div>
                 </div>
+                <div class="sidebar-item" id="order-history" onclick="showOrderHistory()"><i class="fa-solid fa-bag-shopping"></i>Đơn mua</div>
                 <div class="sidebar-item" onclick="showOtherOption()"><i class="fa-solid fa-gear"></i>Cài Đặt Khác</div>
             </div>                                             
             <div class="profile-details" id="profile-details">
@@ -150,7 +150,7 @@
                     <div class="form-group">
                         <button class="btn-save">Lưu</button>
                     </div>
-                </div>                      
+                </div>
             </div>            
             <!-- Phần Địa Chỉ -->
             <div class="profile-details" id="address-details" style="display: none;">
@@ -172,8 +172,7 @@
                             <button class="btn-delete">Xóa</button>
                             <button class="btn-default-setting" style="cursor: not-allowed;">Thiết lặp mặc định</button>
                         </div>
-                    </div>
-        
+                    </div>        
                     <!-- Địa chỉ 2 -->
                     <div class="address-item">
                         <div class="address-info">
@@ -204,8 +203,7 @@
                             <div class="set-default">
                                 <input type="checkbox" id="setDefaultAddress">
                                 <label for="setDefaultAddress">Đặt làm địa chỉ mặc định</label>
-                            </div>
-                
+                            </div>                
                             <div class="modal-actions">
                                 <button type="button" id="cancelBtn">Trở Lại</button>
                                 <button type="submit" id="saveBtn">Hoàn thành</button>
@@ -214,7 +212,7 @@
                     </div>
                 </div>                
             </div>
-            <!-- Phần Đổi Mật Khẩu -->
+            <!-- Đổi Mật Khẩu -->
             <div class="profile-details" id="change-password-details" style="display: none;">
                 <div class="change-password-header">
                     <h2>Đổi Mật Khẩu</h2>
@@ -236,6 +234,171 @@
                         <button class="btn-save" onclick="changePassword()">Lưu thay đổi</button>
                     </div>
                 </div>
+            </div>
+            <!-- Đơn mua -->
+            <div class="profile-details" id="order-history-details" style="display: none;">
+                <div class="order-container">
+                    <div class="order-tabs">
+                        <button class="tab active">Tất cả</button>
+                        <button class="tab">Chờ thanh toán</button>
+                        <button class="tab">Vận chuyển</button>
+                        <button class="tab">Chờ giao hàng</button>
+                        <button class="tab">Hoàn thành</button>
+                        <button class="tab">Đã hủy</button>
+                    </div>
+                    <div class="order-details">
+                        <div class="order-item" data-status="completed">
+                            <div class="order-header">
+                                <span class="order-status-wait">Đang vận chuyển </span>|
+                                <a href="#" class="status-link"> VẬN CHUYỂN</a>
+                            </div>
+                            <div class="order-product">
+                                <div class="product-image">
+                                    <img src="../image/phin/phisuanda_nho.png" alt="Product Image">
+                                </div>
+                                <div class="product-details">
+                                    <p class="product-name">Phin sữa đá</p>
+                                    <p class="product-type">S</p>
+                                    <p class="product-quantity">x5</p>
+                                </div>
+                                <p class="product-price">175.000 VNĐ</p>
+                            </div>
+                            <div class="order-total">
+                                <p>Thành tiền:<strong> 185.000 VNĐ</strong></p>
+                            </div>
+                            <div class="order-actions">
+                                <button class="reorder-btn">Mua lại</button>
+                                <button class="contact-seller-btn">Liên hệ</button>
+                                <button class="review-btn">Xem đánh giá</button>
+                            </div>
+                            <div class="order-details-table" style="display: none;">
+                                <table>
+                                    <thead>
+                                        <tr>
+                                            <th>Sản phẩm</th>
+                                            <th>Số lượng</th>
+                                            <th>Giá</th>
+                                            <th>Phí vận chuyển</th>
+                                            <th>Tổng</th>
+                                            <th>Phương thức Thanh toán</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td>Phin sữa đá</td>
+                                            <td>5</td>
+                                            <td>35.000 VNĐ</td>
+                                            <td></td>
+                                            <td>175.000 VNĐ</td>
+                                            <td></td>
+                                        </tr>
+                                        <tr>
+                                            <td><strong>Tổng cộng</strong></td>
+                                            <td colspan="2"></td>
+                                            <td>10.000 VNĐ</td>
+                                            <td><strong>185.000 VNĐ</strong></td>
+                                            <td>Tài khoản ngân hàng</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                        <div class="order-item" data-status="completed">
+                            <div class="order-header">
+                                <span class="order-status-finish">Giao hàng thành công </span>|
+                                <a href="#" class="status-link"> HOÀN THÀNH</a>
+                            </div>
+                            <div class="order-product">
+                                <div class="product-image">
+                                    <img src="../image/phin/phindenda_nho.png" alt="Product Image">
+                                </div>
+                                <div class="product-details">
+                                    <p class="product-name">Phin đen đá</p>
+                                    <p class="product-type">S</p>
+                                    <p class="product-quantity">x3</p>
+                                </div>
+                                <p class="product-price">96.000 VNĐ</p>
+                            </div>
+                            <div class="order-product">
+                                <div class="product-image">
+                                    <img src="../image/phindi/phindihanhnhan_nho.png" alt="Product Image">
+                                </div>
+                                <div class="product-details">
+                                    <p class="product-name">Phindi hạnh nhân</p>
+                                    <p class="product-type">S</p>
+                                    <p class="product-quantity">x5</p>
+                                </div>
+                                <p class="product-price">275.000 VNĐ</p>
+                            </div>
+                            <div class="order-product">
+                                <div class="product-image">
+                                    <img src="../image/trà/trasenvang(sen)_nho.png" alt="Product Image">
+                                </div>
+                                <div class="product-details">
+                                    <p class="product-name">Trà sen vàng (sen)</p>
+                                    <p class="product-type">S</p>
+                                    <p class="product-quantity">x2</p>
+                                </div>
+                                <p class="product-price">90.000 VNĐ</p>
+                            </div>
+                            <div class="order-total">
+                                <p>Thành tiền: <strong> 489.000 VNĐ</strong></p>
+                            </div>
+                            <div class="order-actions">
+                                <button class="reorder-btn">Mua lại</button>
+                                <button class="contact-seller-btn">Liên hệ</button>
+                                <button class="review-btn">Xem đánh giá</button>
+                            </div>
+                            <div class="order-details-table" style="display: none;">
+                                <table>
+                                    <thead>
+                                        <tr>
+                                            <th>Sản phẩm</th>
+                                            <th>Số lượng</th>
+                                            <th>Giá</th>
+                                            <th>Phí vận chuyển</th>
+                                            <th>Tổng</th>
+                                            <th>Phương thức Thanh toán</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td>Phin đen đá</td>
+                                            <td>3</td>
+                                            <td>32.000 VNĐ</td>
+                                            <td></td>
+                                            <td>96.000 VNĐ</td>
+                                            <td></td>
+                                        </tr>
+                                        <tr>
+                                            <td>Phindi hạnh nhân</td>
+                                            <td>5</td>
+                                            <td>55.000 VNĐ</td>
+                                            <td></td>
+                                            <td>275.000 VNĐ</td>
+                                            <td></td>
+                                        </tr>
+                                        <tr>
+                                            <td>Trà sen vàng (sen)</td>
+                                            <td>2</td>
+                                            <td>45.000 VNĐ</td>
+                                            <td></td>
+                                            <td>90.000 VNĐ</td>
+                                            <td></td>
+                                        </tr>
+                                        <tr>
+                                            <td><strong>Tổng cộng</strong></td>
+                                            <td colspan="2"></td>
+                                            <td>28.000 VNĐ</td>
+                                            <td><strong>489.000 VNĐ</strong></td>
+                                            <td>Tài khoản ngân hàng</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>                
             </div>
         </div>
     </main>    

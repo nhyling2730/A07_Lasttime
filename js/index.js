@@ -128,15 +128,6 @@ document.addEventListener("DOMContentLoaded", function() {
       }
   });
 
-  const searchForm = document.querySelector(".search-form");
-  searchForm.addEventListener("submit", (e) => {
-      e.preventDefault();
-      const query = searchInput.value.trim();
-      if (query) {
-          window.location.href = `./user/search.html?query=${encodeURIComponent(query)}`;
-      }
-  });
-
   document.querySelector(".dropdown-bar1").addEventListener("click", (e) => {
       e.stopPropagation();
       dropdownList1.classList.toggle("show");
@@ -179,7 +170,6 @@ document.addEventListener("DOMContentLoaded", function() {
       searchInput.placeholder = `Tìm kiếm ${selectedText1}, ${selectedText2}`;
   }
 });
-
 
 /* user */
 document.addEventListener("DOMContentLoaded", function () {
@@ -235,251 +225,258 @@ scrollToTopBtn.addEventListener("click", function () {
 });
 
 /* Sản phẩm và phân trang */
-document.addEventListener("DOMContentLoaded", function () {
-  const productListElement = document.getElementById("productList");
-
-  if (!productListElement) {
-    console.error("Không tìm thấy phần tử #productList");
-    return;
+const renderProducts = [
+  {
+    "productCode": "HC01",
+    "image": "../image/phin/phisuanda_nho.png",
+    "category": "Cà phê phin",
+    "name": "Phin sữa đá",
+    "price": "35.000 VNĐ",
+    "description": "Hương vị cà phê Việt Nam đích thực! Từng hạt cà phê hảo hạng được chọn bằng tay, phối trộn độc đáo giữa hạt Robusta từ cao nguyên Việt Nam, thêm Arabica thơm lừng. Cà phê được pha từ Phin truyền thống, hoà cùng sữa đặc sánh và thêm vào chút đá tạo nên ly Phin Sữa Đá – Đậm Đà Chất Phin.",
+    "availability": true
+  },
+  {
+    "productCode": "HC02",
+    "image": "../image/phin/phindenda_nho.png",
+    "category": "Cà phê phin",
+    "name": "Phin đen đá",
+    "price": "32.000 VNĐ",
+    "description": "Dành cho những tín đồ cà phê đích thực! Hương vị cà phê truyền thống được phối trộn độc đáo tại Highlands. Cà phê đậm đà pha hoàn toàn từ Phin, cho thêm 1 thìa đường, một ít đá viên mát lạnh, tạo nên Phin Đen Đá mang vị cà phê đậm đà chất Phin.",
+    "availability": true
+  },
+  {
+    "productCode": "HC04",
+    "image": "./image/phindi/phindihanhnhan_nho.png",
+    "category": "Phindi",
+    "name": "Phindi hạnh nhân",
+    "price": "55.000 VNĐ",
+    "description": "PhinDi Hạnh Nhân - Cà phê Phin thế hệ mới với chất Phin êm hơn, kết hợp cùng Hạnh nhân thơm bùi mang đến hương vị mới lạ, không thể hấp dẫn hơn!",
+    "availability": true
+  },
+  {
+    "productCode": "HC05",
+    "image": "./image/phindi/phindikemsua_nho.png",
+    "category": "Phidi",
+    "name": "Phindi kem sữa",
+    "price": "55.000 VNĐ",
+    "description": "Dành cho những tín đồ cà phê đích thực! Hương vị cà phê truyền thống được phối trộn độc đáo tại Highlands. Cà phê đậm đà pha hoàn toàn từ Phin, cho thêm 1 thìa đường, một ít đá viên mát lạnh, tạo nên Phin Đen Đá mang vị cà phê đậm đà chất Phin.",
+    "availability": true
+  },
+  {
+    "productCode": "HC11",
+    "image": "./image/freeze/freezetraxanh_nho.png",
+    "category": "Freeze",
+    "name": "Freeze trà xanh",
+    "price": "50.000 VNĐ",
+    "description": "Thức uống rất được ưa chuộng! Trà xanh thượng hạng từ cao nguyên Việt Nam, kết hợp cùng đá xay, thạch trà dai dai, thơm ngon và một lớp kem dày phủ lên trên vô cùng hấp dẫn. Freeze Trà Xanh thơm ngon, mát lạnh, chinh phục bất cứ ai!",
+    "availability": true
+  },
+  {
+    "productCode": "HC09",
+    "image": "./image/freeze/caramelphinfreeze_nho.png",
+    "category": "Freeze",
+    "name": "Caramel phin freeze",
+    "price": "50.000 VNĐ",
+    "description": "Dành cho những tín đồ cà phê đích thực! Hương vị cà phê truyền thống được phối trộn độc đáo tại Highlands. Cà phê đậm đà pha hoàn toàn từ Phin, cho thêm 1 thìa đường, một ít đá viên mát lạnh, tạo nên Phin Đen Đá mang vị cà phê đậm đà chất Phin.",
+    "availability": true
+  },
+  {
+    "productCode": "HC16",
+    "image": "./image/trà/trasenvang(cunang)_nho.png",
+    "category": "Trà",
+    "name": "Trà sen vàng (củ năng)",
+    "price": "45.000 VNĐ",
+    "description": "Thức uống chinh phục những thực khách khó tính! Sự kết hợp độc đáo giữa trà Ô long, hạt sen thơm bùi và củ năng giòn tan. Thêm vào chút sữa sẽ để vị thêm ngọt ngào.",
+    "availability": false
   }
+];
 
-  const renderProducts = [
-    {
-      productCode: "HC01",
-      name: "Phin sữa đá",
-      price: "35.000 VNĐ",
-      image: "../../image/phin/phisuanda_nho.png",
-      category: "Cà phê phin",
-      availability: true,
-      description:
-        "Hương vị cà phê Việt Nam đích thực! Từng hạt cà phê hảo hạng được chọn bằng tay, phối trộn độc đáo giữa hạt Robusta từ cao nguyên Việt Nam, thêm Arabica thơm lừng. Cà phê được pha từ Phin truyền thống, hoà cùng sữa đặc sánh và thêm vào chút đá tạo nên ly Phin Sữa Đá – Đậm Đà Chất Phin.",
-    },
-    {
-      productCode: "HC02",
-      name: "Phin đen đá",
-      price: "32.000 VNĐ",
-      image: "../../image/phin/phindenda_nho.png",
-      category: "Cà phê phin",
-      availability: true,
-      description:
-        "Dành cho những tín đồ cà phê đích thực! Hương vị cà phê truyền thống được phối trộn độc đáo tại Highlands. Cà phê đậm đà pha hoàn toàn từ Phin, cho thêm 1 thìa đường, một ít đá viên mát lạnh, tạo nên Phin Đen Đá mang vị cà phê đậm đà chất Phin.",
-    },
-    {
-      productCode: "HC04",
-      name: "Phindi hạnh nhân",
-      price: "55.000 VNĐ",
-      image: "../../image/phindi/phindihanhnhan_nho.png",
-      category: "Phindi",
-      availability: true,
-      description:
-        "PhinDi Hạnh Nhân - Cà phê Phin thế hệ mới với chất Phin êm hơn, kết hợp cùng Hạnh nhân thơm bùi mang đến hương vị mới lạ, không thể hấp dẫn hơn!",
-    },
-    {
-      productCode: "HC05",
-      name: "Phindi kem sữa",
-      price: "55.000 VNĐ",
-      image: "../../image/phindi/phindikemsua_nho.png",
-      category: "Phidi",
-      availability: true,
-      description:
-        "Dành cho những tín đồ cà phê đích thực! Hương vị cà phê truyền thống được phối trộn độc đáo tại Highlands. Cà phê đậm đà pha hoàn toàn từ Phin, cho thêm 1 thìa đường, một ít đá viên mát lạnh, tạo nên Phin Đen Đá mang vị cà phê đậm đà chất Phin.",
-    },
-    {
-      productCode: "HC11",
-      name: "Freeze trà xanh",
-      price: "50.000 VNĐ",
-      image: "../../image/freeze/freezetraxanh_nho.png",
-      category: "Freeze",
-      availability: true,
-      description:
-        "Thức uống rất được ưa chuộng! Trà xanh thượng hạng từ cao nguyên Việt Nam, kết hợp cùng đá xay, thạch trà dai dai, thơm ngon và một lớp kem dày phủ lên trên vô cùng hấp dẫn. Freeze Trà Xanh thơm ngon, mát lạnh, chinh phục bất cứ ai!",
-    },
-    {
-      productCode: "HC09",
-      name: "Caramel phin freeze",
-      price: "50.000 VNĐ",
-      image: "../../image/freeze/caramelphinfreeze_nho.png",
-      category: "Freeze",
-      availability: true,
-      description:
-        "Dành cho những tín đồ cà phê đích thực! Hương vị cà phê truyền thống được phối trộn độc đáo tại Highlands. Cà phê đậm đà pha hoàn toàn từ Phin, cho thêm 1 thìa đường, một ít đá viên mát lạnh, tạo nên Phin Đen Đá mang vị cà phê đậm đà chất Phin.",
-    },
-    {
-      productCode: "HC16",
-      name: "Trà sen vàng (củ năng)",
-      price: "45.000 VNĐ",
-      image: "../../image/trà/trasenvang(cunang)_nho.png",
-      category: "Trà",
-      availability: false,
-      description:
-        "Thức uống chinh phục những thực khách khó tính! Sự kết hợp độc đáo giữa trà Ô long, hạt sen thơm bùi và củ năng giòn tan. Thêm vào chút sữa sẽ để vị thêm ngọt ngào.",
-    }
-  ];
+document.addEventListener("DOMContentLoaded", function () {
+  initPagination();
+  initProductDetails();
+  initThumbnailClick();
+});
+
+/* Hàm khởi tạo phân trang */
+function initPagination() {
+  const productListElement = document.querySelector("#product-list");
+  if (!productListElement) {
+      console.error("Không tìm thấy phần tử #product-list");
+      return;
+  }
 
   const itemsPerPage = 4;
   let currentPage = 1;
 
   function renderPage(page) {
-    productListElement.innerHTML = "";
+      productListElement.innerHTML = "";
 
-    const start = (page - 1) * itemsPerPage;
-    const end = page * itemsPerPage;
-    const productsToShow = renderProducts.slice(start, end);
+      const start = (page - 1) * itemsPerPage;
+      const end = page * itemsPerPage;
+      const productsToShow = renderProducts.slice(start, end);
 
-    productsToShow.forEach((product) => {
-      const productElement = document.createElement("div");
-      productElement.classList.add("menu_item");
-      productElement.setAttribute("data-product", JSON.stringify(product));
+      productsToShow.forEach((product) => {
+          const productHTML = `
+              <div class="menu_item" data-product='${JSON.stringify(product)}'>
+                  <div class="menu_item_img">
+                      <a href="#">
+                          <img src="${product.image}" alt="${product.name}" class="menu_img">
+                      </a>
+                      <p class="product-category" style="text-align: center;">
+                          ${product.category.toUpperCase()}
+                      </p>
+                  </div>
+                  <div class="menu_item_info">
+                      <a>
+                          <h3 class="menu_item_title">
+                              <strong>${product.name}</strong>
+                          </h3>
+                      </a>
+                      <p class="price_item">${product.price}</p>
+                  </div>
+              </div>
+          `;
+          productListElement.insertAdjacentHTML("beforeend", productHTML);
 
-      const productImage = document.createElement("div");
-      productImage.classList.add("menu_item_img");
-
-      const imageLink = document.createElement("a");
-      imageLink.href = "#";
-
-      const img = document.createElement("img");
-      img.src = product.image;
-      img.alt = product.name;
-      img.classList.add("menu_img");
-
-      imageLink.appendChild(img);
-      productImage.appendChild(imageLink);
-
-      const category = document.createElement("p");
-      category.classList.add("product-category");
-      category.textContent = product.category.toUpperCase();
-      category.style.textAlign = "center";
-      productImage.appendChild(category);
-
-      const productInfo = document.createElement("div");
-      productInfo.classList.add("menu_item_info");
-      const productLink = document.createElement("a");
-      const title = document.createElement("h3");
-      title.classList.add("menu_item_title");
-      title.innerHTML = `<strong>${product.name}</strong>`;
-      productLink.appendChild(title);
-      productInfo.appendChild(productLink);
-      const price = document.createElement("p");
-      price.classList.add("price_item");
-      price.textContent = product.price;
-      productInfo.appendChild(price);
-
-      productElement.appendChild(productImage);
-      productElement.appendChild(productInfo);
-      productListElement.appendChild(productElement);
-
-      productElement.addEventListener("click", () => {
-        localStorage.setItem("selectedProduct", JSON.stringify(product));
-        window.location.href = "./user/product/mota.html";
+          const productElement = productListElement.lastElementChild;
+          productElement.addEventListener("click", () => {
+              localStorage.setItem("selectedProduct", JSON.stringify(product));
+              window.location.href = "./user/product/mota.html";
+          });
       });
-    });
   }
 
   function updatePagination() {
-    const totalPages = Math.ceil(renderProducts.length / itemsPerPage);
+      const totalPages = Math.ceil(renderProducts.length / itemsPerPage);
 
-    const prevButton = document.querySelector(".page1");
-    const nextButton = document.querySelector(".page2");
+      const prevButton = document.querySelector(".page1");
+      const nextButton = document.querySelector(".page2");
+      const listPageElement = document.querySelector(".listpage");
 
-    const pageLinks = document.querySelectorAll(".listpage li:not(.page1):not(.page2)");
+      if (!listPageElement) {
+          console.error("Không tìm thấy phần tử .listpage");
+          return;
+      }
 
-    if (currentPage === 1) {
-      prevButton.classList.add("disabled");
-      nextButton.classList.remove("disabled");
+      const pageLinks = listPageElement.querySelectorAll("li:not(.page1):not(.page2)");
+
+      if (currentPage === 1) {
+          prevButton.classList.add("disabled");
+          nextButton.classList.remove("disabled");
+      } else if (currentPage === totalPages) {
+          nextButton.classList.add("disabled");
+          prevButton.classList.remove("disabled");
+      } else {
+          prevButton.classList.remove("disabled");
+          nextButton.classList.remove("disabled");
+      }
+
       pageLinks.forEach((link) => link.classList.remove("active"));
-      pageLinks[0].classList.add("active");
-    } else if (currentPage === totalPages) {
-      nextButton.classList.add("disabled");
-      prevButton.classList.remove("disabled");
-      pageLinks.forEach((link) => link.classList.remove("active"));
-      pageLinks[1].classList.add("active");
-    } else {
-      prevButton.classList.remove("disabled");
-      nextButton.classList.remove("disabled");
-      pageLinks.forEach((link) => link.classList.remove("active"));
-      pageLinks[currentPage - 1].classList.add("active");
-    }
+      if (pageLinks[currentPage - 1]) {
+          pageLinks[currentPage - 1].classList.add("active");
+      }
   }
 
   document.querySelector(".page1").addEventListener("click", function () {
-    if (currentPage > 1) {
-      currentPage--;
-      renderPage(currentPage);
-      updatePagination();
-    }
+      if (currentPage > 1) {
+          currentPage--;
+          renderPage(currentPage);
+          updatePagination();
+      }
   });
 
   document.querySelector(".page2").addEventListener("click", function () {
-    const totalPages = Math.ceil(renderProducts.length / itemsPerPage);
-    if (currentPage < totalPages) {
-      currentPage++;
-      renderPage(currentPage);
-      updatePagination();
-    }
+      const totalPages = Math.ceil(renderProducts.length / itemsPerPage);
+      if (currentPage < totalPages) {
+          currentPage++;
+          renderPage(currentPage);
+          updatePagination();
+      }
   });
 
-  document.querySelectorAll(".listpage li:not(.page1):not(.page2)").forEach(function (pageLink, index) {
-    pageLink.addEventListener("click", function () {
-      currentPage = index + 1;
-      renderPage(currentPage);
-      updatePagination();
-    });
-  });
+  const listPageElement = document.querySelector(".listpage");
+  if (listPageElement) {
+      const pageLinks = listPageElement.querySelectorAll("li:not(.page1):not(.page2)");
+      pageLinks.forEach(function (pageLink, index) {
+          pageLink.addEventListener("click", function () {
+              currentPage = index + 1;
+              renderPage(currentPage);
+              updatePagination();
+          });
+      });
+  }
 
   renderPage(currentPage);
   updatePagination();
-});
+}
 
-/* Chi tiết sản phẩm */
-document.addEventListener("DOMContentLoaded", () => {
-  const productData = JSON.parse(localStorage.getItem("selectedProduct"));
-
-  if (!productData) {
-    window.location.href = "./index.html";
-    return;
-  }
+/* Hàm chi tiết sản phẩm */
+function initProductDetails() {
 
   const breadcumCategory = document.querySelector("#breadcum-category");
-  breadcumCategory.textContent = productData.category;
-
-  breadcumCategory.addEventListener("click", () => {
-    window.location.href = `../menu/allmenu.html#all-menu-section`;
-  });
-
-  const breadcumProduct = document.querySelector("#breadcum-product");
-  breadcumProduct.textContent = productData.name;
-
-  document.querySelector(".product-gallery img").src = productData.image;
-  document.querySelector(".product_details_info h3").textContent =
-    productData.name;
-  document.querySelector(".availability b").textContent =
-    productData.availability ? "Còn hàng" : "Hết hàng";
-  document.querySelector(
-    ".availability"
-  ).innerHTML += ` | Mã sản phẩm: <b>${productData.productCode}</b>`;
-  document.querySelector(".price").textContent = productData.price;
-  document.querySelector(".product_tag-read p").textContent =
-    productData.description;
-});
-
-document.addEventListener("DOMContentLoaded", function() {
-  const thumbnails = document.querySelectorAll('.thumbnail-img');
-  
-  const carouselImage = document.querySelector('.carousel-item img');
-
-  if (!carouselImage) {
-    console.error('Không tìm thấy hình ảnh carousel chính');
-    return;
+  if (breadcumCategory) {
+      breadcumCategory.textContent = productData.category;
+      breadcumCategory.addEventListener("click", () => {
+          window.location.href = `../menu/allmenu.html#all-menu-section`;
+      });
   }
 
-  thumbnails.forEach((thumbnail) => {
-      thumbnail.addEventListener('click', function() {
-          if (this.src) {
-              carouselImage.src = this.src;
-          }
+  const breadcumProduct = document.querySelector("#breadcum-product");
+  if (breadcumProduct) {
+      breadcumProduct.textContent = productData.name;
+  }
+
+  const productGallery = document.querySelector(".product-gallery img");
+  if (productGallery) {
+      productGallery.src = productData.image;
+  }
+
+  const productDetailsInfo = document.querySelector(".product_details_info h3");
+  if (productDetailsInfo) {
+      productDetailsInfo.textContent = productData.name;
+  }
+
+  const availabilityElement = document.querySelector(".availability");
+  if (availabilityElement) {
+      availabilityElement.innerHTML = `
+          <b>${productData.availability ? "Còn hàng" : "Hết hàng"}</b>
+          | Mã sản phẩm: <b>${productData.productCode}</b>
+      `;
+  }
+
+  const priceElement = document.querySelector(".price");
+  if (priceElement) {
+      priceElement.textContent = productData.price;
+  }
+
+  const productTagRead = document.querySelector(".product_tag-read p");
+  if (productTagRead) {
+      productTagRead.textContent = productData.description;
+  }
+}
+
+/* Hàm xử lý click vào ảnh thumbnail */
+function initThumbnailClick() {
+  const thumbnails = document.querySelectorAll(".thumbnail-img");
+  const carouselImage = document.querySelector(".carousel-item img");
+
+  if (!carouselImage) {
+      console.error("Không tìm thấy hình ảnh carousel chính");
+      return;
+  }
+
+  if (thumbnails.length === 0) {
+      console.warn("Không tìm thấy ảnh thumbnail nào.");
+  } else {
+      thumbnails.forEach((thumbnail) => {
+          thumbnail.addEventListener("click", function () {
+              if (this.src) {
+                  carouselImage.src = this.src;
+              }
+          });
       });
-  });
-});
+  }
+}
 
 /* Cart */
 document.addEventListener("DOMContentLoaded", function () {

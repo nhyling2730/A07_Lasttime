@@ -171,7 +171,6 @@ document.addEventListener("DOMContentLoaded", function() {
   }
 });
 
-
 /* user */
 document.addEventListener("DOMContentLoaded", function () {
   const userIcon = document.querySelector(".fa-user");
@@ -210,7 +209,6 @@ document.addEventListener("DOMContentLoaded", function () {
 /* Top */
 const scrollToTopBtn = document.getElementById("scrollToTopBtn");
 
-// Hiển thị nút khi cuộn xuống 200px
 window.onscroll = function () {
   if (window.scrollY > 200) {
     scrollToTopBtn.style.display = "block";
@@ -219,7 +217,6 @@ window.onscroll = function () {
   }
 };
 
-// Cuộn lên đầu trang khi nhấn nút
 scrollToTopBtn.addEventListener("click", function () {
   window.scrollTo({
     top: 0,
@@ -241,7 +238,7 @@ const renderProducts = [
     productCode: "HC01",
     name: "Phin sữa đá",
     price: "35.000 VNĐ",
-    image: "../../image/phin/phisuanda_nho.png",
+    image: "../image/phin/phisuanda_nho.png",
     category: "Cà phê phin",
     availability: true,
     description:
@@ -251,7 +248,7 @@ const renderProducts = [
     productCode: "HC02",
     name: "Phin đen đá",
     price: "32.000 VNĐ",
-    image: "../../image/phin/phindenda_nho.png",
+    image: "../image/phin/phindenda_nho.png",
     category: "Cà phê phin",
     availability: true,
     description:
@@ -261,7 +258,7 @@ const renderProducts = [
     productCode: "HC04",
     name: "Phindi hạnh nhân",
     price: "55.000 VNĐ",
-    image: "../../image/phindi/phindihanhnhan_nho.png",
+    image: "../image/phindi/phindihanhnhan_nho.png",
     category: "Phindi",
     availability: true,
     description:
@@ -271,7 +268,7 @@ const renderProducts = [
     productCode: "HC05",
     name: "Phindi kem sữa",
     price: "55.000 VNĐ",
-    image: "../../image/phindi/phindikemsua_nho.png",
+    image: "../image/phindi/phindikemsua_nho.png",
     category: "Phidi",
     availability: true,
     description:
@@ -281,7 +278,7 @@ const renderProducts = [
     productCode: "HC11",
     name: "Freeze trà xanh",
     price: "50.000 VNĐ",
-    image: "../../image/freeze/freezetraxanh_nho.png",
+    image: "../image/freeze/freezetraxanh_nho.png",
     category: "Freeze",
     availability: true,
     description:
@@ -291,7 +288,7 @@ const renderProducts = [
     productCode: "HC09",
     name: "Caramel phin freeze",
     price: "50.000 VNĐ",
-    image: "../../image/freeze/caramelphinfreeze_nho.png",
+    image: "../image/freeze/caramelphinfreeze_nho.png",
     category: "Freeze",
     availability: true,
     description:
@@ -301,7 +298,7 @@ const renderProducts = [
     productCode: "HC16",
     name: "Trà sen vàng (củ năng)",
     price: "45.000 VNĐ",
-    image: "../../image/trà/trasenvang(cunang)_nho.png",
+    image: "../image/trà/trasenvang(cunang)_nho.png",
     category: "Trà",
     availability: false,
     description:

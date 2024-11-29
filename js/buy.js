@@ -2,7 +2,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const renderProducts = [
       {
         "productCode": "HC01",
-        "image": "../../image/phin/phisuanda_nho.png",
+        "image": "../image/phin/phisuanda_nho.png",
         "category": "CÀ PHÊ PHIN",
         "name": "Phin sữa đá",
         "price": "35.000 VNĐ",
@@ -11,7 +11,7 @@ document.addEventListener("DOMContentLoaded", () => {
       },
       {
         "productCode": "HC02",
-        "image": "../../image/phin/phindenda_nho.png",
+        "image": "../image/phin/phindenda_nho.png",
         "category": "CÀ PHÊ PHIN",
         "name": "Phin đen đá",
         "price": "32.000 VNĐ",
@@ -20,7 +20,7 @@ document.addEventListener("DOMContentLoaded", () => {
       },
       {
         "productCode": "HC04",
-        "image": "../../image/phindi/phindihanhnhan_nho.png",
+        "image": "../image/phindi/phindihanhnhan_nho.png",
         "category": "PHINDI",
         "name": "Phindi hạnh nhân",
         "price": "55.000 VNĐ",
@@ -29,7 +29,7 @@ document.addEventListener("DOMContentLoaded", () => {
       },
       {
         "productCode": "HC05",
-        "image": "../../image/phindi/phindikemsua_nho.png",
+        "image": "../image/phindi/phindikemsua_nho.png",
         "category": "PHINDI",
         "name": "Phindi kem sữa",
         "price": "55.000 VNĐ",
@@ -38,7 +38,7 @@ document.addEventListener("DOMContentLoaded", () => {
       },
       {
         "productCode": "HC06",
-        "image": "../../image/phindi/phindichoco_nho.png",
+        "image": "../image/phindi/phindichoco_nho.png",
         "category": "PHINDI",
         "name": "Phindi choco",
         "price": "55.000 VNĐ",
@@ -47,7 +47,7 @@ document.addEventListener("DOMContentLoaded", () => {
       },
       {
         "productCode": "HC07",
-        "image": "../../image/phindi/phindicassia_nho.png",
+        "image": "../image/phindi/phindicassia_nho.png",
         "category": "PHINDI",
         "name": "Phindi cassia",
         "price": "55.000 VNĐ",

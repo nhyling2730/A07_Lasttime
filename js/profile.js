@@ -9,6 +9,7 @@ function showProfile() {
     document.getElementById('profile-details').style.display = 'block';
     document.getElementById('address-details').style.display = 'none';
     document.getElementById('change-password-details').style.display = 'none'; 
+    document.getElementById('order-history-details').style.display = 'none';
 }
 
 function showAddress() {
@@ -16,6 +17,7 @@ function showAddress() {
     document.getElementById('profile-details').style.display = 'none';
     document.getElementById('address-details').style.display = 'block';
     document.getElementById('change-password-details').style.display = 'none'; 
+    document.getElementById('order-history-details').style.display = 'none';
 }
 
 function showChangePassword() {
@@ -23,6 +25,15 @@ function showChangePassword() {
     document.getElementById('profile-details').style.display = 'none';
     document.getElementById('address-details').style.display = 'none';
     document.getElementById('change-password-details').style.display = 'block';
+    document.getElementById('order-history-details').style.display = 'none';
+}
+
+function showOrderHistory() {
+    setActive('order-history'); 
+    document.getElementById('profile-details').style.display = 'none';
+    document.getElementById('address-details').style.display = 'none';
+    document.getElementById('change-password-details').style.display = 'none';
+    document.getElementById('order-history-details').style.display = 'block';
 }
 
 function showOtherOption() {
@@ -64,4 +75,47 @@ buttons.forEach(button => {
         buttons.forEach(btn => btn.classList.remove('selected'));
         button.classList.add('selected');
     });
+});
+
+
+
+// // Hàm để hiển thị hoặc ẩn bảng chi tiết của đơn hàng
+// function toggleOrderDetails(event) {
+//     const orderItem = event.target.closest('.order-item');  // Lấy phần tử .order-item cha của .order-product
+//     const orderDetails = orderItem.querySelector('.order-details-table');  // Lấy bảng chi tiết đơn hàng
+
+//     // Chuyển đổi trạng thái hiển thị của bảng chi tiết đơn hàng
+//     if (orderDetails.style.display === 'none' || !orderDetails.style.display) {
+//         orderDetails.style.display = 'block';  // Hiển thị bảng chi tiết
+//     } else {
+//         orderDetails.style.display = 'none';  // Ẩn bảng chi tiết
+//     }
+// }
+
+// // Thêm sự kiện click cho tất cả các phần tử .order-product
+// const orderProducts = document.querySelectorAll('.order-product');
+// orderProducts.forEach(product => {
+//     product.addEventListener('click', toggleOrderDetails);
+// });
+
+// Hàm để hiển thị hoặc ẩn bảng chi tiết của đơn hàng
+function toggleOrderDetails(event) {
+    const orderItem = event.target.closest('.order-item');  // Lấy phần tử .order-item cha của .order-product
+    const orderDetails = orderItem.querySelector('.order-details-table');  // Lấy bảng chi tiết đơn hàng
+
+    // Chuyển đổi trạng thái hiển thị của bảng chi tiết đơn hàng
+    if (orderDetails.style.display === 'none' || !orderDetails.style.display) {
+        orderDetails.style.display = 'block';  // Hiển thị bảng chi tiết
+    } else {
+        orderDetails.style.display = 'none';  // Ẩn bảng chi tiết
+    }
+
+    // Khi nhấn vào sản phẩm trong đơn hàng, làm mục "Đơn mua" active
+    setOrderHistoryActive();
+}
+
+// Thêm sự kiện click cho tất cả các phần tử .order-product
+const orderProducts = document.querySelectorAll('.order-product');
+orderProducts.forEach(product => {
+    product.addEventListener('click', toggleOrderDetails);
 });
