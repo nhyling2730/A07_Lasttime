@@ -255,7 +255,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
   // Đi đến giỏ hàng
   goToCartBtn.addEventListener("click", () => {
-      window.location.href = "../cart/cart.html"; // Chuyển đến trang giỏ hàng
+      window.location.href = "../cart.html"; // Chuyển đến trang giỏ hàng
   });
 
   // Handle "Đặt mua" và "Thêm vào giỏ" button click
@@ -292,6 +292,8 @@ document.addEventListener("DOMContentLoaded", () => {
       }
 
   })
+
+  
   const breadcumProduct = document.querySelector("#breadcum-product");
   breadcumProduct.textContent = productData.name;
   document.querySelector(".product-gallery img").src = productData.image;

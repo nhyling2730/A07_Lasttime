@@ -132,14 +132,13 @@
     font-weight: 600;
 }
 
-ul.custom-products {
+.custom-products {
+    display: grid;
+    gap: 20px; /* Space between grid items */
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
     list-style: none;
-    display: flex;
-    flex-wrap: wrap;
     padding: 0;
-    margin: 0 auto;
-    gap: 15px; 
-    margin-top: 50px;
+    margin: 0;
 }
 
 .custom-product-item {

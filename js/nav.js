@@ -44,6 +44,12 @@ document.addEventListener("DOMContentLoaded", function () {
   const dropdownItems2 = document.querySelectorAll(
     "#price-list .dropdown-list-item"
   );
+
+  let searchParams =   new URLSearchParams(window.location.search).get("openHistory");
+  if(searchParams == "true") {
+    showOrderHistory();
+  }
+
   const dropdownList1 = document.getElementById("list");
   const dropdownList2 = document.getElementById("price-list");
   const span1 = document.getElementById("span");
