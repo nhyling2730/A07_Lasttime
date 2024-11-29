@@ -77,45 +77,57 @@ buttons.forEach(button => {
     });
 });
 
-
-
-// // Hàm để hiển thị hoặc ẩn bảng chi tiết của đơn hàng
-// function toggleOrderDetails(event) {
-//     const orderItem = event.target.closest('.order-item');  // Lấy phần tử .order-item cha của .order-product
-//     const orderDetails = orderItem.querySelector('.order-details-table');  // Lấy bảng chi tiết đơn hàng
-
-//     // Chuyển đổi trạng thái hiển thị của bảng chi tiết đơn hàng
-//     if (orderDetails.style.display === 'none' || !orderDetails.style.display) {
-//         orderDetails.style.display = 'block';  // Hiển thị bảng chi tiết
-//     } else {
-//         orderDetails.style.display = 'none';  // Ẩn bảng chi tiết
-//     }
-// }
-
-// // Thêm sự kiện click cho tất cả các phần tử .order-product
-// const orderProducts = document.querySelectorAll('.order-product');
-// orderProducts.forEach(product => {
-//     product.addEventListener('click', toggleOrderDetails);
-// });
-
-// Hàm để hiển thị hoặc ẩn bảng chi tiết của đơn hàng
 function toggleOrderDetails(event) {
-    const orderItem = event.target.closest('.order-item');  // Lấy phần tử .order-item cha của .order-product
-    const orderDetails = orderItem.querySelector('.order-details-table');  // Lấy bảng chi tiết đơn hàng
+    const orderItem = event.target.closest('.order-item'); 
+    const orderDetails = orderItem.querySelector('.order-details-table');  
 
-    // Chuyển đổi trạng thái hiển thị của bảng chi tiết đơn hàng
     if (orderDetails.style.display === 'none' || !orderDetails.style.display) {
-        orderDetails.style.display = 'block';  // Hiển thị bảng chi tiết
+        orderDetails.style.display = 'block'; 
     } else {
-        orderDetails.style.display = 'none';  // Ẩn bảng chi tiết
+        orderDetails.style.display = 'none';
     }
 
-    // Khi nhấn vào sản phẩm trong đơn hàng, làm mục "Đơn mua" active
     setOrderHistoryActive();
 }
 
-// Thêm sự kiện click cho tất cả các phần tử .order-product
 const orderProducts = document.querySelectorAll('.order-product');
 orderProducts.forEach(product => {
     product.addEventListener('click', toggleOrderDetails);
+});
+
+
+const saveBtn = document.getElementById("saveBtn");
+
+saveBtn.addEventListener("click", (event) => {
+    event.preventDefault();
+    hideModal();
+    showAddress();
+});
+
+const deleteButtons = document.querySelectorAll(".btn-delete");
+const deletePopup = document.getElementById("deleteConfirmationPopup");
+const confirmDeleteAction = document.getElementById("confirmDeleteAction");
+const cancelDeleteAction = document.getElementById("cancelDeleteAction");
+
+let addressItemToDelete = null;
+deleteButtons.forEach((btn) => {
+    btn.addEventListener("click", (event) => {
+        console.log("Đã nhấn vào nút Xóa");
+        addressItemToDelete = event.target.closest(".address-item");
+        console.log("Địa chỉ cần xóa:", addressItemToDelete);
+        deletePopup.style.display = "flex"; 
+    });
+});
+
+confirmDeleteAction.addEventListener("click", () => {
+    if (addressItemToDelete) {
+        addressItemToDelete.remove();
+    }
+    deletePopup.style.display = "none"; 
+    addressItemToDelete = null; 
+});
+
+cancelDeleteAction.addEventListener("click", () => {
+    deletePopup.style.display = "none"; 
+    addressItemToDelete = null;
 });

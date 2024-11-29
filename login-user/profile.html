@@ -111,7 +111,6 @@
             <div class="profile-details" id="profile-details">
                 <!-- Các thông tin cá nhân -->
                 <div class="info-details">
-                    <!-- Ảnh đại diện -->
                     <div class="avatar-container">
                         <img id="profile-img" src="../image/khác/user.png" alt="Ảnh đại diện">
                         <label for="file-upload" class="file-upload-label">Chọn ảnh</label>
@@ -184,6 +183,17 @@
                             <button class="btn-edit">Cập nhật</button>
                             <button class="btn-delete">Xóa</button>
                             <button class="btn-default-setting">Thiết lặp mặc định</button>
+                        </div>
+                    </div>
+                </div>
+                <!-- Modal Xác nhận Xóa -->
+                <div id="deleteConfirmationPopup" class="custom-modal-container" style="display: none;">
+                    <div class="custom-modal-box">
+                        <h2>Xác nhận xóa</h2>
+                        <p>Bạn có chắc chắn muốn <b>xóa</b> địa chỉ này không?</p>
+                        <div class="custom-modal-actions">
+                            <button type="button" id="confirmDeleteAction">Đồng ý</button>
+                            <button type="button" id="cancelDeleteAction">Hủy bỏ</button>
                         </div>
                     </div>
                 </div>
