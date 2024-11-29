@@ -894,14 +894,15 @@ header .logo img {
 }
 
 #scrollToTopBtn {
+    z-index: 1000;
     position: fixed;
-    display: none;
+    display: flex;
     bottom: 20px;
     right: 20px;
     width: 40px;
     height: 40px;
-    background-color: rgb(70, 31, 31);
-    border: 2px solid #ffffffc9;
+    background-color: burlywood;
+    border: 2px solid rgb(70, 31, 31);
     border-radius: 50%;
     cursor: pointer;
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.1);
@@ -909,6 +910,7 @@ header .logo img {
 }
 
 #scrollToTopBtn i {
+    position: relative;
     font-size: 18px;
     padding-top: 8px;
     padding-left: 11px;
