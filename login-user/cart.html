@@ -11,7 +11,18 @@
 </head>
 
 <body>
+
     <header>
+        <div class="custom-modal" id="delete-confirmation-modal" style="display: none;">
+            <div class="custom-modal-content">
+                <h3><b>Xác nhận</b></h3>
+                <p>Bạn có chắc muốn xoá sản phẩm này khỏi giỏ hàng?</p>
+                <div class="custom-modal-actions">
+                    <button class="custom-modal-btn btn-cancel" id="cancel-delete">Hủy</button>
+                    <button class="custom-modal-btn btn-confirm" id="confirm-delete">Xoá</button>
+                </div>
+            </div>
+        </div>
         <div class="toggle">
             <i class="fa-solid fa-bars"></i>
             <i class="fa-solid fa-xmark"></i>
@@ -100,7 +111,7 @@
     <section class="breadcrumb_section container">
         <nav aria-label="breadcrumb">
             <ol class="breadcrumb">
-                <li class="breadcrumb-item"><a href="../index.html">Trang chủ</a></li>
+                <li class="breadcrumb-item"><a href="../login-user/index_user.html">Trang chủ</a></li>
                 <li class="breadcrumb-item active" aria-current="page"><strong>Giỏ hàng</strong></li>
 
             </ol>
@@ -117,7 +128,7 @@
                 <div class="hr"></div>
                 <div class="orders__submit row">
                     <div class="col-6"><i class="fas fa-angle-left"></i>
-                        <a style="color: black; text-decoration: none;" href="../login-user/menu/allmenu.html">Tiếp tục
+                        <a style="color: black; text-decoration: none;" href="../login-user/index_user.html">Tiếp tục
                             chọn món </a>
                     </div>
                 </div>
@@ -204,7 +215,7 @@
     <script src="../js/nav.js"></script>
     <script src="../js/thongbao.js"></script>
     <script src="../js/chitietsp.js"></script>
-    
+
     <script src="../js/cart.js"></script>
     <!-- BOOSTRAP JS  -->
     <script src="../../bootstrap-5.0.2-dist/js/bootstrap.bundle.min.js"></script>
@@ -267,15 +278,16 @@
             });
         });
     </script>
+
     <script>
         document.addEventListener("DOMContentLoaded", function () {
             const cartQuantityElement = document.getElementById("cartQuantity");
-
             const cartQuantity = localStorage.getItem("cartQuantity");
-            cartQuantityElement.textContent = cartQuantity || 0;
+            cartQuantityElement.textContent = cartQuantity || 0; 
         });
     </script>
-    
+
+
 </body>
 
 </html>
