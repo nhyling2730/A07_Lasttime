@@ -4,125 +4,125 @@
         "image": "../../image/freeze/caramelphinfreeze_nho.png",
         "category": "Freeze",
         "name": "Caramel phin freeze",
-        "price": "50,000 VNĐ"
+        "price": "50000 VNĐ"
     },
     {
         "productCode": "HB-02",
         "image": "../../image/freeze/classicphinfreeze_nho.png",
         "category": "Freeze",
         "name": "Classic phin freeze",
-        "price": "50,000 VNĐ"
+        "price": "50000 VNĐ"
     },
     {
         "productCode": "HB-03",
         "image": "../../image/freeze/cookies&cream_nho.png",
         "category": "Freeze",
         "name": "Cookies & Cream",
-        "price": "50,000 VNĐ"
+        "price": "50000 VNĐ"
     },
     {
         "productCode": "HB-04",
         "image": "../../image/freeze/freezechoco_nho.png",
         "category": "Freeze",
         "name": "Freeze sô-cô-la",
-        "price": "50,000 VNĐ"
+        "price": "50000 VNĐ"
     },
     {
         "productCode": "HB-05",
         "image": "../../image/freeze/freezetraxanh_nho.png",
         "category": "Freeze",
         "name": "Freeze trà xanh",
-        "price": "50,000 VNĐ"
+        "price": "50000 VNĐ"
     },
     {
         "productCode": "HB-06",
         "image": "../../image/phin/bacxiuda_nho.png",
         "category": "Phin cà phê",
         "name": "Bạc xỉu đá",
-        "price": "29,000 VNĐ"
+        "price": "29000 VNĐ"
     },
     {
         "productCode": "HB-07",
         "image": "../../image/phin/phisuanda_nho.png",
         "category": "Phin cà phê",
         "name": "Phin sữa đá",
-        "price": "35,000 VNĐ"
+        "price": "35000 VNĐ"
     },
     {
         "productCode": "HB-08",
         "image": "../../image/phin/phindenda_nho.png",
         "category": "Phin cà phê",
         "name": "Phin đen đá",
-        "price": "32,000 VNĐ"
+        "price": "32000 VNĐ"
     },
     {
         "productCode": "HB-09",
         "image": "../../image/phindi/phindicassia_nho.png",
         "category": "Phindi",
         "name": "Phindi cassia",
-        "price": "55,000 VNĐ"
+        "price": "55000 VNĐ"
     },
     {
         "productCode": "HB-10",
         "image": "../../image/phindi/phindichoco_nho.png",
         "category": "Phindi",
         "name": "Phindi choco",
-        "price": "55,000 VNĐ"
+        "price": "55000 VNĐ"
     },
     {
         "productCode": "HB-11",
         "image": "../../image/phindi/phindihanhnhan_nho.png",
         "category": "Phindi",
         "name": "Phindi hạnh nhân",
-        "price": "55,000 VNĐ"
+        "price": "55000 VNĐ"
     },
     {
         "productCode": "HB-12",
         "image": "../../image/phindi/phindikemsua_nho.png",
         "category": "Phindi",
         "name": "Phindi kem sữa",
-        "price": "55,000 VNĐ"
+        "price": "55000 VNĐ"
     },
     {
         "productCode": "HB-13",
         "image": "../../image/trà/trasenvang(cunang)_nho.png",
         "category": "Trà",
         "name": "Trà sen vàng (củ năng)",
-        "price": "45,000 VNĐ"
+        "price": "45000 VNĐ"
     },
     {
         "productCode": "HB-14",
         "image": "../../image/trà/trasenvang(sen)_nho.png",
         "category": "Trà",
         "name": "Trà sen vàng (sen)",
-        "price": "45,000 VNĐ"
+        "price": "45000 VNĐ"
     },
     {
         "productCode": "HB-15",
         "image": "../../image/trà/trathachdao_nho.png",
         "category": "Trà",
         "name": "Trà thạch đào",
-        "price": "45,000 VNĐ"
+        "price": "45000 VNĐ"
     },
     {
         "productCode": "HB-16",
         "image": "../../image/trà/trathachvai_nho.png",
         "category": "Trà",
         "name": "Trà thạch vải",
-        "price": "45,000 VNĐ"
+        "price": "45000 VNĐ"
     },
     {
         "productCode": "HB-17",
         "image": "../../image/trà/trathanhdao_nho.png",
         "category": "Trà",
         "name": "Trà thanh đào",
-        "price": "45,000 VNĐ"
+        "price": "45000 VNĐ"
     },
     {
         "productCode": "HB-18",
         "image": "../../image/trà/traxanhdaudo_nho.png",
         "category": "Trà",
         "name": "Trà xanh đậu đỏ",
-        "price": "45,000 VNĐ"
+        "price": "45000 VNĐ"
     }
 ]

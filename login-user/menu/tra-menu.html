@@ -84,7 +84,7 @@
             <div class="icon-item">
                 <a href="../cart.html">
                     <i class="fa-solid fa-cart-shopping"></i>
-                    <span id="cart-count">0</span>
+                    <div class="totalQuantity" id="cartQuantity">0</div>
                 </a>
             </div>
             <div class="icon-item">
@@ -308,5 +308,70 @@
             }
         }
     </script>
+    <!-- <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            // Lấy dữ liệu giỏ hàng từ localStorage
+            let cart = JSON.parse(localStorage.getItem("cart")) || [];
+
+            // Hàm chuẩn hóa giỏ hàng
+            function normalizeCart(cart) {
+                return cart.map(item => ({
+                    productCode: item.productCode || "",
+                    name: item.name,
+                    size: item.size || "S", // Kích thước mặc định nếu không có
+                    price: typeof item.price === "string"
+                        ? parseInt(item.price.replace(/\D/g, "")) // Chuyển giá thành số
+                        : item.price,
+                    image: item.image || "",
+                    quantity: item.quantity || 1
+                }));
+            }
+
+            // Chuẩn hóa dữ liệu
+            cart = normalizeCart(cart);
+            localStorage.setItem("cart", JSON.stringify(cart));
+
+            // Hàm cập nhật biểu tượng giỏ hàng
+            function updateCartQuantity() {
+                const totalQuantity = cart.reduce((total, item) => total + item.quantity, 0); // Tính tổng số lượng
+                document.getElementById("cartQuantity").textContent = totalQuantity; // Hiển thị tổng số lượng
+            }
+
+            // Hàm thêm sản phẩm vào giỏ hàng
+            function addToCart(product) {
+                const existingProduct = cart.find(item => item.productCode === product.productCode);
+                if (existingProduct) {
+                    existingProduct.quantity += 1; // Nếu đã tồn tại, tăng số lượng
+                } else {
+                    cart.push(product); // Thêm sản phẩm mới
+                }
+
+                // Lưu giỏ hàng vào localStorage
+                localStorage.setItem("cart", JSON.stringify(cart));
+                updateCartQuantity(); // Cập nhật biểu tượng giỏ hàng
+            }
+
+            // Gắn sự kiện "Đặt mua" cho các nút sản phẩm
+            document.querySelectorAll(".buy-now").forEach(button => {
+                button.addEventListener("click", function () {
+                    const productItem = this.closest(".custom-product-item");
+                    const product = {
+                        productCode: productItem.dataset.productCode,
+                        name: productItem.querySelector(".custom-product-name").textContent,
+                        price: parseInt(productItem.querySelector(".custom-product-price").textContent.replace(/\D/g, "")), // Lấy giá
+                        image: productItem.querySelector(".custom-product-thumb img").src,
+                        quantity: 1
+                    };
+
+                    addToCart(product); // Thêm sản phẩm vào giỏ hàng
+                });
+            });
+
+            // Cập nhật biểu tượng giỏ hàng khi tải trang
+            updateCartQuantity();
+        });
+
+    </script> -->
+
 </body>
 </html>

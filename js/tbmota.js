@@ -255,7 +255,24 @@ document.addEventListener("DOMContentLoaded", () => {
 
   // Đi đến giỏ hàng
   goToCartBtn.addEventListener("click", () => {
-      window.location.href = "../cart.html"; // Chuyển đến trang giỏ hàng
+      const productData = {
+        image: document.querySelector(".product-gallery img").src,
+        name: document.querySelector(".product_details_info h3").textContent,
+        availability: document.querySelector(".availability b").textContent === "Còn hàng",
+        productCode: document.querySelector(".availability b").textContent.split("|")[1]?.trim(),
+        price: document.querySelector(".price").textContent,
+        description: document.querySelector(".product_tag-read p").textContent,
+        quantity: parseInt(document.getElementById("quantity-value").value),
+        size: document.querySelector(".size-btn.active").getAttribute("data-size"),
+      };
+    
+      // Save product to localStorage
+      const cart = JSON.parse(localStorage.getItem("cart")) || [];
+      cart.push(productData);
+      localStorage.setItem("cart", JSON.stringify(cart));
+    
+      // Redirect to cart page
+      window.location.href = "../cart.html";
   });
 
   // Handle "Đặt mua" và "Thêm vào giỏ" button click
@@ -423,16 +440,20 @@ document.addEventListener("DOMContentLoaded", function () {
   let basePrice = parseInt(
     priceElement.textContent.replace("VNĐ", "").replace(/\./g, "")
   );
+
   // Hàm để cập nhật giá
   function updatePrice(size) {
-    let newPrice = basePrice; 
+    let newPrice = basePrice;
     if (size === "M") {
-      newPrice += 5000; 
+      newPrice += 5000;
     } else if (size === "L") {
-      newPrice += 10000; 
+      newPrice += 10000;
     }
 
-    priceElement.textContent = newPrice.toLocaleString() + " VNĐ";
+    // Sử dụng locales để đổi dấu phân cách
+    priceElement.textContent =
+      newPrice.toLocaleString("vi-VN", { useGrouping: true }).replace(/,/g, ".") +
+      " VNĐ";
   }
 
   sizeButtons.forEach(function (button) {
