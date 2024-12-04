@@ -13,8 +13,6 @@ document.addEventListener("DOMContentLoaded", function () {
 
     let currentIndexToDelete = null;
 
-
-
     // Hàm định dạng tiền tệ
     function formatCurrency(amount) {
         return `${amount.toLocaleString('vi-VN')} VNĐ`;

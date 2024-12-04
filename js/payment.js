@@ -3,18 +3,6 @@
 //     const newAddressFields = document.getElementById("newAddressFields");
 //     const isDefaultAddress = document.getElementById("defaultAddress").checked;
 
-<<<<<<< HEAD
-    if (isDefaultAddress) {
-        newAddressFields.style.display = "none";
-    } else {
-        newAddressFields.style.display = "block";
-    }
-}
-
-document.getElementById('payment__method').addEventListener('change', function (e) {
-    const visaPayment = document.getElementById('visaPayment');
-    const cashPayment = document.getElementById('cashPayment');
-=======
 //     if (isDefaultAddress) {
 //         newAddressFields.style.display = "none";
 //     } else {
@@ -24,7 +12,6 @@ document.getElementById('payment__method').addEventListener('change', function (
 // document.getElementById('payment__method').addEventListener('change', function (e) {
 //     const visaPayment = document.getElementById('visaPayment');
 //     const cashPayment = document.getElementById('cashPayment');
->>>>>>> cea816a06267848118281e730b43d2e28a60e3df
 
 //     if (e.target.id === 'btnradioVisa') {
 //         visaPayment.classList.remove('hidden');
@@ -156,63 +143,57 @@ document.addEventListener("DOMContentLoaded", () => {
     const visaRadio = document.getElementById("btnradioVisa");
     const napasRadio = document.getElementById("btnradioNapas");
     const cashRadio = document.getElementById("btnradioCash");
-    const modalPopup = document.getElementById("visaForm");
-    const cancelBtn = document.getElementById("cancelBtn");
+    const addressModalPopup = document.getElementById("addressModalPopup");
+    const cashNotice = document.querySelector(".cash-notice");
 
-    const showModal = () => {
-        modalPopup.style.display = "block";
+    // Hiển thị bảng thông tin thẻ
+    const showCardModal = () => {
+        addressModalPopup.style.display = "block";
     };
 
-    const hideModal = () => {
-        modalPopup.style.display = "none";
+    // Ẩn bảng thông tin thẻ
+    const hideCardModal = () => {
+        addressModalPopup.style.display = "none";
     };
 
+    // Xử lý khi chọn các phương thức
     visaRadio.addEventListener("change", () => {
         if (visaRadio.checked) {
-            showModal();
+            showCardModal();
+            cashNotice.style.display = "none"; // Ẩn thông báo tiền mặt
         }
     });
 
     napasRadio.addEventListener("change", () => {
         if (napasRadio.checked) {
-            showModal();
+            showCardModal();
+            cashNotice.style.display = "none"; // Ẩn thông báo tiền mặt
         }
     });
 
     cashRadio.addEventListener("change", () => {
         if (cashRadio.checked) {
-            hideModal();
+            hideCardModal();
+            cashNotice.style.display = "block"; // Hiển thị thông báo tiền mặt
         }
     });
 
+    // Xử lý nút trở lại trong modal
+    const cancelBtn = document.getElementById("cancelBtn");
     cancelBtn.addEventListener("click", () => {
-        hideModal();
+        hideCardModal();
         visaRadio.checked = false;
         napasRadio.checked = false;
     });
+
+    // Xử lý khi gửi form thẻ
+    const visaForm = document.getElementById("visaForm");
+    visaForm.addEventListener("submit", (event) => {
+        event.preventDefault();
+        alert("Thông tin thẻ đã được xác nhận!");
+        hideCardModal();
+    });
 });
-
-document.addEventListener("DOMContentLoaded", function () {
-    const subtotalElement = document.getElementById("subtotal");
-    const shippingFeeElement = document.getElementById("shippingFee");
-    const totalElement = document.getElementById("total");
-
-    // Lấy dữ liệu từ localStorage
-    const orderSummary = JSON.parse(localStorage.getItem("orderSummary"));
-
-    if (orderSummary) {
-        // Định dạng tiền tệ
-        const formatCurrency = (amount) => `${amount.toLocaleString()} VNĐ`;
-
-        // Hiển thị thông tin thanh toán
-        subtotalElement.textContent = formatCurrency(orderSummary.subtotal);
-        shippingFeeElement.textContent = formatCurrency(orderSummary.shippingFee);
-        totalElement.textContent = formatCurrency(orderSummary.total);
-    } else {
-        console.error("Không tìm thấy thông tin thanh toán trong localStorage.");
-    }
-});
-
 
 
 
