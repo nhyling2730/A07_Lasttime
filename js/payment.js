@@ -9,6 +9,7 @@ function toggleAddressInput() {
         newAddressFields.style.display = "block";
     }
 }
+
 document.getElementById('payment__method').addEventListener('change', function (e) {
     const visaPayment = document.getElementById('visaPayment');
     const cashPayment = document.getElementById('cashPayment');
@@ -140,57 +141,42 @@ document.addEventListener("DOMContentLoaded", () => {
     const visaRadio = document.getElementById("btnradioVisa");
     const napasRadio = document.getElementById("btnradioNapas");
     const cashRadio = document.getElementById("btnradioCash");
-    const addressModalPopup = document.getElementById("addressModalPopup");
-    const cashNotice = document.querySelector(".cash-notice");
+    const modalPopup = document.getElementById("visaForm");
+    const cancelBtn = document.getElementById("cancelBtn");
 
-    // Hiển thị bảng thông tin thẻ
-    const showCardModal = () => {
-        addressModalPopup.style.display = "block";
+    const showModal = () => {
+        modalPopup.style.display = "block";
     };
 
-    // Ẩn bảng thông tin thẻ
-    const hideCardModal = () => {
-        addressModalPopup.style.display = "none";
+    const hideModal = () => {
+        modalPopup.style.display = "none";
     };
 
-    // Xử lý khi chọn các phương thức
     visaRadio.addEventListener("change", () => {
         if (visaRadio.checked) {
-            showCardModal();
-            cashNotice.style.display = "none"; // Ẩn thông báo tiền mặt
+            showModal();
         }
     });
 
     napasRadio.addEventListener("change", () => {
         if (napasRadio.checked) {
-            showCardModal();
-            cashNotice.style.display = "none"; // Ẩn thông báo tiền mặt
+            showModal();
         }
     });
 
     cashRadio.addEventListener("change", () => {
         if (cashRadio.checked) {
-            hideCardModal();
-            cashNotice.style.display = "block"; // Hiển thị thông báo tiền mặt
+            hideModal();
         }
     });
 
-    // Xử lý nút trở lại trong modal
-    const cancelBtn = document.getElementById("cancelBtn");
     cancelBtn.addEventListener("click", () => {
-        hideCardModal();
+        hideModal();
         visaRadio.checked = false;
         napasRadio.checked = false;
     });
-
-    // Xử lý khi gửi form thẻ
-    const visaForm = document.getElementById("visaForm");
-    visaForm.addEventListener("submit", (event) => {
-        event.preventDefault();
-        alert("Thông tin thẻ đã được xác nhận!");
-        hideCardModal();
-    });
 });
+
 
 
 

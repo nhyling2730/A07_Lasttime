@@ -1216,24 +1216,16 @@ header .logo img {
     color: white;
 }
 /* Tiêu đề modal */
-#addressModalPopup {
-    display: none;
-    position: fixed;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    background-color: white;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
-    z-index: 1000;
-    width: 400px;
-    border-radius: 8px;
-}
 
 .visaForm h4 {
     padding-top: 20px;
     font-size: 25px;
     font-weight: 600;
     color: rgb(70, 31, 31);
+}
+
+.visaForm{
+    display: none;
 }
 
 /* Form các input */
@@ -1317,6 +1309,7 @@ header .logo img {
 
 /* Nhóm nút hành động */
 .modal-actions {
+    padding-right: 10px;
     display: flex;
     gap: 10px;
     justify-content: right;
