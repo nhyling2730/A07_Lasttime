@@ -483,9 +483,11 @@ header .logo img {
 }
 
 /* BREADCRUMD */
+
 .breadcrumb_section .breadcrumb {
     margin-top: 40px;
     padding: 10px 0;
+    margin-left: 0;
     position: relative; top: 20px;
 }
 
@@ -509,6 +511,11 @@ header .logo img {
 
 
 /* PAYMENT  */
+.payment-container{
+    padding: 0 80px;
+    margin: 0 30px;
+}
+
 .payment__content__left,.h2{
     
     font-weight: 700;
@@ -647,12 +654,13 @@ header .logo img {
 #payment__method {
     position: unset;
     display: flex;
-    flex-wrap: wrap;
-    gap: 15px;
+    flex-wrap: nowrap;
+    gap: 25px;
     margin-top: 15px;
 }
 
 #payment__method .btn {
+    margin: -15px 0 0 15px;
     border: none;
     display: flex;
     align-items: center;
@@ -674,7 +682,7 @@ header .logo img {
 
 #payment__method .btn img {
     height: 20px;
-    width: 30px;
+    width: 40px;
 }
 
 #payment_method .btn img> napas{
@@ -1207,36 +1215,63 @@ header .logo img {
     background-color: #009900;
     color: white;
 }
-.modal-box{
-    display: none;
-}
 /* Tiêu đề modal */
-.modal-box h2 {
-    font-size: 1.2rem;
+#addressModalPopup {
+    display: none;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: white;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+    z-index: 1000;
+    width: 400px;
+    border-radius: 8px;
+}
+
+.visaForm h4 {
+    padding-top: 20px;
+    font-size: 25px;
     font-weight: 600;
-    margin-bottom: 15px;
     color: rgb(70, 31, 31);
-    text-align: center;
 }
 
 /* Form các input */
 .hidden {
     display: none !important;
 }
-.modal-box input[type="text"] {
+.form-group label{
+    margin-bottom: auto;
+}
+
+.form-group input[type="text"]{
     width: 100%;
-    padding: 10px 15px;
-    margin-bottom: 15px;
+    padding: 5px 150px 5px 10px;
     border: 1px solid #ccc;
     border-radius: 5px;
     font-size: 14px;
     color: #333;
 }
 
-.modal-box input[type="text"]::placeholder {
+.form-group input[type="month"] {
+    width: 150px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 14px;
+    color: #333;
+    padding: 5px 5px 5px 10px;
+
+}
+
+.modal-box input[type="text"]::placeholder, input[type="month"]::placeholder {
+    padding-left: px;
     color: #aaa;
 }
 
+.form-group{
+    padding: 0 15px;
+    padding-bottom: 15px;
+}
 /* Nhóm nút loại địa chỉ */
 .address-category {
     display: flex;
@@ -1283,10 +1318,13 @@ header .logo img {
 /* Nhóm nút hành động */
 .modal-actions {
     display: flex;
-    justify-content: space-between;
+    gap: 10px;
+    justify-content: right;
 }
 
 .modal-actions button {
+    margin-left: 0 50px;
+    right: 0;
     padding: 10px 15px;
     border: none;
     border-radius: 5px;
@@ -1297,7 +1335,7 @@ header .logo img {
 }
 
 #cancelBtn {
-    background: #f1f1f1;
+    background: #ddddddb7;
     color: rgb(70, 31, 31);
 }
 
@@ -1306,7 +1344,7 @@ header .logo img {
 }
 
 #saveBtn {
-    background: green;
+    background: rgb(0, 174, 0);
     color: #fff;
 }
 

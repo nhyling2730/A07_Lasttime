@@ -109,7 +109,7 @@
     </section>
 
     <!-- PAYMENT  -->
-    <section class="payment container">
+    <section class="payment-container">
         <div class="payment__content row">
             <div class="payment__content__left col-6">
                 <h2><strong>Thanh toán</strong></h2>
@@ -213,33 +213,34 @@
                         </div>
                     </div>
                 </div>
-            </div>
-            <div id="addressModalPopup" class="modal-container">
-                <div class="modal-box">
-                    <h2>Thông tin thẻ</h2>
-                    <form id="visaForm">
-                        <div class="form-group">
-                            <label for="cardNumber">Số thẻ:</label>
-                            <input type="text" id="cardNumber" placeholder="1234 5678 9012 3456" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="cardHolderName">Tên chủ thẻ:</label>
-                            <input type="text" id="cardHolderName" placeholder="Họ và tên" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="cvv">CVC:</label>
-                            <input type="text" id="cvv" placeholder="CVC" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="cardExpiry">Hạn thẻ:</label>
-                            <input type="month" id="cardExpiry" placeholder="MM/YY" required>
-                        </div>
 
-                        <div class="modal-actions">
-                            <button type="button" id="cancelBtn">Trở Lại</button>
-                            <button type="submit" id="saveBtn">Xác Nhận</button>
+                <div id="addressModalPopup" class="modal-container">
+                        <div class="visaForm">
+                            <h4>Thông tin thẻ</h4>
+                            <form id="visaForm">
+                                <div class="form-group">
+                                    <label for="cardNumber">Số thẻ:</label>
+                                    <input type="text" id="cardNumber" placeholder="1234 5678 9012 3456" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="cardHolderName">Tên chủ thẻ:</label>
+                                    <input type="text" id="cardHolderName" placeholder="Họ và tên" required>
+                                </div>
+                                <div class="form-group " >
+                                    <label for="cvv">CVC:</label>
+                                    <input type="text" id="cvv" placeholder="CVC" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="cardExpiry">Hạn thẻ:</label>
+                                    <input type="month" id="cardExpiry" placeholder="MM/YY" required>
+                                </div>
+        
+                                <div class="modal-actions">
+                                    <button type="button" id="cancelBtn">Trở Lại</button>
+                                    <button type="submit" id="saveBtn">Xác Nhận</button>
+                                </div>
+                            </form>
                         </div>
-                    </form>
                 </div>
             </div>
         </div>
