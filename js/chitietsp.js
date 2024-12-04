@@ -1,4 +1,4 @@
-const renderProducts = [
+export const renderProducts = [
     {
         "productCode": "HC08",
         "image": "../image/freeze/caramelphinfreeze_nho.png",
@@ -162,6 +162,7 @@ const renderProducts = [
         "availability": true 
     }
 ]
+
 
 
 /* Kích cỡ */
