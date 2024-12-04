@@ -1,3 +1,4 @@
+
 const renderProducts = [
   {
     productCode: "HC08",
@@ -288,9 +289,8 @@ document.addEventListener("DOMContentLoaded", () => {
   const addToCartButton = document.querySelector(".btn-add-to-cart");
   addToCartButton.addEventListener("click", (event) => {
       event.preventDefault();
-      orderModal.style.display = "flex"; // Hiển thị modal thông báo khi thêm vào giỏ hàng
+      orderModal.style.display = "flex"; 
   });
-
   // Các sự kiện khác và phần render sản phẩm không thay đổi
   const breadcumCategory = document.querySelector("#breadcum-category");
   breadcumCategory.textContent = productData.category;
