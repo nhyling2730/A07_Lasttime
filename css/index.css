@@ -1254,22 +1254,6 @@ header .logo img {
     position: relative;
 }
 
-#cart-count {
-    position: absolute;
-    top: 0;
-    right: 0;
-    font-size: 10px;
-    background-color: rgb(255, 0, 51);
-    width: 15px;
-    height: 15px;
-    border-radius: 50%;
-    color: #fff;
-    font-weight: bold;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    transform: translateX(3px);
-}
 
 /* Định dạng cho thông báo */
 .notification {
@@ -2177,6 +2161,9 @@ header .logo img {
 /* Ẩn bảng chi tiết hóa đơn mặc định */
 .order-details-table {
     display: none;
+    opacity: 0;
+    transition: opacity 0.5s ease;
+    display: block;
     margin-top: 20px;
     padding: 15px;
     background-color: #f9f9f9;
@@ -2199,6 +2186,37 @@ header .logo img {
     background-color: #007bff;
     color: white;
 }
+
+.order-details-table.show {
+    display: block;
+    opacity: 1;
+}
+
+button {
+    background-color: #1f89fa;
+    color: #fff;
+    font-size: 16px;
+    font-weight: bold;
+    padding: 10px 20px;
+    border: 5px;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+button:hover {
+    background-color: #007bff;
+    transform: scale(1.05);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+}
+
+button:active {
+    background-color: #007bff;
+    transform: scale(0.95);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
 
 /* Modal chi tiết đơn hàng */
 .modal-container {
