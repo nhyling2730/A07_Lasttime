@@ -1,9 +1,8 @@
 
-// function toggleAddressInput() {
-//     const newAddressFields = document.getElementById("newAddressFields");
-//     const isDefaultAddress = document.getElementById("defaultAddress").checked;
+function toggleAddressInput() {
+    const newAddressFields = document.getElementById("newAddressFields");
+    const isDefaultAddress = document.getElementById("defaultAddress").checked;
 
-<<<<<<< HEAD
     if (isDefaultAddress) {
         newAddressFields.style.display = "none";
     } else {
@@ -14,28 +13,17 @@
 document.getElementById('payment__method').addEventListener('change', function (e) {
     const visaPayment = document.getElementById('visaPayment');
     const cashPayment = document.getElementById('cashPayment');
-=======
-//     if (isDefaultAddress) {
-//         newAddressFields.style.display = "none";
-//     } else {
-//         newAddressFields.style.display = "block";
-//     }
-// }
-// document.getElementById('payment__method').addEventListener('change', function (e) {
-//     const visaPayment = document.getElementById('visaPayment');
-//     const cashPayment = document.getElementById('cashPayment');
->>>>>>> cea816a06267848118281e730b43d2e28a60e3df
 
-//     if (e.target.id === 'btnradioVisa') {
-//         visaPayment.classList.remove('hidden');
-//         cashPayment.classList.add('hidden');
-//     }
+    if (e.target.id === 'btnradioVisa') {
+        visaPayment.classList.remove('hidden');
+        cashPayment.classList.add('hidden');
+    }
 
-//     else if (e.target.id === 'btnradioCash') {
-//         visaPayment.classList.add('hidden');
-//         cashPayment.classList.remove('hidden');
-//     }
-// });
+    else if (e.target.id === 'btnradioCash') {
+        visaPayment.classList.add('hidden');
+        cashPayment.classList.remove('hidden');
+    }
+});
 
 
 /* nav mav-menu khi thu nhỏ */
@@ -77,114 +65,117 @@ document.querySelectorAll('.nav-menu li a').forEach(item => {
     });
 });
 
-function syncCartQuantity() {
-    const cartQuantityElement = document.getElementById("cartQuantity");
-    if (!cartQuantityElement) return;
-    const cart = JSON.parse(localStorage.getItem("cart")) || [];
-    const count = cart.reduce((sum, item) => sum + item.quantity, 0);
-    cartQuantityElement.textContent = count || 0;
-}
-
 document.addEventListener("DOMContentLoaded", function () {
-    syncCartQuantity();
+    const cartQuantityElement = document.getElementById("cartQuantity");
+
+    const cartQuantity = localStorage.getItem("cart");
+    const count = JSON.parse(cartQuantity).length;
+
+    cartQuantityElement.textContent = count || 0;
 });
 
-// document.addEventListener("DOMContentLoaded", () => {
+document.addEventListener("DOMContentLoaded", () => {
 
-//     document.getElementById("defaultAddress").addEventListener("click", () => {
-//         document.getElementById("defaultAddressFields").style.display = "block";
-//         document.getElementById("newAddressFields").style.display = "none";
-//     });
+    document.getElementById("defaultAddress").addEventListener("click", () => {
+        document.getElementById("defaultAddressFields").style.display = "block";
+        document.getElementById("newAddressFields").style.display = "none";
+    });
 
-//     document.getElementById("newAddress").addEventListener("click", () => {
-//         document.getElementById("defaultAddressFields").style.display = "none";
-//         document.getElementById("newAddressFields").style.display = "block";
-//     });
-// });
+    document.getElementById("newAddress").addEventListener("click", () => {
+        document.getElementById("defaultAddressFields").style.display = "none";
+        document.getElementById("newAddressFields").style.display = "block";
+    });
+});
 
-// function validateAndShowModal() {
-//     const paymentOptions = document.querySelectorAll('#payment__method input[type="radio"]');
-//     let isPaymentSelected = false;
+function validateAndShowModal() {
+    const paymentOptions = document.querySelectorAll('#payment__method input[type="radio"]');
+    let isPaymentSelected = false;
 
-//     paymentOptions.forEach(option => {
-//         if (option.checked) {
-//             isPaymentSelected = true;
-//         }
-//     });
+    paymentOptions.forEach(option => {
+        if (option.checked) {
+            isPaymentSelected = true;
+        }
+    });
 
-//     if (!isPaymentSelected) {
-//         const modal = document.getElementById("custom-order-modal");
-//         modal.style.display = "flex";
-//         return false;
-//     }
+    if (!isPaymentSelected) {
+        const modal = document.getElementById("custom-order-modal");
+        modal.style.display = "flex";
+        return false;
+    }
 
-//     return true;
-// }
+    return true;
+}
 
-// document.getElementById("custom-close-order-modal").onclick = function () {
-//     const modal = document.getElementById("custom-order-modal");
-//     modal.style.display = "none";
-// };
+document.getElementById("custom-close-order-modal").onclick = function () {
+    const modal = document.getElementById("custom-order-modal");
+    modal.style.display = "none";
+};
 
-// window.onclick = function (event) {
-//     const modal = document.getElementById("custom-order-modal");
-//     if (event.target === modal) {
-//         modal.style.display = "none";
-//     }
-// };
+window.onclick = function (event) {
+    const modal = document.getElementById("custom-order-modal");
+    if (event.target === modal) {
+        modal.style.display = "none";
+    }
+};
 
-// document.addEventListener("DOMContentLoaded", function () {
-//     const paymentMethods = document.querySelectorAll(".payment__method");
+document.addEventListener("DOMContentLoaded", function () {
+    const paymentMethods = document.querySelectorAll(".payment__method");
 
-//     paymentMethods.forEach((method) => {
-//         const input = method.querySelector("input[type='radio']");
-//         const detail = method.querySelector("div");
+    paymentMethods.forEach((method) => {
+        const input = method.querySelector("input[type='radio']");
+        const detail = method.querySelector("div");
 
-//         input.addEventListener("change", () => {
-//             document.querySelectorAll(".payment__method div").forEach((el) => {
-//                 el.classList.remove("visible");
-//                 el.classList.add("hidden");
-//             });
+        input.addEventListener("change", () => {
+            document.querySelectorAll(".payment__method div").forEach((el) => {
+                el.classList.remove("visible");
+                el.classList.add("hidden");
+            });
 
-//             detail.classList.remove("hidden");
-//             detail.classList.add("visible");
-//         });
-//     });
-// });
+            detail.classList.remove("hidden");
+            detail.classList.add("visible");
+        });
+    });
+});
 
 document.addEventListener("DOMContentLoaded", () => {
     const visaRadio = document.getElementById("btnradioVisa");
     const napasRadio = document.getElementById("btnradioNapas");
     const cashRadio = document.getElementById("btnradioCash");
-    const modalPopup = document.getElementById("visaForm");
+    const modalPopup = document.getElementById("addressModalPopup"); // Đúng container modal
     const cancelBtn = document.getElementById("cancelBtn");
 
+    // Hiển thị modal
     const showModal = () => {
-        modalPopup.style.display = "block";
+        modalPopup.style.display = "flex"; // Dùng flex để căn giữa
     };
 
+    // Ẩn modal
     const hideModal = () => {
         modalPopup.style.display = "none";
     };
 
+    // Xử lý sự kiện khi chọn Visa
     visaRadio.addEventListener("change", () => {
         if (visaRadio.checked) {
             showModal();
         }
     });
 
+    // Xử lý sự kiện khi chọn Napas
     napasRadio.addEventListener("change", () => {
         if (napasRadio.checked) {
             showModal();
         }
     });
 
+    // Xử lý sự kiện khi chọn Cash
     cashRadio.addEventListener("change", () => {
         if (cashRadio.checked) {
             hideModal();
         }
     });
 
+    // Đóng modal khi nhấn nút "Trở Lại"
     cancelBtn.addEventListener("click", () => {
         hideModal();
         visaRadio.checked = false;
@@ -192,26 +183,6 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 });
 
-document.addEventListener("DOMContentLoaded", function () {
-    const subtotalElement = document.getElementById("subtotal");
-    const shippingFeeElement = document.getElementById("shippingFee");
-    const totalElement = document.getElementById("total");
-
-    // Lấy dữ liệu từ localStorage
-    const orderSummary = JSON.parse(localStorage.getItem("orderSummary"));
-
-    if (orderSummary) {
-        // Định dạng tiền tệ
-        const formatCurrency = (amount) => `${amount.toLocaleString()} VNĐ`;
-
-        // Hiển thị thông tin thanh toán
-        subtotalElement.textContent = formatCurrency(orderSummary.subtotal);
-        shippingFeeElement.textContent = formatCurrency(orderSummary.shippingFee);
-        totalElement.textContent = formatCurrency(orderSummary.total);
-    } else {
-        console.error("Không tìm thấy thông tin thanh toán trong localStorage.");
-    }
-});
 
 
 

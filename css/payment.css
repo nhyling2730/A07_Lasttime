@@ -1216,16 +1216,15 @@ header .logo img {
     color: white;
 }
 /* Tiêu đề modal */
-
+.visaForm{
+    display: flex;
+    width: 100%;
+}
 .visaForm h4 {
     padding-top: 20px;
     font-size: 25px;
     font-weight: 600;
     color: rgb(70, 31, 31);
-}
-
-.visaForm{
-    display: none;
 }
 
 /* Form các input */
