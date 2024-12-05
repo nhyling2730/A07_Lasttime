@@ -9,7 +9,6 @@ function toggleAddressInput() {
         newAddressFields.style.display = "block";
     }
 }
-
 document.getElementById('payment__method').addEventListener('change', function (e) {
     const visaPayment = document.getElementById('visaPayment');
     const cashPayment = document.getElementById('cashPayment');
@@ -65,6 +64,7 @@ document.querySelectorAll('.nav-menu li a').forEach(item => {
     });
 });
 
+<<<<<<< HEAD
 document.addEventListener("DOMContentLoaded", function () {
     const cartQuantityElement = document.getElementById("cartQuantity");
 
@@ -131,6 +131,74 @@ document.addEventListener("DOMContentLoaded", function () {
                 el.classList.add("hidden");
             });
 
+=======
+// document.addEventListener("DOMContentLoaded", function () {
+//     const cartQuantityElement = document.getElementById("cartQuantity");
+
+//     const cartQuantity = localStorage.getItem("cart");
+//     const count = JSON.parse(cartQuantity).length;
+
+//     cartQuantityElement.textContent = count || 0;
+// });
+
+document.addEventListener("DOMContentLoaded", () => {
+
+    document.getElementById("defaultAddress").addEventListener("click", () => {
+        document.getElementById("defaultAddressFields").style.display = "block";
+        document.getElementById("newAddressFields").style.display = "none";
+    });
+
+    document.getElementById("newAddress").addEventListener("click", () => {
+        document.getElementById("defaultAddressFields").style.display = "none";
+        document.getElementById("newAddressFields").style.display = "block";
+    });
+});
+
+function validateAndShowModal() {
+    const paymentOptions = document.querySelectorAll('#payment__method input[type="radio"]');
+    let isPaymentSelected = false;
+
+    paymentOptions.forEach(option => {
+        if (option.checked) {
+            isPaymentSelected = true;
+        }
+    });
+
+    if (!isPaymentSelected) {
+        const modal = document.getElementById("custom-order-modal");
+        modal.style.display = "flex";
+        return false;
+    }
+
+    return true;
+}
+
+document.getElementById("custom-close-order-modal").onclick = function () {
+    const modal = document.getElementById("custom-order-modal");
+    modal.style.display = "none";
+};
+
+window.onclick = function (event) {
+    const modal = document.getElementById("custom-order-modal");
+    if (event.target === modal) {
+        modal.style.display = "none";
+    }
+};
+
+document.addEventListener("DOMContentLoaded", function () {
+    const paymentMethods = document.querySelectorAll(".payment__method");
+
+    paymentMethods.forEach((method) => {
+        const input = method.querySelector("input[type='radio']");
+        const detail = method.querySelector("div");
+
+        input.addEventListener("change", () => {
+            document.querySelectorAll(".payment__method div").forEach((el) => {
+                el.classList.remove("visible");
+                el.classList.add("hidden");
+            });
+
+>>>>>>> 6a36aa74cfcf4778584ae2c65381e2a0df661051
             detail.classList.remove("hidden");
             detail.classList.add("visible");
         });
@@ -141,7 +209,10 @@ document.addEventListener("DOMContentLoaded", () => {
     const visaRadio = document.getElementById("btnradioVisa");
     const napasRadio = document.getElementById("btnradioNapas");
     const cashRadio = document.getElementById("btnradioCash");
+<<<<<<< HEAD
     const modalPopup = document.getElementById("addressModalPopup"); // Đúng container modal
+=======
+>>>>>>> 6a36aa74cfcf4778584ae2c65381e2a0df661051
     const cancelBtn = document.getElementById("cancelBtn");
 
     // Hiển thị modal
@@ -183,7 +254,10 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 });
 
+<<<<<<< HEAD
 
+=======
+>>>>>>> 6a36aa74cfcf4778584ae2c65381e2a0df661051
 
 
 

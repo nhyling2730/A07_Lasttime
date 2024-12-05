@@ -13,8 +13,6 @@ document.addEventListener("DOMContentLoaded", function () {
 
     let currentIndexToDelete = null;
 
-
-
     // Hàm định dạng tiền tệ
     function formatCurrency(amount) {
         return `${amount.toLocaleString('vi-VN')} VNĐ`;
@@ -92,7 +90,7 @@ document.addEventListener("DOMContentLoaded", function () {
                 <div class="items--name">
                     <a href="${img}"><b>${item.name}</b></a>
                 </div>
-                <div class="items--size">Kích thước: <span>${item.size || "S"}</span></div>
+                <div class="items--size">Kích cỡ: <span>${item.size || "S"}</span></div>
                 <div class="items--price">Đơn giá: <span>${formatCurrency(item.price)}</span></div>
                 <div class="items--total">Tổng: <span>${formatCurrency(item.quantity * item.price)}</span></div>
                 <button class="items--remove" data-index="${index}">Xoá</button>
@@ -131,7 +129,6 @@ document.addEventListener("DOMContentLoaded", function () {
         modal.style.display = "none";
         currentIndexToDelete = null;
     }
-
 
     confirmNo.addEventListener("click", closeModal);
     closeModalBtn.addEventListener("click", closeModal);

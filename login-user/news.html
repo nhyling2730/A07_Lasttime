@@ -89,7 +89,7 @@
                     <img src="../image/khác/user.png">
                     <ul class="dropdown-user1">
                         <li><a href="./profile.html">Thông tin cá nhân</a></li>
-                        <li><a href="">Đơn đã mua</a></li>
+                        <li><a href="./goods.html">Đơn đã mua</a></li>
                         <li><a href="./index.html">Đăng xuất</a></li>
                     </ul>
                 </a>
@@ -176,5 +176,27 @@
         <a href="#home"><i class="fas fa-arrow-up"></i></a>
     </div>
     <script src="../js/nav.js"></script>
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            updateCartQuantity();
+        });
+
+        window.addEventListener("storage", function (event) {
+            if (event.key === "cart") {
+                updateCartQuantity();
+            }
+        });
+
+        function updateCartQuantity() {
+            const cart = JSON.parse(localStorage.getItem("cart")) || [];
+            const totalQuantity = cart.reduce((sum, item) => sum + item.quantity, 0);
+            const cartQuantityElement = document.getElementById("cartQuantity");
+
+            if (cartQuantityElement) {
+                cartQuantityElement.textContent = totalQuantity;
+            }
+        }
+
+    </script>
 </body>
 </html>

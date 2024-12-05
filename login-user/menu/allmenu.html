@@ -94,7 +94,7 @@
                     <img src="../../image/khác/user.png">
                     <ul class="dropdown-user1">
                         <li><a href="../profile.html">Thông tin cá nhân</a></li>
-                        <li><a href="">Đơn đã mua</a></li>
+                        <li><a href="../goods.html">Đơn đã mua</a></li>
                         <li><a href="../../index.html">Đăng xuất</a></li>
                     </ul>
                 </a>
@@ -294,6 +294,72 @@
 
             updateCartQuantity();
         });
+
+//         document.addEventListener("DOMContentLoaded", function () {
+//     function updateCartQuantity() {
+//         const cart = JSON.parse(localStorage.getItem("cart")) || [];
+//         const totalQuantity = cart.reduce((total, item) => total + item.quantity, 0); 
+//         document.getElementById("cartQuantity").textContent = totalQuantity; 
+//     }
+
+//     // Hàm lưu sản phẩm vào giỏ hàng
+//     function addToCart(product, quantity = 1) {
+//         let cart = JSON.parse(localStorage.getItem("cart")) || [];
+//         const existingProductIndex = cart.findIndex(
+//             (item) => item.productCode === product.productCode
+//         );
+
+//         if (existingProductIndex > -1) {
+//             cart[existingProductIndex].quantity += quantity;
+//         } else {
+//             cart.push({
+//                 ...product,
+//                 quantity,
+//             });
+//         }
+
+//         localStorage.setItem("cart", JSON.stringify(cart));
+//         updateCartQuantity(); 
+//         showAddToCartModal();
+//     }
+
+//     function showAddToCartModal() {
+//         const modal = document.getElementById("custom-order-modal");
+//         modal.style.display = "block";
+//         setTimeout(() => {
+//             modal.style.display = "none";
+//         }, 2000); 
+//     }
+
+//     // Gắn sự kiện cho các nút "Đặt mua"
+//     function attachBuyNowEvents() {
+//         document.querySelectorAll(".buy-now").forEach(button => {
+//             button.addEventListener("click", function () {
+//                 const productItem = this.closest(".custom-product-item");
+//                 const product = {
+//                     productCode: productItem.dataset.productCode,
+//                     name: productItem.querySelector(".custom-product-name").textContent,
+//                     price: parseInt(productItem.querySelector(".custom-product-price").textContent.replace(/\./g, "")),
+//                     image: productItem.querySelector(".custom-product-thumb img").src,
+//                 };
+
+//                 addToCart(product);
+//             });
+//         });
+//     }
+//     updateCartQuantity();
+//     attachBuyNowEvents();
+
+//     const pagination = document.querySelector(".pagination");
+//     if (pagination) {
+//         pagination.addEventListener("click", function () {
+//             setTimeout(() => {
+//                 attachBuyNowEvents(); 
+//             }, 500); 
+//         });
+//     }
+// });
+
 
     </script>
 

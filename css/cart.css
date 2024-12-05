@@ -1,8 +1,14 @@
+cart.css
 * {
     padding: 0;
     margin: 0;
     box-sizing: border-box;
     /* outline: 1px dashed red; */
+}
+
+main {
+    margin-top: 55px;
+    /* Điều chỉnh dựa trên chiều cao header */
 }
 
 body {
@@ -18,7 +24,7 @@ header {
     position: fixed;
     z-index: 10000;
     width: 100%;
-    max-width: 100vw;
+    /* max-width: 100vw; */
     top: 0;
     min-height: 55px;
     background: rgb(70, 31, 31);
@@ -193,6 +199,7 @@ header .logo img {
     display: none;
     position: absolute;
     width: 550px;
+    /* width: 80%; */
     height: 50px;
     background: #fff;
     align-items: center;
@@ -326,10 +333,11 @@ header .logo img {
     color: #e4c0b8;
 }
 
- .fa-users:hover {
+.fa-user {
+    font-size: 20px;
     cursor: pointer;
-    color: rgba(0, 0, 0, 1);
- }
+    color: #ffffff;
+}
 
 .icon-item {
     position: relative;
@@ -341,9 +349,26 @@ header .logo img {
     text-decoration: none;
 }
 
-.icon-item img{
+.icon-item img {
     width: 40px;
     height: 40px;
+}
+
+.totalQuantity {
+    position: absolute;
+    top: 0;
+    right: 0;
+    font-size: 10px;
+    background-color: rgb(255, 0, 51);
+    width: 15px;
+    height: 15px;
+    border-radius: 50%;
+    color: #fff;
+    font-weight: bold;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transform: translateX(3px);
 }
 
 .dropdown-user {
@@ -352,7 +377,7 @@ header .logo img {
     flex-direction: column;
     width: 150px;
     top: 41px;
-    right: -16px;    
+    right: -16px;
     background-color: #fff;
     list-style: none;
     justify-content: center;
@@ -415,7 +440,7 @@ header .logo img {
 }
 
 .icon-item:hover .dropdown-user1 {
-    display: flex; 
+    display: flex;
 }
 
 .dropdown-user1 {
@@ -424,7 +449,7 @@ header .logo img {
     flex-direction: column;
     width: 200px;
     top: 41px;
-    right: -16px;    
+    right: -16px;
     background-color: #fff;
     list-style: none;
     justify-content: center;
@@ -487,309 +512,330 @@ header .logo img {
 .breadcrumb_section .breadcrumb {
     margin-top: 40px;
     padding: 10px 0;
-    margin-left: 0;
-    position: relative; top: 20px;
+    position: relative; top: 10px;
 }
 
 .breadcrumb_section .breadcrumb .breadcrumb-item a {
     text-decoration: none;
     color: #333;
     font-size: 14px;
-    position: relative; 
-    top: 0;
-}
-
-.breadcrumb .breadcrumb-item::before{
-    top: 15px;
+    position: relative; top: 10px;
 }
 
 .breadcrumb_section .breadcrumb .breadcrumb-item.active {
     color: #B87333;
-    position: relative; 
-    /* top: 10px; */
+    position: relative; top: 10px;
 }
 
+/* CART  */
 
-/* PAYMENT  */
-.payment-container{
-    padding: 0 80px;
-    margin: 0 30px;
-}
+.highlands__cart .highlands__cart--orders h2 {
 
-.payment__content__left,.h2{
-    
     font-weight: 700;
     color: #333f48;
     margin-bottom: 20px;
     text-transform: capitalize;
 }
 
-.payment__content__left label ,.payment__content__right label {
-    margin-bottom: 10px;
-    display: block;
-    font-size: 1rem;
-    font-weight: 400;
-    line-height: 1.5;
-}
-
-.payment__content__left label i {
-    margin-right: 5px;
-}
-
-.payment__content__left input[type=text],.payment__content__left input[type=tel] {
-    width: 100%;
-    margin-bottom: 20px;
-    padding: 12px;
-    border: 1px solid #ccc;
-    border-radius: 3px;
-}
-
-
-.payment__content__left label[for=payment--defaul] {
-    display: inline-block;
-    margin-left: 5px;
-    position: relative;
-}
-
-.payment__content__left label[for=payment--defaul] i {
-    cursor: help;
-}
-
-.payment__content__left label[for=payment--defaul] i:hover {
-    color: rgb(70, 31, 31);
-}
-
-.payment__content__left label[for=payment--defaul] .more-info {
-    display: none;
-    border: 1px solid rgb(70, 31, 31);
-    width: 280px;
-    border-radius: 3px;
-    padding: 12px;
-    position: absolute;
-    left: 245px;
-    bottom: -20px;
-    color: black;
-}
-
-
-.payment__content__left label[for=payment--defaul] i:hover .more-info {
-    display: block;
-    transition: linear 2s;
-}
-
-.payment__content__left textarea {
-    width: 100%;
-    margin-bottom: 20px;
-    padding: 12px;
-    border: 1px solid #ccc;
-    border-radius: 3px;
-}
-
-.payment__content__left .payment--button {
-    display: block;
-    padding: 8px 28px;
-    line-height: normal;
-    border: 1px solid rgb(70, 31, 31);
-    text-transform: uppercase;
-    font-size: 16px;
-    text-align: center;
-    font-weight: 400;
-    font-style: normal;
-    background-color:rgb(70, 31, 31);
-    color: #fff;
-    border-radius: 4px;
-    width: 100%;
-}
-.payment__content__left .payment--button a{
-    text-decoration: none;
-    color: #fff;
-
-}
-.payment__content__left .payment--button:hover {
-    background-color: rgb(0, 154, 0);
-    transition: all .2s;
-}
-.payment__content__left .modal-content .modal-header{
-    text-align: center;
-    display: block;
-    border: none;
-
-}
-.payment__content__left .modal-content h1{
-
-    color: #a9611e;
-    font-size: 24px !important;
-}
-.payment__content__left .modal-content .modal-body span{
-    color: #a9611e;
-    font-weight: 700;
-}
-.payment__content__left .modal-content  .modal-body{
-    text-align: center;
-    padding-top: 0;
-    padding-bottom: 0;
-
-}
-.payment__content__left .modal-content .modal-footer{
-    justify-content: center;
-    border: none;
-}
-.payment__content__left .modal-content .modal-footer .btn-left{
-    background-color: #ccc;
-    color: #fff;
-}
-.payment__content__left .modal-content .modal-footer .btn-right{
-    background-color: rgb(70, 31, 31);
-    color: #fff;
-}
-.payment__content__right {
-    position: relative;
-    padding: 20px;
-    border: 1px solid #ddd;
-    border-radius: 10px;
-    background-color: #f9f9f9;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-}
-
-#payment__method {
-    position: unset;
-    display: flex;
-    flex-wrap: nowrap;
-    gap: 25px;
-    margin-top: 15px;
-}
-
-#payment__method .btn {
-    margin: -15px 0 0 15px;
-    border: none;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 10px;
-    padding: 10px 15px;
-    border: 1px solid #ddd;
-    border-radius: 5px;
-    background-color: #fff;
-    cursor: pointer;
-    transition: 0.3s;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-}
-
-#payment__method .btn:hover {
-    background-color: #f0f0f0;
-    border-color: #bbb;
-}
-
-#payment__method .btn img {
-    height: 20px;
-    width: 40px;
-}
-
-#payment_method .btn img> napas{
-    height: 10px;
-    
-}
-
-#payment__method label:not(.active)+.payment__method--visa,
-#payment__method label:not(.active)+.payment__method--master,
-#payment__method label:not(.active)+.payment__method--money,
-#payment__method label:not(.active)+.payment__method--bank {
-    display: none;
-}
-
-#payment__method .payment__method {
-    width: 100%;
-    position: absolute;
-    top: 125px;
-    left: 0;
-    padding: 15px 12px;
-    border: 1px solid #ddd;
-    background-color: #fff;
-    border-radius: 5px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-}
-
-#payment__method .payment__method p {
-    background-color: #eeeeee;
-    padding: 12px;
-    border-radius: 3px;
-    font-size: 1rem;
-    color: #333;
-}
-
-#payment__method .payment__method p span {
-    color: rgb(70, 31, 31);
-    font-weight: bold;
-}
-
-.user--payment h3, .pay h3 {
-    font-size: 1.5rem;
-    margin-bottom: 15px;
-    color: #333;
-}
-
-.orders__submit--total {
-    margin-bottom: 20px;
-}
-
-.orders__submit--total p {
-    margin: 10px 0;
-    font-size: 1rem;
-    color: #555;
-}
-
-.orders__submit--total .into--money {
-    font-size: 1.2rem;
-    font-weight: bold;
-    color: #000;
-}
-
-/* Ẩn các bảng thông tin mặc định */
-.hidden {
-    display: none;
-}
-
-/* Hiển thị bảng khi được kích hoạt */
-.visible {
-    display: block;
-}
-
-/* Đặt bảng bên dưới */
-.payment__method div {
-    margin-top: 15px;
-    padding: 15px;
-    background-color: #ffffff;
-    border: 1px solid #ddd;
-    border-radius: 5px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-}
-
-/* Cải thiện giao diện radio */
-.payment__method label {
-    display: none;
-    align-items: center;
-    gap: 10px;
-    cursor: pointer;
+.highlands__cart .highlands__cart--orders .orders--items {
+    margin: 0 0 15px;
+    overflow: hidden;
+    border: 1px solid #eee;
     padding: 10px;
-    border: 1px solid #ddd;
-    border-radius: 5px;
+    border-radius: 3px;
+}
+
+.highlands__cart .orders--items>div {
+    padding: 0;
+    margin: 0;
+}
+
+.highlands__cart .orders--items .orders--items-left img {
+    width: 100%;
+    max-height: 150px;
+    border-radius: 2px;
+}
+
+.highlands__cart .orders--items .orders--items-right {
+    padding-left: 10px;
+    position: relative;
+}
+
+.highlands__cart .orders--items-right .items--name a {
+    text-decoration: none;
+    color: #000000dd;
+    display: block;
+    text-transform: capitalize;
+    width: auto;
+    font-size: 20px;
+    font-weight: 400;
+    line-height: normal;
+
+}
+
+.highlands__cart .orders--items-right .items--price {
+    font-size: 16px;
+    line-height: 1.25;
+    color: #333;
+    margin: 12px 0;
+}
+
+.highlands__cart .orders--items-right .items--size {
+    font-size: 16px;
+    line-height: 1.25;
+    color: #333;
+    margin: 12px 0;
+}
+
+.highlands__cart .orders--items .orders--items-right .items--total {
+    font-size: 16px;
+    line-height: 1.25;
+    color: #333;
+}
+
+.highlands__cart .orders--items .orders--items-right .items--total span {
+    position: absolute;
+    bottom: 0;
+    font-size: 20px;
+    color: #B87333;
+    font-weight: 700;
+    line-height: normal;
+    display: block;
+}
+
+.highlands__cart .orders--items .items--remove {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    color: #0a0a0a;
+    font-size: 1em;
+    font-weight: 400;
+    border: none;
+    background-color: transparent;
+}
+
+.highlands__cart .orders--items .items--remove:hover {
+    font-weight: 900;
+}
+
+.noproduct {
+    text-align: center;
+    padding: 85px 0 0;
+}
+
+.noproduct i {
+    font-size: 180px;
+    color: #ccc;
+}
+
+.noproduct p {
+    font-size: 1rem;
+    color: gray;
+    margin: 20px;
+}
+
+.noproduct button {
+    background-color: #B87333;
+    padding: 8px;
+}
+
+.noproduct button:hover {
+    background-color: #B87333;
+}
+
+.noproduct button a {
+    text-decoration: none;
+    color: white;
+}
+
+
+/* CART--QTY */
+
+.product_qty {
+    margin-top: 12px;
+}
+
+.product_qty button {
+    width: 1.5em;
+    height: 1.5em;
+    border: 1px solid #e6e6e6;
+    background-color: #fff;
+    font-size: 18px;
+    padding: 0;
+    font-weight: 700;
+    border-radius: 0;
+    line-height: 0px;
+}
+
+
+.qtyminus i,
+.qtyplus i {
+    font-size: 8px;
+}
+
+
+.product_qty input {
+    width: 80px;
+    height: 27px;
+    border-top: #e6e6e6 solid 1px;
+    border-bottom: #e6e6e6 solid 1px;
+    border-radius: 0;
+    margin: 0;
+    padding: 0;
+    text-align: center;
+    font-size: 1rem;
+    min-height: unset;
+    border-left: none;
+    border-right: none;
+}
+
+.product_qty button:hover {
+    background-color: #B87333;
+    color: #fff;
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.2);
+
+}
+/* Tăng kích thước checkbox */
+.select-item {
+    width: 20px;
+    height: 20px;
+    transform: scale(1.0); /* Phóng to checkbox */
+    accent-color: rgb(70, 31, 31); /* Màu sắc cho checkbox (nếu trình duyệt hỗ trợ) */
+    cursor: pointer;
+    margin-right: 10px; /* Khoảng cách với nội dung bên cạnh */
+    position: absolute;
+    right: 0;
+
+    font-weight: 400;
+    border: none;
+}
+
+.item-select{
+    transform: scale(1.25);
+    accent-color: rgb(70, 31, 31); /* Màu sắc cho checkbox (nếu trình duyệt hỗ trợ) */
+    cursor: pointer;
+}
+
+
+/* Đặt màu nền và khung tổng thể */
+.highlands__cart--contact {
+    background-color: #f9f9f9; /* Màu nền */
+    border: 1px solid #e0e0e0; /* Viền nhẹ */
+    border-radius: 5px; /* Bo góc */
+    padding: 20px; /* Khoảng cách bên trong */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Hiệu ứng bóng */
+}
+
+/* Tiêu đề */
+.highlands__cart--contact h3 {
+    font-size: 18px;
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 15px;
+}
+
+/* Block thông tin dịch vụ */
+.highlands__cart--contact .user--sevice,
+.highlands__cart--contact .user--payment {
+    width: 100%; /* Tối đa khung */
+    padding: 15px; /* Khoảng cách nội dung */
+    background-color: #fff;
+    border-radius: 4px;
+    margin-bottom: 15px;
+    border: 1px dashed #ddd; /* Đường viền gạch */
+    font-size: 14px; /* Kích thước chữ nhỏ */
+    line-height: 1.6; /* Khoảng cách dòng thoáng hơn */
+}
+
+/* Tiêu đề phụ */
+.highlands__cart--contact .user--sevice h3,
+.highlands__cart--contact .user--payment h3 {
+    font-size: 16px;
+    font-weight: bold;
+    color: #444;
+    margin-bottom: 12px;
+}
+
+/* Nội dung thông tin */
+.highlands__cart--contact .user--sevice p,
+.highlands__cart--contact .user--payment p {
+    color: #555;
+    margin: 8px 0; /* Khoảng cách trên dưới */
+    font-size: 14px;
+}
+
+/* Link trong thông tin dịch vụ */
+.highlands__cart--contact .user--sevice a {
+    font-weight: 600;
+    color: #9b9b9b; /* Màu chữ xám */
+    transition: all 0.2s;
+    margin-top: 10px;
+    display: block;
+    text-decoration: none;
+    font-size: 14px;
+}
+
+.highlands__cart--contact .user--sevice a:hover {
+    color: #28a745; /* Chuyển sang màu xanh khi hover */
+}
+
+/* Nút thanh toán */
+.total--pay {
+    width: 100%;
+    background-color: #28a745; /* Màu xanh đậm */
+    color: #fff;
+    border: none;
+    padding: 12px 0;
+    text-align: center;
+    font-size: 16px;
+    font-weight: bold;
+    border-radius: 6px; /* Bo góc nhẹ */
+    cursor: pointer;
     transition: background-color 0.3s ease;
+    margin-top: 15px; /* Khoảng cách phía trên */
 }
 
-.payment__method label:hover {
-    background-color: #f9f9f9;
+.total--pay:hover {
+    background-color: #218838; /* Màu xanh đậm hơn khi hover */
 }
 
-.payment__method input[type="radio"] {
-    display: none;
+.total--pay:active {
+    background-color: #1e7e34; /* Màu xanh khi nhấn */
 }
 
-.payment__method input[type="radio"]:checked + label {
-    background-color: #e6f7ff;
-    border: 1px solid #007bff;
+.total--pay a {
+    color: #fff;
+    text-decoration: none; /* Bỏ gạch chân */
+    display: block;
+    width: 100%; /* Link phủ toàn bộ nút */
 }
 
-  
+.total--pay a:hover{
+    color: #fff;
+}
+
+/* Tổng tiền */
+.into--money {
+    font-size: 20px;
+    font-weight: bold;
+    color: #d9534f; /* Màu đỏ đậm */
+    text-transform: uppercase; /* Chữ in hoa */
+    display: flex;
+    align-items: center; /* Căn giữa dòng */
+    gap: 10px; /* Khoảng cách giữa "Thành tiền" và số tiền */
+    margin-top: 10px;
+}
+
+.into--money span {
+    font-size: 24px; /* Kích thước số tiền */
+    color: #d9534f; /* Màu đỏ */
+    font-weight: bolder;
+}
+
+.orders__submit--total.col-6 {
+    width: 100%;
+}
+
 .footer {
     margin-top: 30px;
     padding: 20px 0;
@@ -880,8 +926,10 @@ header .logo img {
 .footer-section.members {
     display: flex;
     flex-direction: column;
-    align-items: center;  /* Căn giữa các phần tử con theo chiều ngang */
-    text-align: center;  /* Căn giữa nội dung của tất cả các phần tử bên trong */
+    align-items: center;
+    /* Căn giữa các phần tử con theo chiều ngang */
+    text-align: center;
+    /* Căn giữa nội dung của tất cả các phần tử bên trong */
 }
 
 .footer-section.members ul {
@@ -893,7 +941,8 @@ header .logo img {
 .footer-section.members ul li {
     margin-bottom: 8px;
     display: flex;
-    justify-content: center; /* Căn giữa các phần tử con của <li> nếu cần */
+    justify-content: center;
+    /* Căn giữa các phần tử con của <li> nếu cần */
 }
 
 .footer-section.members a {
@@ -901,7 +950,8 @@ header .logo img {
     color: #ffffffe8;
     text-decoration: none;
     font-size: 14px;
-    text-align: center;  /* Căn giữa chữ trong <a> */
+    text-align: center;
+    /* Căn giữa chữ trong <a> */
 }
 
 .footer-section.members a:hover {
@@ -952,7 +1002,6 @@ header .logo img {
     color: #fff;
     transform: translateY(-5px);
 }
-
 @media (max-width: 1200px)
 {
     .img2 {
@@ -1146,25 +1195,6 @@ header .logo img {
     }
 }
 
-
-.totalQuantity {
-    position: absolute;
-    top: 0;
-    right: 0;
-    font-size: 10px;
-    background-color: rgb(255, 0, 51);
-    width: 15px;
-    height: 15px;
-    border-radius: 50%;
-    color: #fff;
-    font-weight: bold;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    transform: translateX(3px);
-}
-
-
 /* Người dùng. Đặt mua */
 .custom-modal {
     display: none;
@@ -1214,148 +1244,4 @@ header .logo img {
 .custom-modal-actions #custom-yes {
     background-color: #009900;
     color: white;
-}
-/* Tiêu đề modal */
-#addressModalPopup {
-    display: none;
-    position: fixed;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    background-color: white;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
-    z-index: 1000;
-    width: 400px;
-    border-radius: 8px;
-}
-
-.visaForm h4 {
-    padding-top: 20px;
-    font-size: 25px;
-    font-weight: 600;
-    color: rgb(70, 31, 31);
-}
-
-/* Form các input */
-.hidden {
-    display: none !important;
-}
-.form-group label{
-    margin-bottom: auto;
-}
-
-.form-group input[type="text"]{
-    width: 100%;
-    padding: 5px 150px 5px 10px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    font-size: 14px;
-    color: #333;
-}
-
-.form-group input[type="month"] {
-    width: 150px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    font-size: 14px;
-    color: #333;
-    padding: 5px 5px 5px 10px;
-
-}
-
-.modal-box input[type="text"]::placeholder, input[type="month"]::placeholder {
-    padding-left: px;
-    color: #aaa;
-}
-
-.form-group{
-    padding: 0 15px;
-    padding-bottom: 15px;
-}
-/* Nhóm nút loại địa chỉ */
-.address-category {
-    display: flex;
-    gap: 10px;
-    margin-bottom: 15px;
-}
-
-.address-type-btn {
-    flex: 1;
-    margin-top: 5px;
-    padding: 10px 15px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    background: #fff;
-    font-size: 14px;
-    cursor: pointer;
-    transition: all 0.3s ease;
-}
-
-.address-type-btn.selected {
-    border-color: #e00909;
-    color: #e00909;
-    background: #fff;
-}
-
-/* Checkbox đặt mặc định */
-.set-default {
-    display: flex;
-    align-items: center;
-    margin-bottom: 20px;
-    color: rgb(70, 31, 31);
-}
-
-.set-default input[type="checkbox"] {
-    margin-right: 10px;
-    cursor: pointer;
-}
-
-.set-default label {
-    font-size: 14px;
-    color: rgb(70, 31, 31);
-}
-
-/* Nhóm nút hành động */
-.modal-actions {
-    display: flex;
-    gap: 10px;
-    justify-content: right;
-}
-
-.modal-actions button {
-    margin-left: 0 50px;
-    right: 0;
-    padding: 10px 15px;
-    border: none;
-    border-radius: 5px;
-    font-size: 14px;
-    color: rgb(70, 31, 31);
-    cursor: pointer;
-    transition: all 0.3s ease;
-}
-
-#cancelBtn {
-    background: #ddddddb7;
-    color: rgb(70, 31, 31);
-}
-
-#cancelBtn:hover {
-    background: #ddd;
-}
-
-#saveBtn {
-    background: rgb(0, 174, 0);
-    color: #fff;
-}
-
-#saveBtn:hover {
-    background: green;
-}
-
-.change-password-header h2 {
-    color: rgb(70, 31, 31);
-}
-
-.change-password-form .form-group {
-    width: 50%;
 }
