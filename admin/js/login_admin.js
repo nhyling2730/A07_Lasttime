@@ -32,7 +32,7 @@ function func() {
 
     if (username == 'nhom7' && password == '1234567') {
         alert("Đăng nhập thành công");
-        window.location.assign("admin.html");
+        window.location.assign("./admin.html");
     } else {
         if (username !== 'nhom7') {
             username_error.innerHTML = "Sai tên đăng nhập";
