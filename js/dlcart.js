@@ -231,10 +231,11 @@ document.addEventListener("DOMContentLoaded", function () {
     updateCartQuantity();
 });
 
-function syncCartQuantity() {
-    const cartQuantityElement = document.getElementById("cartQuantity");
-    if (!cartQuantityElement) return;
-    const cart = JSON.parse(localStorage.getItem("cart")) || [];
-    const count = cart.reduce((sum, item) => sum + item.quantity, 0);
-    cartQuantityElement.textContent = count || 0;
-}
+// function syncCartQuantity() {
+//     const cartQuantityElement = document.getElementById("cartQuantity");
+//     if (!cartQuantityElement) return;
+//     const cart = JSON.parse(localStorage.getItem("cart")) || [];
+//     const count = cart.reduce((sum, item) => sum + item.quantity, 0);
+//     cartQuantityElement.textContent = count || 0;
+// }
+

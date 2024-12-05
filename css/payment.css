@@ -517,11 +517,11 @@ header .logo img {
 }
 
 .payment__content__left,.h2{
-    
     font-weight: 700;
     color: #333f48;
     margin-bottom: 20px;
     text-transform: capitalize;
+
 }
 
 .payment__content__left label ,.payment__content__right label {
@@ -1216,16 +1216,15 @@ header .logo img {
     color: white;
 }
 /* Tiêu đề modal */
-
+.visaForm{
+    display: flex;
+    width: 100%;
+}
 .visaForm h4 {
     padding-top: 20px;
     font-size: 25px;
     font-weight: 600;
     color: rgb(70, 31, 31);
-}
-
-.visaForm{
-    display: none;
 }
 
 /* Form các input */
@@ -1337,12 +1336,12 @@ header .logo img {
 }
 
 #saveBtn {
-    background: rgb(0, 174, 0);
+    background: #28a745;
     color: #fff;
 }
 
 #saveBtn:hover {
-    background: green;
+    background: #28a745;
 }
 
 .change-password-header h2 {

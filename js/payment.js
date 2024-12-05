@@ -1,28 +1,28 @@
 
-// function toggleAddressInput() {
-//     const newAddressFields = document.getElementById("newAddressFields");
-//     const isDefaultAddress = document.getElementById("defaultAddress").checked;
+function toggleAddressInput() {
+    const newAddressFields = document.getElementById("newAddressFields");
+    const isDefaultAddress = document.getElementById("defaultAddress").checked;
 
-//     if (isDefaultAddress) {
-//         newAddressFields.style.display = "none";
-//     } else {
-//         newAddressFields.style.display = "block";
-//     }
-// }
-// document.getElementById('payment__method').addEventListener('change', function (e) {
-//     const visaPayment = document.getElementById('visaPayment');
-//     const cashPayment = document.getElementById('cashPayment');
+    if (isDefaultAddress) {
+        newAddressFields.style.display = "none";
+    } else {
+        newAddressFields.style.display = "block";
+    }
+}
+document.getElementById('payment__method').addEventListener('change', function (e) {
+    const visaPayment = document.getElementById('visaPayment');
+    const cashPayment = document.getElementById('cashPayment');
 
-//     if (e.target.id === 'btnradioVisa') {
-//         visaPayment.classList.remove('hidden');
-//         cashPayment.classList.add('hidden');
-//     }
+    if (e.target.id === 'btnradioVisa') {
+        visaPayment.classList.remove('hidden');
+        cashPayment.classList.add('hidden');
+    }
 
-//     else if (e.target.id === 'btnradioCash') {
-//         visaPayment.classList.add('hidden');
-//         cashPayment.classList.remove('hidden');
-//     }
-// });
+    else if (e.target.id === 'btnradioCash') {
+        visaPayment.classList.add('hidden');
+        cashPayment.classList.remove('hidden');
+    }
+});
 
 
 /* nav mav-menu khi thu nhỏ */
@@ -64,136 +64,117 @@ document.querySelectorAll('.nav-menu li a').forEach(item => {
     });
 });
 
-function syncCartQuantity() {
-    const cartQuantityElement = document.getElementById("cartQuantity");
-    if (!cartQuantityElement) return;
-    const cart = JSON.parse(localStorage.getItem("cart")) || [];
-    const count = cart.reduce((sum, item) => sum + item.quantity, 0);
-    cartQuantityElement.textContent = count || 0;
-}
+// document.addEventListener("DOMContentLoaded", function () {
+//     const cartQuantityElement = document.getElementById("cartQuantity");
 
-document.addEventListener("DOMContentLoaded", function () {
-    syncCartQuantity();
+//     const cartQuantity = localStorage.getItem("cart");
+//     const count = JSON.parse(cartQuantity).length;
+
+//     cartQuantityElement.textContent = count || 0;
+// });
+
+document.addEventListener("DOMContentLoaded", () => {
+
+    document.getElementById("defaultAddress").addEventListener("click", () => {
+        document.getElementById("defaultAddressFields").style.display = "block";
+        document.getElementById("newAddressFields").style.display = "none";
+    });
+
+    document.getElementById("newAddress").addEventListener("click", () => {
+        document.getElementById("defaultAddressFields").style.display = "none";
+        document.getElementById("newAddressFields").style.display = "block";
+    });
 });
 
-// document.addEventListener("DOMContentLoaded", () => {
+function validateAndShowModal() {
+    const paymentOptions = document.querySelectorAll('#payment__method input[type="radio"]');
+    let isPaymentSelected = false;
 
-//     document.getElementById("defaultAddress").addEventListener("click", () => {
-//         document.getElementById("defaultAddressFields").style.display = "block";
-//         document.getElementById("newAddressFields").style.display = "none";
-//     });
+    paymentOptions.forEach(option => {
+        if (option.checked) {
+            isPaymentSelected = true;
+        }
+    });
 
-//     document.getElementById("newAddress").addEventListener("click", () => {
-//         document.getElementById("defaultAddressFields").style.display = "none";
-//         document.getElementById("newAddressFields").style.display = "block";
-//     });
-// });
+    if (!isPaymentSelected) {
+        const modal = document.getElementById("custom-order-modal");
+        modal.style.display = "flex";
+        return false;
+    }
 
-// function validateAndShowModal() {
-//     const paymentOptions = document.querySelectorAll('#payment__method input[type="radio"]');
-//     let isPaymentSelected = false;
+    return true;
+}
 
-//     paymentOptions.forEach(option => {
-//         if (option.checked) {
-//             isPaymentSelected = true;
-//         }
-//     });
+document.getElementById("custom-close-order-modal").onclick = function () {
+    const modal = document.getElementById("custom-order-modal");
+    modal.style.display = "none";
+};
 
-//     if (!isPaymentSelected) {
-//         const modal = document.getElementById("custom-order-modal");
-//         modal.style.display = "flex";
-//         return false;
-//     }
+window.onclick = function (event) {
+    const modal = document.getElementById("custom-order-modal");
+    if (event.target === modal) {
+        modal.style.display = "none";
+    }
+};
 
-//     return true;
-// }
+document.addEventListener("DOMContentLoaded", function () {
+    const paymentMethods = document.querySelectorAll(".payment__method");
 
-// document.getElementById("custom-close-order-modal").onclick = function () {
-//     const modal = document.getElementById("custom-order-modal");
-//     modal.style.display = "none";
-// };
+    paymentMethods.forEach((method) => {
+        const input = method.querySelector("input[type='radio']");
+        const detail = method.querySelector("div");
 
-// window.onclick = function (event) {
-//     const modal = document.getElementById("custom-order-modal");
-//     if (event.target === modal) {
-//         modal.style.display = "none";
-//     }
-// };
+        input.addEventListener("change", () => {
+            document.querySelectorAll(".payment__method div").forEach((el) => {
+                el.classList.remove("visible");
+                el.classList.add("hidden");
+            });
 
-// document.addEventListener("DOMContentLoaded", function () {
-//     const paymentMethods = document.querySelectorAll(".payment__method");
-
-//     paymentMethods.forEach((method) => {
-//         const input = method.querySelector("input[type='radio']");
-//         const detail = method.querySelector("div");
-
-//         input.addEventListener("change", () => {
-//             document.querySelectorAll(".payment__method div").forEach((el) => {
-//                 el.classList.remove("visible");
-//                 el.classList.add("hidden");
-//             });
-
-//             detail.classList.remove("hidden");
-//             detail.classList.add("visible");
-//         });
-//     });
-// });
+            detail.classList.remove("hidden");
+            detail.classList.add("visible");
+        });
+    });
+});
 
 document.addEventListener("DOMContentLoaded", () => {
     const visaRadio = document.getElementById("btnradioVisa");
     const napasRadio = document.getElementById("btnradioNapas");
     const cashRadio = document.getElementById("btnradioCash");
-    const addressModalPopup = document.getElementById("addressModalPopup");
-    const cashNotice = document.querySelector(".cash-notice");
+    const cancelBtn = document.getElementById("cancelBtn");
 
-    // Hiển thị bảng thông tin thẻ
-    const showCardModal = () => {
-        addressModalPopup.style.display = "block";
+    const showModal = () => {
+        modalPopup.style.display = "block";
     };
 
-    // Ẩn bảng thông tin thẻ
-    const hideCardModal = () => {
-        addressModalPopup.style.display = "none";
+    const hideModal = () => {
+        modalPopup.style.display = "none";
     };
 
-    // Xử lý khi chọn các phương thức
     visaRadio.addEventListener("change", () => {
         if (visaRadio.checked) {
-            showCardModal();
-            cashNotice.style.display = "none"; // Ẩn thông báo tiền mặt
+            showModal();
         }
     });
 
     napasRadio.addEventListener("change", () => {
         if (napasRadio.checked) {
-            showCardModal();
-            cashNotice.style.display = "none"; // Ẩn thông báo tiền mặt
+            showModal();
         }
     });
 
     cashRadio.addEventListener("change", () => {
         if (cashRadio.checked) {
-            hideCardModal();
-            cashNotice.style.display = "block"; // Hiển thị thông báo tiền mặt
+            hideModal();
         }
     });
 
-    // Xử lý nút trở lại trong modal
-    const cancelBtn = document.getElementById("cancelBtn");
     cancelBtn.addEventListener("click", () => {
-        hideCardModal();
+        hideModal();
         visaRadio.checked = false;
         napasRadio.checked = false;
     });
-
-    // Xử lý khi gửi form thẻ
-    const visaForm = document.getElementById("visaForm");
-    visaForm.addEventListener("submit", (event) => {
-        event.preventDefault();
-        alert("Thông tin thẻ đã được xác nhận!");
-        hideCardModal();
-    });
 });
+
 
 
 
